@@ -48,7 +48,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
                       <Component id="btnCrudBiblioteca" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
+                      <Component id="btnSeleccionarBiblioteca" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
                       <Component id="jButton5" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -65,7 +65,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnCrudBiblioteca" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btnSeleccionarBiblioteca" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace pref="469" max="32767" attributes="0"/>
@@ -105,7 +105,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrudBibliotecaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="btnSeleccionarBiblioteca">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -116,7 +116,7 @@
             <Property name="text" type="java.lang.String" value="Seleccionar Biblioteca"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarBibliotecaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">

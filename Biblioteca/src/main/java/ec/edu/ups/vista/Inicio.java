@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.*;
 import ec.edu.ups.dao.*;
 import ec.edu.ups.idao.*;
+import ec.edu.ups.modelo.Biblioteca;
 import ec.edu.ups.vista.biblioteca.VentanaCrudBiblioteca;
 
 /**
@@ -15,9 +16,11 @@ import ec.edu.ups.vista.biblioteca.VentanaCrudBiblioteca;
  */
 public class Inicio extends javax.swing.JFrame {
     private  VentanaCrudBiblioteca ventanaCrudBiblioteca;
+    private VentanaSeleccionarBiblioteca ventanaSeleccionarBiblioteca;
     
     private BibliotecaIDAO bibliotecaDAO;
     private BibliotecaControlador bibliotecaControlador;
+    private Biblioteca biblioteca;
     /**
      * Creates new form Inicio
      */
@@ -25,6 +28,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         bibliotecaDAO = new BibliotecaDAO();
         bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO);
+        biblioteca = new Biblioteca();
     }
 
     /**
@@ -39,7 +43,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnCrudBiblioteca = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnSeleccionarBiblioteca = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
@@ -61,12 +65,12 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(217, 217, 217));
-        jButton4.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        jButton4.setText("Seleccionar Biblioteca");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarBiblioteca.setBackground(new java.awt.Color(217, 217, 217));
+        btnSeleccionarBiblioteca.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnSeleccionarBiblioteca.setText("Seleccionar Biblioteca");
+        btnSeleccionarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnSeleccionarBibliotecaActionPerformed(evt);
             }
         });
 
@@ -99,7 +103,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCrudBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
@@ -113,7 +117,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnCrudBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(469, Short.MAX_VALUE))
@@ -147,12 +151,18 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCrudBibliotecaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnSeleccionarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarBibliotecaActionPerformed
+        if(ventanaSeleccionarBiblioteca==null)
+            ventanaSeleccionarBiblioteca = new VentanaSeleccionarBiblioteca(bibliotecaControlador,biblioteca);
+        if(!ventanaSeleccionarBiblioteca.isVisible()){
+            
+            ventanaSeleccionarBiblioteca.setVisible(true);
+            jDesktopPane1.add(ventanaSeleccionarBiblioteca);
+        }
+    }//GEN-LAST:event_btnSeleccionarBibliotecaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -192,7 +202,7 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrudBiblioteca;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnSeleccionarBiblioteca;
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
