@@ -15,16 +15,15 @@ import javax.swing.JOptionPane;
  */
 public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
     private BibliotecaControlador bibliotecaControlador;
-    private Biblioteca biblioteca;
-    
+    private int codigo;
     private BibliotecaListener bibliotecaListener;
     /**
      * Creates new form BuscarBiblioteca
      */
-    public VentanaBuscarBiblioteca(BibliotecaControlador bibliotecaControlador, Biblioteca biblioteca) {
+    public VentanaBuscarBiblioteca(BibliotecaControlador bibliotecaControlador,int codigo) {
         initComponents();
         this.bibliotecaControlador = bibliotecaControlador;
-        this.biblioteca = biblioteca;
+        this.codigo=codigo;
     }
 
     /**
@@ -36,26 +35,26 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel5 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        panelBuscarBiblio = new javax.swing.JPanel();
+        lblCodigoBB = new javax.swing.JLabel();
         txtCodigoBB = new javax.swing.JTextField();
         btnBuscarBB = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        panelDatosBiblioBB = new javax.swing.JPanel();
+        lblNombreBB = new javax.swing.JLabel();
+        lblDireccionBB = new javax.swing.JLabel();
+        lblTelefonoBB = new javax.swing.JLabel();
         txtNombreBB = new javax.swing.JTextField();
         txtDireccionBB = new javax.swing.JTextField();
         txtTelefonoBB = new javax.swing.JTextField();
         btnLimpiarBB = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
 
-        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelBuscarBiblio.setBackground(new java.awt.Color(51, 51, 51));
+        panelBuscarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Código");
+        lblCodigoBB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCodigoBB.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigoBB.setText("Código");
 
         btnBuscarBB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnBuscarBB.setText("Buscar");
@@ -65,17 +64,17 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        panelDatosBiblioBB.setBackground(new java.awt.Color(91, 86, 86));
+        panelDatosBiblioBB.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Nombre:");
+        lblNombreBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNombreBB.setText("Nombre:");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Dirección:");
+        lblDireccionBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDireccionBB.setText("Dirección:");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setText("Telefono:");
+        lblTelefonoBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblTelefonoBB.setText("Telefono:");
 
         txtNombreBB.setEnabled(false);
 
@@ -83,37 +82,37 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
 
         txtTelefonoBB.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelDatosBiblioBBLayout = new javax.swing.GroupLayout(panelDatosBiblioBB);
+        panelDatosBiblioBB.setLayout(panelDatosBiblioBBLayout);
+        panelDatosBiblioBBLayout.setHorizontalGroup(
+            panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosBiblioBBLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreBB)
+                    .addComponent(lblDireccionBB)
+                    .addComponent(lblTelefonoBB))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDireccionBB, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                     .addComponent(txtNombreBB)
                     .addComponent(txtTelefonoBB))
                 .addContainerGap())
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        panelDatosBiblioBBLayout.setVerticalGroup(
+            panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosBiblioBBLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombreBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(lblNombreBB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccionBB)
                     .addComponent(txtDireccionBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoBB)
                     .addComponent(txtTelefonoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -134,40 +133,40 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBuscarBiblioLayout = new javax.swing.GroupLayout(panelBuscarBiblio);
+        panelBuscarBiblio.setLayout(panelBuscarBiblioLayout);
+        panelBuscarBiblioLayout.setHorizontalGroup(
+            panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelDatosBiblioBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                             .addComponent(btnAceptar)
                             .addGap(65, 65, 65)
                             .addComponent(btnLimpiarBB)
                             .addGap(24, 24, 24))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabel13)
+                        .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
+                            .addComponent(lblCodigoBB)
                             .addGap(29, 29, 29)
                             .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(26, 26, 26)
                             .addComponent(btnBuscarBB))))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        panelBuscarBiblioLayout.setVerticalGroup(
+            panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoBB)
                     .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarBB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDatosBiblioBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiarBB)
                     .addComponent(btnAceptar))
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -179,22 +178,23 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelBuscarBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(panelBuscarBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarBBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarBBActionPerformed
-        int codigo = Integer.parseInt(txtCodigoBB.getText().trim());
+        Biblioteca biblioteca = new Biblioteca();
+        codigo = Integer.parseInt(txtCodigoBB.getText().trim());
         biblioteca = bibliotecaControlador.read(codigo);
         if(biblioteca == null){
             JOptionPane.showMessageDialog(this, "No existe biblioteca");
@@ -218,9 +218,9 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
     }
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        JOptionPane.showMessageDialog(this, biblioteca.getNombre());
+        
         if (bibliotecaListener != null) {
-            bibliotecaListener.onBibliotecaSeleccionada(biblioteca);
+            bibliotecaListener.onBibliotecaSeleccionada(bibliotecaControlador,codigo);
         }
         this.dispose();
         editar();
@@ -237,12 +237,12 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscarBB;
     private javax.swing.JButton btnLimpiarBB;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel lblCodigoBB;
+    private javax.swing.JLabel lblDireccionBB;
+    private javax.swing.JLabel lblNombreBB;
+    private javax.swing.JLabel lblTelefonoBB;
+    private javax.swing.JPanel panelBuscarBiblio;
+    private javax.swing.JPanel panelDatosBiblioBB;
     private javax.swing.JTextField txtCodigoBB;
     private javax.swing.JTextField txtDireccionBB;
     private javax.swing.JTextField txtNombreBB;

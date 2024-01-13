@@ -14,6 +14,8 @@ import java.util.List;
 public interface LibroIDAO {
     void create(Libro libro);
     Libro read(String titulo);
+    Libro read(String titulo, String autor);
+    Libro readAutor(String autor);
     void update(String titulo, Libro libro);
     void delete(String titulo);
     List<Libro> list();

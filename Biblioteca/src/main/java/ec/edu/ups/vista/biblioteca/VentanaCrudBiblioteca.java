@@ -36,63 +36,63 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        opcionesBiblioteca = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        panelEditarDatosBiblio = new javax.swing.JTabbedPane();
+        panelInicio = new javax.swing.JPanel();
+        lblIngresoAdmin = new javax.swing.JLabel();
+        lblAdmBiblio = new javax.swing.JLabel();
+        lblUsuarioI = new javax.swing.JLabel();
+        lblContrasenaI = new javax.swing.JLabel();
         txtUsuarioAdm = new javax.swing.JTextField();
         txtContrasenaAdm = new javax.swing.JTextField();
         btnAcceder = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        panelIngresarDatosBiblio = new javax.swing.JPanel();
+        lblCodigoCB = new javax.swing.JLabel();
+        lblNombreCB = new javax.swing.JLabel();
+        lblDireccionCB = new javax.swing.JLabel();
+        lblTelefonoCB = new javax.swing.JLabel();
         txtTlefonoID = new javax.swing.JTextField();
         txtDireccionID = new javax.swing.JTextField();
         txtNombreID = new javax.swing.JTextField();
         txtCodigoID = new javax.swing.JTextField();
         btnCrearBiblioteca = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        panelEditarBiblio = new javax.swing.JPanel();
+        lblCodigoEDB = new javax.swing.JLabel();
+        lblNombreEDB = new javax.swing.JLabel();
+        lblDireccionEDB = new javax.swing.JLabel();
+        lblTelefonoEDB = new javax.swing.JLabel();
         txtTelefonoED = new javax.swing.JTextField();
         txtDireccionED = new javax.swing.JTextField();
         txtNombreED = new javax.swing.JTextField();
         txtCodigoED = new javax.swing.JTextField();
-        btnBuscarED = new javax.swing.JButton();
-        btnActualizarED = new javax.swing.JButton();
-        btnCancelarED = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        btnBuscarEDB = new javax.swing.JButton();
+        btnActualizarEDB = new javax.swing.JButton();
+        btnCancelarEDB = new javax.swing.JButton();
+        panelBuscarBiblio = new javax.swing.JPanel();
+        lblCodigoBB = new javax.swing.JLabel();
         txtCodigoBB = new javax.swing.JTextField();
         btnBuscarBB = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        panelDatosBiblioBB = new javax.swing.JPanel();
+        lblNombreBB = new javax.swing.JLabel();
+        lblDireccionBB = new javax.swing.JLabel();
+        lblTelefonoBB = new javax.swing.JLabel();
         txtNombreBB = new javax.swing.JTextField();
         txtDireccionBB = new javax.swing.JTextField();
         txtTelefonoBB = new javax.swing.JTextField();
         btnLimpiarBB = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        panelEliminarBiblio = new javax.swing.JPanel();
+        lblCodigoEB = new javax.swing.JLabel();
         txtCodigoEB = new javax.swing.JTextField();
         btnBuscarEB = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        panelDatosBiblioEB = new javax.swing.JPanel();
+        lblNombreEB = new javax.swing.JLabel();
+        lblDireccionEB = new javax.swing.JLabel();
+        lblTelefonoEB = new javax.swing.JLabel();
         txtNombreEB = new javax.swing.JTextField();
         txtDireccionEB = new javax.swing.JTextField();
         txtTelefonoEB = new javax.swing.JTextField();
         btnEliminarEB = new javax.swing.JButton();
         btnCancelarEB = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
+        panelListaBiblio = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBibliotecas = new javax.swing.JTable();
 
@@ -129,36 +129,36 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        opcionesBiblioteca.setEnabled(false);
-        opcionesBiblioteca.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
-        opcionesBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelEditarDatosBiblio.setEnabled(false);
+        panelEditarDatosBiblio.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
+        panelEditarDatosBiblio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionesBibliotecaMouseClicked(evt);
+                panelEditarDatosBiblioMouseClicked(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel2.setFocusCycleRoot(true);
+        panelInicio.setBackground(new java.awt.Color(51, 51, 51));
+        panelInicio.setFocusCycleRoot(true);
 
-        jLabel1.setFont(new java.awt.Font("Righteous", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Ingreso como administrador");
+        lblIngresoAdmin.setFont(new java.awt.Font("Righteous", 3, 18)); // NOI18N
+        lblIngresoAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        lblIngresoAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIngresoAdmin.setText("Ingreso como administrador");
 
-        jLabel2.setFont(new java.awt.Font("Righteous", 0, 25)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ADMINISTRAR BIBLIOTECAS");
+        lblAdmBiblio.setFont(new java.awt.Font("Righteous", 0, 25)); // NOI18N
+        lblAdmBiblio.setForeground(new java.awt.Color(255, 255, 255));
+        lblAdmBiblio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdmBiblio.setText("ADMINISTRAR BIBLIOTECAS");
 
-        jLabel3.setFont(new java.awt.Font("Righteous", 3, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Usuario");
+        lblUsuarioI.setFont(new java.awt.Font("Righteous", 3, 18)); // NOI18N
+        lblUsuarioI.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuarioI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsuarioI.setText("Usuario");
 
-        jLabel4.setFont(new java.awt.Font("Righteous", 3, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Contraseña");
+        lblContrasenaI.setFont(new java.awt.Font("Righteous", 3, 18)); // NOI18N
+        lblContrasenaI.setForeground(new java.awt.Color(255, 255, 255));
+        lblContrasenaI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblContrasenaI.setText("Contraseña");
 
         btnAcceder.setFont(new java.awt.Font("Microsoft YaHei UI", 3, 18)); // NOI18N
         btnAcceder.setText("Acceder");
@@ -168,72 +168,72 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
+        panelInicio.setLayout(panelInicioLayout);
+        panelInicioLayout.setHorizontalGroup(
+            panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInicioLayout.createSequentialGroup()
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInicioLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblIngresoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelInicioLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(jLabel2)))
+                        .addComponent(lblAdmBiblio)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInicioLayout.createSequentialGroup()
                 .addGap(0, 90, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUsuarioI, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContrasenaI, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAcceder)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtUsuarioAdm)
                         .addComponent(txtContrasenaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(88, 88, 88))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelInicioLayout.setVerticalGroup(
+            panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInicioLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel2)
+                .addComponent(lblAdmBiblio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(lblIngresoAdmin)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuarioI)
                     .addComponent(txtUsuarioAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContrasenaI)
                     .addComponent(txtContrasenaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnAcceder)
                 .addContainerGap(124, Short.MAX_VALUE))
         );
 
-        opcionesBiblioteca.addTab("Inicio", jPanel2);
+        panelEditarDatosBiblio.addTab("Inicio", panelInicio);
 
-        jPanel3.setBackground(new java.awt.Color(91, 86, 86));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresar Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelIngresarDatosBiblio.setBackground(new java.awt.Color(91, 86, 86));
+        panelIngresarDatosBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresar Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Código");
+        lblCodigoCB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCodigoCB.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigoCB.setText("Código");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Nombre");
+        lblNombreCB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblNombreCB.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreCB.setText("Nombre");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Dirección");
+        lblDireccionCB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblDireccionCB.setForeground(new java.awt.Color(255, 255, 255));
+        lblDireccionCB.setText("Dirección");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Teléfono");
+        lblTelefonoCB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblTelefonoCB.setForeground(new java.awt.Color(255, 255, 255));
+        lblTelefonoCB.setText("Teléfono");
 
         btnCrearBiblioteca.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnCrearBiblioteca.setText("Crear");
@@ -243,74 +243,74 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelIngresarDatosBiblioLayout = new javax.swing.GroupLayout(panelIngresarDatosBiblio);
+        panelIngresarDatosBiblio.setLayout(panelIngresarDatosBiblioLayout);
+        panelIngresarDatosBiblioLayout.setHorizontalGroup(
+            panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
                 .addGap(102, 102, 102)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCrearBiblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
+                        .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDireccionCB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblTelefonoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNombreCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCodigoCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDireccionID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombreID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTlefonoID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCodigoID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelIngresarDatosBiblioLayout.setVerticalGroup(
+            panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoCB)
                     .addComponent(txtCodigoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreCB)
                     .addComponent(txtNombreID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccionCB)
                     .addComponent(txtDireccionID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoCB)
                     .addComponent(txtTlefonoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnCrearBiblioteca)
                 .addContainerGap(99, Short.MAX_VALUE))
         );
 
-        opcionesBiblioteca.addTab("Crear", jPanel3);
+        panelEditarDatosBiblio.addTab("Crear", panelIngresarDatosBiblio);
 
-        jPanel4.setBackground(new java.awt.Color(91, 86, 86));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelEditarBiblio.setBackground(new java.awt.Color(91, 86, 86));
+        panelEditarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Código");
+        lblCodigoEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCodigoEDB.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigoEDB.setText("Código");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nombre");
+        lblNombreEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblNombreEDB.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreEDB.setText("Nombre");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Dirección");
+        lblDireccionEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblDireccionEDB.setForeground(new java.awt.Color(255, 255, 255));
+        lblDireccionEDB.setText("Dirección");
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Teléfono");
+        lblTelefonoEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblTelefonoEDB.setForeground(new java.awt.Color(255, 255, 255));
+        lblTelefonoEDB.setText("Teléfono");
 
         txtTelefonoED.setEditable(false);
 
@@ -318,93 +318,93 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
 
         txtNombreED.setEditable(false);
 
-        btnBuscarED.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnBuscarED.setText("Buscar");
-        btnBuscarED.setToolTipText("");
-        btnBuscarED.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnBuscarEDB.setText("Buscar");
+        btnBuscarEDB.setToolTipText("");
+        btnBuscarEDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarEDActionPerformed(evt);
+                btnBuscarEDBActionPerformed(evt);
             }
         });
 
-        btnActualizarED.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnActualizarED.setText("Actualizar");
-        btnActualizarED.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnActualizarEDB.setText("Actualizar");
+        btnActualizarEDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarEDActionPerformed(evt);
+                btnActualizarEDBActionPerformed(evt);
             }
         });
 
-        btnCancelarED.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnCancelarED.setText("Cancelar");
-        btnCancelarED.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnCancelarEDB.setText("Cancelar");
+        btnCancelarEDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarEDActionPerformed(evt);
+                btnCancelarEDBActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelEditarBiblioLayout = new javax.swing.GroupLayout(panelEditarBiblio);
+        panelEditarBiblio.setLayout(panelEditarBiblioLayout);
+        panelEditarBiblioLayout.setHorizontalGroup(
+            panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarBiblioLayout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelEditarBiblioLayout.createSequentialGroup()
+                        .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCodigoEDB)
+                            .addComponent(lblDireccionEDB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNombreEDB, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTelefonoEDB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtDireccionED, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombreED, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCodigoED, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTelefonoED, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnActualizarED, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelEditarBiblioLayout.createSequentialGroup()
+                        .addComponent(btnActualizarEDB, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelarED, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCancelarEDB, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
-                .addComponent(btnBuscarED)
+                .addComponent(btnBuscarEDB)
                 .addGap(32, 32, 32))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        panelEditarBiblioLayout.setVerticalGroup(
+            panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEditarBiblioLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoEDB)
                     .addComponent(txtCodigoED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarED))
+                    .addComponent(btnBuscarEDB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreEDB)
                     .addComponent(txtNombreED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccionEDB)
                     .addComponent(txtDireccionED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
+                .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoEDB)
                     .addComponent(txtTelefonoED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarED)
-                    .addComponent(btnActualizarED))
+                .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarEDB)
+                    .addComponent(btnActualizarEDB))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
 
-        opcionesBiblioteca.addTab("Editar", jPanel4);
+        panelEditarDatosBiblio.addTab("Editar", panelEditarBiblio);
 
-        jPanel5.setBackground(new java.awt.Color(91, 86, 86));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelBuscarBiblio.setBackground(new java.awt.Color(91, 86, 86));
+        panelBuscarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Código");
+        lblCodigoBB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCodigoBB.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigoBB.setText("Código");
 
         btnBuscarBB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnBuscarBB.setText("Buscar");
@@ -414,55 +414,58 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        panelDatosBiblioBB.setBackground(new java.awt.Color(204, 204, 204));
+        panelDatosBiblioBB.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Nombre:");
+        lblNombreBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNombreBB.setText("Nombre:");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Dirección:");
+        lblDireccionBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDireccionBB.setText("Dirección:");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setText("Telefono:");
+        lblTelefonoBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblTelefonoBB.setText("Telefono:");
 
+        txtNombreBB.setEditable(false);
         txtNombreBB.setEnabled(false);
 
+        txtDireccionBB.setEditable(false);
         txtDireccionBB.setEnabled(false);
 
+        txtTelefonoBB.setEditable(false);
         txtTelefonoBB.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelDatosBiblioBBLayout = new javax.swing.GroupLayout(panelDatosBiblioBB);
+        panelDatosBiblioBB.setLayout(panelDatosBiblioBBLayout);
+        panelDatosBiblioBBLayout.setHorizontalGroup(
+            panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosBiblioBBLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreBB)
+                    .addComponent(lblDireccionBB)
+                    .addComponent(lblTelefonoBB))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDireccionBB, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                     .addComponent(txtNombreBB)
                     .addComponent(txtTelefonoBB))
                 .addContainerGap())
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        panelDatosBiblioBBLayout.setVerticalGroup(
+            panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosBiblioBBLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombreBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(lblNombreBB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccionBB)
                     .addComponent(txtDireccionBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
+                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoBB)
                     .addComponent(txtTelefonoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -475,50 +478,50 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBuscarBiblioLayout = new javax.swing.GroupLayout(panelBuscarBiblio);
+        panelBuscarBiblio.setLayout(panelBuscarBiblioLayout);
+        panelBuscarBiblioLayout.setHorizontalGroup(
+            panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
+                        .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelDatosBiblioBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
+                                .addComponent(lblCodigoBB)
                                 .addGap(29, 29, 29)
                                 .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(26, 26, 26)
                         .addComponent(btnBuscarBB))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(btnLimpiarBB)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        panelBuscarBiblioLayout.setVerticalGroup(
+            panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoBB)
                     .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarBB))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDatosBiblioBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLimpiarBB)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        opcionesBiblioteca.addTab("Buscar", jPanel5);
+        panelEditarDatosBiblio.addTab("Buscar", panelBuscarBiblio);
 
-        jPanel6.setBackground(new java.awt.Color(91, 86, 86));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelEliminarBiblio.setBackground(new java.awt.Color(91, 86, 86));
+        panelEliminarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Código");
+        lblCodigoEB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCodigoEB.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigoEB.setText("Código");
 
         btnBuscarEB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnBuscarEB.setText("Buscar");
@@ -528,17 +531,17 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel10.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        panelDatosBiblioEB.setBackground(new java.awt.Color(204, 204, 204));
+        panelDatosBiblioEB.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel23.setText("Nombre:");
+        lblNombreEB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNombreEB.setText("Nombre:");
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel24.setText("Dirección:");
+        lblDireccionEB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDireccionEB.setText("Dirección:");
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel25.setText("Telefono:");
+        lblTelefonoEB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblTelefonoEB.setText("Telefono:");
 
         txtNombreEB.setEnabled(false);
 
@@ -546,43 +549,43 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
 
         txtTelefonoEB.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelDatosBiblioEBLayout = new javax.swing.GroupLayout(panelDatosBiblioEB);
+        panelDatosBiblioEB.setLayout(panelDatosBiblioEBLayout);
+        panelDatosBiblioEBLayout.setHorizontalGroup(
+            panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosBiblioEBLayout.createSequentialGroup()
+                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosBiblioEBLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jLabel23)
+                        .addComponent(lblNombreEB)
                         .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosBiblioEBLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel24))
+                        .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTelefonoEB)
+                            .addComponent(lblDireccionEB))
                         .addGap(18, 18, 18)))
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDireccionEB, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                     .addComponent(txtNombreEB)
                     .addComponent(txtTelefonoEB))
                 .addGap(22, 22, 22))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        panelDatosBiblioEBLayout.setVerticalGroup(
+            panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosBiblioEBLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombreEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
+                    .addComponent(lblNombreEB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDireccionEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
+                    .addComponent(lblDireccionEB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTelefonoEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
+                    .addComponent(lblTelefonoEB))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -602,47 +605,47 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelEliminarBiblioLayout = new javax.swing.GroupLayout(panelEliminarBiblio);
+        panelEliminarBiblio.setLayout(panelEliminarBiblioLayout);
+        panelEliminarBiblioLayout.setHorizontalGroup(
+            panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
                 .addContainerGap(64, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
+                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                        .addComponent(lblCodigoEB)
                         .addGap(29, 29, 29)
                         .addComponent(txtCodigoEB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnBuscarEB))
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addComponent(panelDatosBiblioEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
                         .addComponent(btnEliminarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        panelEliminarBiblioLayout.setVerticalGroup(
+            panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
+                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoEB)
                     .addComponent(txtCodigoEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarEB))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDatosBiblioEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarEB)
                     .addComponent(btnEliminarEB))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
-        opcionesBiblioteca.addTab("Eliminar", jPanel6);
+        panelEditarDatosBiblio.addTab("Eliminar", panelEliminarBiblio);
 
-        jPanel7.setBackground(new java.awt.Color(91, 86, 86));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelListaBiblio.setBackground(new java.awt.Color(91, 86, 86));
+        panelListaBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblBibliotecas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tblBibliotecas.setModel(new javax.swing.table.DefaultTableModel(
@@ -663,24 +666,24 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblBibliotecas);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelListaBiblioLayout = new javax.swing.GroupLayout(panelListaBiblio);
+        panelListaBiblio.setLayout(panelListaBiblioLayout);
+        panelListaBiblioLayout.setHorizontalGroup(
+            panelListaBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListaBiblioLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        panelListaBiblioLayout.setVerticalGroup(
+            panelListaBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListaBiblioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        opcionesBiblioteca.addTab("Listar", jPanel7);
+        panelEditarDatosBiblio.addTab("Listar", panelListaBiblio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -688,14 +691,14 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(opcionesBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelEditarDatosBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(opcionesBiblioteca)
+            .addComponent(panelEditarDatosBiblio)
         );
 
         pack();
@@ -715,7 +718,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         txtTlefonoID.setText(" ");
     }//GEN-LAST:event_btnCrearBibliotecaActionPerformed
 
-    private void btnBuscarEDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEDActionPerformed
+    private void btnBuscarEDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEDBActionPerformed
         Biblioteca biblioteca = new Biblioteca();
         int codigo = Integer.parseInt(txtCodigoED.getText().trim());
         biblioteca = bibliotecaControlador.read(codigo);
@@ -733,9 +736,9 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         }
         
         txtCodigoID.setEditable(false);
-    }//GEN-LAST:event_btnBuscarEDActionPerformed
+    }//GEN-LAST:event_btnBuscarEDBActionPerformed
 
-    private void btnActualizarEDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEDActionPerformed
+    private void btnActualizarEDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEDBActionPerformed
         int codigo = Integer.parseInt( txtCodigoED.getText().trim());
         String nombre = txtNombreED.getText().trim();
         String direccion = txtDireccionED.getText().trim();
@@ -749,11 +752,11 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Biblioteca editada correctamente");
         }
         limpiarDatosED();
-    }//GEN-LAST:event_btnActualizarEDActionPerformed
+    }//GEN-LAST:event_btnActualizarEDBActionPerformed
 
-    private void btnCancelarEDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEDActionPerformed
+    private void btnCancelarEDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEDBActionPerformed
        limpiarDatosED();
-    }//GEN-LAST:event_btnCancelarEDActionPerformed
+    }//GEN-LAST:event_btnCancelarEDBActionPerformed
 
     private void btnBuscarBBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarBBActionPerformed
         int codigo = Integer.parseInt(txtCodigoBB.getText().trim());
@@ -817,7 +820,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         limpiarDatosEB();
     }//GEN-LAST:event_btnCancelarEBActionPerformed
 
-    private void opcionesBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionesBibliotecaMouseClicked
+    private void panelEditarDatosBiblioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEditarDatosBiblioMouseClicked
         DefaultTableModel tabla = (DefaultTableModel) tblBibliotecas.getModel();
         tabla.setRowCount(0);
         
@@ -825,14 +828,14 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             Object[] fila = {biblioteca.getCodigo(),biblioteca.getNombre(),biblioteca.getDireccion(),biblioteca.getTelefono()};
             tabla.addRow(fila);
         }
-    }//GEN-LAST:event_opcionesBibliotecaMouseClicked
+    }//GEN-LAST:event_panelEditarDatosBiblioMouseClicked
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
         String usuario = txtUsuarioAdm.getText().trim();
         String contraseña = txtContrasenaAdm.getText().trim();
         Administrador adm = new Administrador();
         if(usuario.equals(adm.getUsuario()) && contraseña.equals(adm.getContrasena())){
-            opcionesBiblioteca.setEnabled(true);
+            panelEditarDatosBiblio.setEnabled(true);
             txtUsuarioAdm.setText(" ");
             txtContrasenaAdm.setText(" ");
         }else{
@@ -843,7 +846,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAccederActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
-        opcionesBiblioteca.setEnabled(false);
+        panelEditarDatosBiblio.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameClosing
     
     private void limpiarDatosEB(){
@@ -868,46 +871,46 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceder;
-    private javax.swing.JButton btnActualizarED;
+    private javax.swing.JButton btnActualizarEDB;
     private javax.swing.JButton btnBuscarBB;
     private javax.swing.JButton btnBuscarEB;
-    private javax.swing.JButton btnBuscarED;
+    private javax.swing.JButton btnBuscarEDB;
     private javax.swing.JButton btnCancelarEB;
-    private javax.swing.JButton btnCancelarED;
+    private javax.swing.JButton btnCancelarEDB;
     private javax.swing.JButton btnCrearBiblioteca;
     private javax.swing.JButton btnEliminarEB;
     private javax.swing.JButton btnLimpiarBB;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane opcionesBiblioteca;
+    private javax.swing.JLabel lblAdmBiblio;
+    private javax.swing.JLabel lblCodigoBB;
+    private javax.swing.JLabel lblCodigoCB;
+    private javax.swing.JLabel lblCodigoEB;
+    private javax.swing.JLabel lblCodigoEDB;
+    private javax.swing.JLabel lblContrasenaI;
+    private javax.swing.JLabel lblDireccionBB;
+    private javax.swing.JLabel lblDireccionCB;
+    private javax.swing.JLabel lblDireccionEB;
+    private javax.swing.JLabel lblDireccionEDB;
+    private javax.swing.JLabel lblIngresoAdmin;
+    private javax.swing.JLabel lblNombreBB;
+    private javax.swing.JLabel lblNombreCB;
+    private javax.swing.JLabel lblNombreEB;
+    private javax.swing.JLabel lblNombreEDB;
+    private javax.swing.JLabel lblTelefonoBB;
+    private javax.swing.JLabel lblTelefonoCB;
+    private javax.swing.JLabel lblTelefonoEB;
+    private javax.swing.JLabel lblTelefonoEDB;
+    private javax.swing.JLabel lblUsuarioI;
+    private javax.swing.JPanel panelBuscarBiblio;
+    private javax.swing.JPanel panelDatosBiblioBB;
+    private javax.swing.JPanel panelDatosBiblioEB;
+    private javax.swing.JPanel panelEditarBiblio;
+    private javax.swing.JTabbedPane panelEditarDatosBiblio;
+    private javax.swing.JPanel panelEliminarBiblio;
+    private javax.swing.JPanel panelIngresarDatosBiblio;
+    private javax.swing.JPanel panelInicio;
+    private javax.swing.JPanel panelListaBiblio;
     private javax.swing.JTable tblBibliotecas;
     private javax.swing.JTextField txtCodigoBB;
     private javax.swing.JTextField txtCodigoEB;

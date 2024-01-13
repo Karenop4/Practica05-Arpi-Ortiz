@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author karen
@@ -13,8 +15,10 @@ public class Biblioteca {
     private String nombre;
     private String direccion;
     private String telefono;
+    private ArrayList <Libro> listaLibros;
 
     public Biblioteca() {
+        listaLibros = new ArrayList();
     }
 
     public Biblioteca(int codigo, String nombre, String direccion, String telefono) {
@@ -22,6 +26,7 @@ public class Biblioteca {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
+        listaLibros = new ArrayList();
     }
 
     public int getCodigo() {
@@ -55,7 +60,11 @@ public class Biblioteca {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+    
+    public void anadirLibro(Libro libro){
+        listaLibros.add(libro);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

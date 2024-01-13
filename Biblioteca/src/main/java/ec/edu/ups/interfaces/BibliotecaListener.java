@@ -4,12 +4,12 @@
  */
 package ec.edu.ups.interfaces;
 
-import ec.edu.ups.modelo.Biblioteca;
+import ec.edu.ups.controlador.BibliotecaControlador;
 
 /**
  *
  * @author karen
  */
 public interface BibliotecaListener {
-    void onBibliotecaSeleccionada(Biblioteca biblioteca);
+    void onBibliotecaSeleccionada(BibliotecaControlador bibliotecaControlador, int codigo);
 }

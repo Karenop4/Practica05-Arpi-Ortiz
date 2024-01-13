@@ -5,6 +5,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.BibliotecaControlador;
+import ec.edu.ups.controlador.LibroControlador;
 import ec.edu.ups.interfaces.BibliotecaListener;
 import ec.edu.ups.modelo.Biblioteca;
 import javax.swing.JOptionPane;
@@ -15,16 +16,17 @@ import javax.swing.JOptionPane;
  */
 public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame implements BibliotecaListener{
     private VentanaBuscarBiblioteca ventanaBuscarBiblioteca;
-    
+    private int codigo;
     private BibliotecaControlador bibliotecaControlador;
-    private Biblioteca biblioteca;
+    private LibroControlador libroControlador;
     /**
      * Creates new form VentanaSeleccionarBiblioteca
      */
-    public VentanaSeleccionarBiblioteca(BibliotecaControlador bibliotecaControlador, Biblioteca biblioteca) {
+    public VentanaSeleccionarBiblioteca(BibliotecaControlador bibliotecaControlador, LibroControlador libroControlador) {
         initComponents();
         this.bibliotecaControlador = bibliotecaControlador;
-        this.biblioteca = biblioteca;
+        this.libroControlador = libroControlador;
+        codigo=0;
     }
 
     /**
@@ -38,16 +40,16 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
         jPanel1 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
+        lblSeleccionarBiblio = new javax.swing.JLabel();
         txtNombreBiblio = new javax.swing.JTextField();
         btnSeleccionarBiblioteca = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        crearLibroMenuItem = new javax.swing.JMenuItem();
+        actualizarLibroMenuItem = new javax.swing.JMenuItem();
+        buscarLibroMenuItem = new javax.swing.JMenuItem();
+        eliminarLibroMenuItem = new javax.swing.JMenuItem();
+        listarLibroMenuItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -86,11 +88,11 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
             .addGap(0, 551, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
-        jLabel1.setText("Seleccionar Biblioteca");
+        lblSeleccionarBiblio.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        lblSeleccionarBiblio.setText("Seleccionar Biblioteca");
 
+        txtNombreBiblio.setEditable(false);
         txtNombreBiblio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNombreBiblio.setEnabled(false);
 
         btnSeleccionarBiblioteca.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSeleccionarBiblioteca.setText("Seleccionar");
@@ -104,20 +106,20 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
         jMenu1.setText("Libros");
 
-        jMenuItem1.setText("Actualizar");
-        jMenu1.add(jMenuItem1);
+        crearLibroMenuItem.setText("Crear");
+        jMenu1.add(crearLibroMenuItem);
 
-        jMenuItem2.setText("Buscar");
-        jMenu1.add(jMenuItem2);
+        actualizarLibroMenuItem.setText("Actualizar");
+        jMenu1.add(actualizarLibroMenuItem);
 
-        jMenuItem3.setText("Crear");
-        jMenu1.add(jMenuItem3);
+        buscarLibroMenuItem.setText("Buscar");
+        jMenu1.add(buscarLibroMenuItem);
 
-        jMenuItem4.setText("Eliminar");
-        jMenu1.add(jMenuItem4);
+        eliminarLibroMenuItem.setText("Eliminar");
+        jMenu1.add(eliminarLibroMenuItem);
 
-        jMenuItem5.setText("Listar");
-        jMenu1.add(jMenuItem5);
+        listarLibroMenuItem.setText("Listar");
+        jMenu1.add(listarLibroMenuItem);
 
         jMenuBar1.add(jMenu1);
 
@@ -160,7 +162,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)
+                        .addComponent(lblSeleccionarBiblio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNombreBiblio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,7 +177,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
+                        .addComponent(lblSeleccionarBiblio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -191,7 +193,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void btnSeleccionarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarBibliotecaActionPerformed
         if(ventanaBuscarBiblioteca==null){
-            ventanaBuscarBiblioteca = new VentanaBuscarBiblioteca(bibliotecaControlador,biblioteca);
+            ventanaBuscarBiblioteca = new VentanaBuscarBiblioteca(bibliotecaControlador,codigo);
             ventanaBuscarBiblioteca.setBibliotecaListener(this);
         }
             
@@ -203,31 +205,33 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem actualizarLibroMenuItem;
     private javax.swing.JButton btnSeleccionarBiblioteca;
+    private javax.swing.JMenuItem buscarLibroMenuItem;
+    private javax.swing.JMenuItem crearLibroMenuItem;
+    private javax.swing.JMenuItem eliminarLibroMenuItem;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblSeleccionarBiblio;
+    private javax.swing.JMenuItem listarLibroMenuItem;
     private javax.swing.JTextField txtNombreBiblio;
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void onBibliotecaSeleccionada(Biblioteca biblioteca) {
+    public void onBibliotecaSeleccionada(BibliotecaControlador bibliotecaControlador, int codigo) {
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca=bibliotecaControlador.read(codigo);
         txtNombreBiblio.setText(biblioteca.getNombre());
-        this.biblioteca=biblioteca;
+        this.bibliotecaControlador=bibliotecaControlador;
     }
 }
