@@ -8,6 +8,8 @@ import ec.edu.ups.controlador.*;
 import ec.edu.ups.dao.*;
 import ec.edu.ups.idao.*;
 import ec.edu.ups.vista.biblioteca.VentanaCrudBiblioteca;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -21,6 +23,7 @@ public class Inicio extends javax.swing.JFrame {
     private BibliotecaControlador bibliotecaControlador;
     private LibroIDAO libroDAO;
     private LibroControlador libroControlador;
+    private Locale locale;
     /**
      * Creates new form Inicio
      */
@@ -30,6 +33,7 @@ public class Inicio extends javax.swing.JFrame {
         libroDAO = new LibroDAO();
         libroControlador = new LibroControlador(libroDAO);
         bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO);
+        locale = new Locale("es", "EC");
     }
 
     /**
@@ -41,12 +45,16 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         lblGestionBiblio = new javax.swing.JLabel();
         btnCrudBiblioteca = new javax.swing.JButton();
         btnSeleccionarBiblioteca = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        inglesRadioButton = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        lblIdioma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,17 +103,53 @@ public class Inicio extends javax.swing.JFrame {
             .addGap(0, 656, Short.MAX_VALUE)
         );
 
+        buttonGroup2.add(inglesRadioButton);
+        inglesRadioButton.setFont(new java.awt.Font("Segoe UI Variable", 3, 18)); // NOI18N
+        inglesRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        inglesRadioButton.setText("ENGLISH");
+        inglesRadioButton.setToolTipText("");
+        inglesRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        inglesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inglesRadioButtonActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI Variable", 3, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setText("ESPAÑOL");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        lblIdioma.setFont(new java.awt.Font("Segoe UI Semibold", 2, 18)); // NOI18N
+        lblIdioma.setForeground(new java.awt.Color(255, 255, 255));
+        lblIdioma.setText("IDIOMA");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGestionBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrudBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblGestionBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCrudBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(lblIdioma))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(inglesRadioButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -121,7 +165,13 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(lblIdioma)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inglesRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jDesktopPane1)
@@ -166,6 +216,27 @@ public class Inicio extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void inglesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesRadioButtonActionPerformed
+        locale = new Locale("en", "US");
+        cambiarIdioma(); 
+    }//GEN-LAST:event_inglesRadioButtonActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        locale = new Locale("es", "EC");
+        cambiarIdioma();  
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    
+    
+    public void cambiarIdioma(){
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblGestionBiblio.setText(mensajes.getString("lblGestionBiblio"));
+        btnCrudBiblioteca.setText(mensajes.getString("btnCrudBiblioteca"));
+        btnSeleccionarBiblioteca.setText(mensajes.getString("btnSeleccionarBiblioteca"));
+        btnSalir.setText(mensajes.getString("btnSalir"));
+        lblIdioma.setText(mensajes.getString("lblIdioma"));
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -205,8 +276,12 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnCrudBiblioteca;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionarBiblioteca;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JRadioButton inglesRadioButton;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lblGestionBiblio;
+    private javax.swing.JLabel lblIdioma;
     // End of variables declaration//GEN-END:variables
 }
