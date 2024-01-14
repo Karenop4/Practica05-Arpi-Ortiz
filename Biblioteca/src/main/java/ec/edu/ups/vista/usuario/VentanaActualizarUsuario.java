@@ -41,7 +41,7 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
         txt_num_us = new javax.swing.JTextField();
         btnActualizarUsuario = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        btnCancelar1 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -89,12 +89,12 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancelar1.setBackground(new java.awt.Color(217, 217, 217));
-        btnCancelar1.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btnCancelar1.setText("Cancelar");
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(217, 217, 217));
+        btnCancelar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -108,7 +108,7 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
-                        .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +156,7 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar1))
+                    .addComponent(btnCancelar))
                 .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -187,18 +187,27 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
     
     public void cambiarIdioma(Locale locale){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblActualizarDatos.setText(mensajes.getString("lblActualizarDatos"));
+        lblCedula.setText(mensajes.getString("cedula"));
+        lblNombre.setText(mensajes.getString("nombre"));
+        lblDireccion.setText(mensajes.getString("direccion"));
+        lblTelefono.setText(mensajes.getString("telefono"));
+        btnActualizarUsuario.setText(mensajes.getString("btnActualizarUsuario"));
+        btnCancelar.setText(mensajes.getString("cancelar"));
+        btnBuscar.setText(mensajes.getString("buscar"));
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarUsuario;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCancelar1;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblActualizarDatos;
     private javax.swing.JLabel lblCedula;

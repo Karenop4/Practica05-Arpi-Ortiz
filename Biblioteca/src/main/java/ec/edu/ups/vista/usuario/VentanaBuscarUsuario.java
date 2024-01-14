@@ -39,8 +39,8 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
         txt_nom_us = new javax.swing.JTextField();
         txt_dir_us = new javax.swing.JTextField();
         txt_num_us = new javax.swing.JTextField();
-        btnLimpiar2 = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnBuscarUsuario = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -79,21 +79,16 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
         txt_num_us.setEditable(false);
         txt_num_us.setBackground(new java.awt.Color(114, 114, 114));
 
-        btnLimpiar2.setBackground(new java.awt.Color(217, 217, 217));
-        btnLimpiar2.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btnLimpiar2.setText("Limpiar Búsqueda");
-        btnLimpiar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar2ActionPerformed(evt);
-            }
-        });
+        btnLimpiar.setBackground(new java.awt.Color(217, 217, 217));
+        btnLimpiar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnLimpiar.setText("Limpiar Búsqueda");
 
-        btnBuscar.setBackground(new java.awt.Color(217, 217, 217));
-        btnBuscar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btnBuscar.setText("Buscar Usuario");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarUsuario.setBackground(new java.awt.Color(217, 217, 217));
+        btnBuscarUsuario.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnBuscarUsuario.setText("Buscar Usuario");
+        btnBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnBuscarUsuarioActionPerformed(evt);
             }
         });
 
@@ -119,10 +114,10 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
                             .addComponent(txt_num_us, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(btnLimpiar2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(55, 55, 55)
@@ -150,8 +145,8 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
                     .addComponent(txt_num_us, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -178,18 +173,25 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiar2ActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
 
     
     public void cambiarIdioma(Locale locale){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblBuscarUsuario.setText(mensajes.getString("lblBuscarUsuario"));
+        lblCedula.setText(mensajes.getString("cedula"));
+        lblNombre.setText(mensajes.getString("nombre"));
+        lblDireccion.setText(mensajes.getString("direccion"));
+        lblTelefono.setText(mensajes.getString("telefono"));
+        btnLimpiar.setText(mensajes.getString("limpiarBusqueda"));
+        btnBuscarUsuario.setText(mensajes.getString("btnBuscarUsuario"));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnLimpiar2;
+    private javax.swing.JButton btnBuscarUsuario;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBuscarUsuario;
     private javax.swing.JLabel lblCedula;

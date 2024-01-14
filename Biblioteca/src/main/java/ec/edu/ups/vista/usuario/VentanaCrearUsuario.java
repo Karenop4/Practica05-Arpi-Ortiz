@@ -158,6 +158,12 @@ public class VentanaCrearUsuario extends javax.swing.JInternalFrame {
     
     public void cambiarIdioma(Locale locale){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblIngresoDatos.setText(mensajes.getString("lblIngresoDatos"));
+        lblCedula.setText(mensajes.getString("cedula"));
+        lblNombre.setText(mensajes.getString("nombre"));
+        lblDireccion.setText(mensajes.getString("direccion"));
+        lblTelefono.setText(mensajes.getString("telefono"));
+        btnGuardarUsuario.setText(mensajes.getString("btnGuardarUsuario"));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

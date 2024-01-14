@@ -68,12 +68,12 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="btnLimpiar2" min="-2" pref="320" max="-2" attributes="0"/>
+                          <Component id="btnLimpiar" min="-2" pref="320" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnBuscar" min="-2" pref="320" max="-2" attributes="0"/>
+                          <Component id="btnBuscarUsuario" min="-2" pref="320" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -109,8 +109,8 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnLimpiar2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="btnBuscar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnLimpiar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnBuscarUsuario" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
@@ -206,7 +206,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLimpiar2">
+        <Component class="javax.swing.JButton" name="btnLimpiar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -216,11 +216,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Limpiar B&#xfa;squeda"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiar2ActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnBuscar">
+        <Component class="javax.swing.JButton" name="btnBuscarUsuario">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -231,7 +228,7 @@
             <Property name="text" type="java.lang.String" value="Buscar Usuario"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarUsuarioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

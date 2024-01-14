@@ -114,7 +114,7 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +142,7 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(55, 55, 55)
                     .addComponent(lblEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(690, Short.MAX_VALUE)))
+                    .addContainerGap(402, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +180,7 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,6 +205,14 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
     
     public void cambiarIdioma(Locale locale){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblEliminarUsuario.setText(mensajes.getString("lblEliminarUsuario"));
+        lblCedula.setText(mensajes.getString("cedula"));
+        lblNombre.setText(mensajes.getString("nombre"));
+        lblDireccion.setText(mensajes.getString("direccion"));
+        lblTelefono.setText(mensajes.getString("telefono"));
+        btnBuscar.setText(mensajes.getString("buscar"));
+        btnCancelar.setText(mensajes.getString("cancelar"));
+        btnEliminar.setText(mensajes.getString("eliminar"));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
