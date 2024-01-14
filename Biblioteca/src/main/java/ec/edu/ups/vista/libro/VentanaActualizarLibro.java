@@ -29,150 +29,153 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblAnho = new javax.swing.JLabel();
+        lblActualizarDatos = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        lblDisponibilidad = new javax.swing.JLabel();
+        lblAutor = new javax.swing.JLabel();
         txt_tit_lib = new javax.swing.JTextField();
         txt_anio_lib = new javax.swing.JTextField();
         txt_aut_lib = new javax.swing.JTextField();
-        btn_act_lib = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         chb_disp_lib = new javax.swing.JCheckBox();
-        btn_act_lib1 = new javax.swing.JButton();
-        btn_act_lib2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        btnActualizarLibro = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        lblGenero = new javax.swing.JLabel();
         txt_aut_lib1 = new javax.swing.JTextField();
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Actualizar Libro");
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Año:");
+        lblAnho.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblAnho.setForeground(new java.awt.Color(255, 255, 255));
+        lblAnho.setText("Año:");
 
-        jLabel2.setFont(new java.awt.Font("Righteous", 0, 25)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ACTUALIZAR DATOS");
+        lblActualizarDatos.setFont(new java.awt.Font("Righteous", 0, 25)); // NOI18N
+        lblActualizarDatos.setForeground(new java.awt.Color(255, 255, 255));
+        lblActualizarDatos.setText("ACTUALIZAR DATOS");
 
-        jLabel3.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Título:");
+        lblTitulo.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Título:");
 
-        jLabel4.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Disponibilidad:");
+        lblDisponibilidad.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblDisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblDisponibilidad.setText("Disponibilidad:");
 
-        jLabel5.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Autor:");
+        lblAutor.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblAutor.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutor.setText("Autor:");
 
-        btn_act_lib.setBackground(new java.awt.Color(217, 217, 217));
-        btn_act_lib.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btn_act_lib.setText("Buscar");
-        btn_act_lib.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setBackground(new java.awt.Color(217, 217, 217));
+        btnBuscar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_act_libActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
         chb_disp_lib.setSelected(true);
 
-        btn_act_lib1.setBackground(new java.awt.Color(217, 217, 217));
-        btn_act_lib1.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btn_act_lib1.setText("Actualizar Libro");
-        btn_act_lib1.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarLibro.setBackground(new java.awt.Color(217, 217, 217));
+        btnActualizarLibro.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnActualizarLibro.setText("Actualizar Libro");
+        btnActualizarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_act_lib1ActionPerformed(evt);
+                btnActualizarLibroActionPerformed(evt);
             }
         });
 
-        btn_act_lib2.setBackground(new java.awt.Color(217, 217, 217));
-        btn_act_lib2.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btn_act_lib2.setText("Cancelar");
-        btn_act_lib2.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(217, 217, 217));
+        btnCancelar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_act_lib2ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Género:");
+        lblGenero.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(255, 255, 255));
+        lblGenero.setText("Género:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chb_disp_lib)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(213, 213, 213))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAnho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_anio_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_act_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDisponibilidad))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chb_disp_lib)
+                            .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(213, 213, 213))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(btn_act_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_act_lib2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(lblActualizarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(btnActualizarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel2)
+                .addComponent(lblActualizarDatos)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblTitulo)
                     .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_act_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblAnho)
                     .addComponent(txt_anio_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lblAutor)
                     .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(lblGenero)
                     .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
+                    .addComponent(lblDisponibilidad)
                     .addComponent(chb_disp_lib))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_act_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_act_lib2))
+                    .addComponent(btnActualizarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -190,31 +193,31 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_act_libActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_act_libActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_act_libActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btn_act_lib1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_act_lib1ActionPerformed
+    private void btnActualizarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarLibroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_act_lib1ActionPerformed
+    }//GEN-LAST:event_btnActualizarLibroActionPerformed
 
-    private void btn_act_lib2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_act_lib2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_act_lib2ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_act_lib;
-    private javax.swing.JButton btn_act_lib1;
-    private javax.swing.JButton btn_act_lib2;
+    private javax.swing.JButton btnActualizarLibro;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JCheckBox chb_disp_lib;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblActualizarDatos;
+    private javax.swing.JLabel lblAnho;
+    private javax.swing.JLabel lblAutor;
+    private javax.swing.JLabel lblDisponibilidad;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txt_anio_lib;
     private javax.swing.JTextField txt_aut_lib;
     private javax.swing.JTextField txt_aut_lib1;

@@ -30,16 +30,6 @@ public class LibroControlador {
         return libro;
     }
     
-    public Libro read (String titulo, String autor){
-        libro = libroDAO.read(titulo, autor);
-        return libro;
-    }
-    
-    public Libro readAutor(String autor){
-        libro = libroDAO.readAutor(autor);
-        return libro;
-    }
-    
     public void delete(String titulo){
         libroDAO.delete(titulo);
     }

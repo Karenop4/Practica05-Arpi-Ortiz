@@ -7,6 +7,8 @@ package ec.edu.ups.vista.biblioteca;
 import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.modelo.Administrador;
 import ec.edu.ups.modelo.Biblioteca;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -55,6 +57,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         txtNombreID = new javax.swing.JTextField();
         txtCodigoID = new javax.swing.JTextField();
         btnCrearBiblioteca = new javax.swing.JButton();
+        lblIngresarDatosCB = new javax.swing.JLabel();
         panelEditarBiblio = new javax.swing.JPanel();
         lblCodigoEDB = new javax.swing.JLabel();
         lblNombreEDB = new javax.swing.JLabel();
@@ -67,34 +70,36 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         btnBuscarEDB = new javax.swing.JButton();
         btnActualizarEDB = new javax.swing.JButton();
         btnCancelarEDB = new javax.swing.JButton();
+        lblEditarDatosEB = new javax.swing.JLabel();
         panelBuscarBiblio = new javax.swing.JPanel();
         lblCodigoBB = new javax.swing.JLabel();
         txtCodigoBB = new javax.swing.JTextField();
         btnBuscarBB = new javax.swing.JButton();
-        panelDatosBiblioBB = new javax.swing.JPanel();
+        btnLimpiarBB = new javax.swing.JButton();
+        lblBuscarBiliotecaBB = new javax.swing.JLabel();
         lblNombreBB = new javax.swing.JLabel();
         lblDireccionBB = new javax.swing.JLabel();
         lblTelefonoBB = new javax.swing.JLabel();
-        txtNombreBB = new javax.swing.JTextField();
-        txtDireccionBB = new javax.swing.JTextField();
         txtTelefonoBB = new javax.swing.JTextField();
-        btnLimpiarBB = new javax.swing.JButton();
+        txtDireccionBB = new javax.swing.JTextField();
+        txtNombreBB = new javax.swing.JTextField();
         panelEliminarBiblio = new javax.swing.JPanel();
         lblCodigoEB = new javax.swing.JLabel();
         txtCodigoEB = new javax.swing.JTextField();
         btnBuscarEB = new javax.swing.JButton();
-        panelDatosBiblioEB = new javax.swing.JPanel();
+        btnEliminarEB = new javax.swing.JButton();
+        btnCancelarEB = new javax.swing.JButton();
+        lblEliminarBibliotecaEB = new javax.swing.JLabel();
         lblNombreEB = new javax.swing.JLabel();
         lblDireccionEB = new javax.swing.JLabel();
         lblTelefonoEB = new javax.swing.JLabel();
-        txtNombreEB = new javax.swing.JTextField();
-        txtDireccionEB = new javax.swing.JTextField();
         txtTelefonoEB = new javax.swing.JTextField();
-        btnEliminarEB = new javax.swing.JButton();
-        btnCancelarEB = new javax.swing.JButton();
+        txtDireccionEB = new javax.swing.JTextField();
+        txtNombreEB = new javax.swing.JTextField();
         panelListaBiblio = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBibliotecas = new javax.swing.JTable();
+        lblListarBibliotecaLB = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -217,7 +222,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         panelEditarDatosBiblio.addTab("Inicio", panelInicio);
 
         panelIngresarDatosBiblio.setBackground(new java.awt.Color(91, 86, 86));
-        panelIngresarDatosBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresar Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelIngresarDatosBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblCodigoCB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblCodigoCB.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,34 +248,45 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
+        lblIngresarDatosCB.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        lblIngresarDatosCB.setForeground(new java.awt.Color(255, 255, 255));
+        lblIngresarDatosCB.setText("Ingresar Datos");
+
         javax.swing.GroupLayout panelIngresarDatosBiblioLayout = new javax.swing.GroupLayout(panelIngresarDatosBiblio);
         panelIngresarDatosBiblio.setLayout(panelIngresarDatosBiblioLayout);
         panelIngresarDatosBiblioLayout.setHorizontalGroup(
             panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCrearBiblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
-                        .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDireccionCB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)
+                        .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCrearBiblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblTelefonoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblNombreCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCodigoCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDireccionID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTlefonoID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigoID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(111, Short.MAX_VALUE))
+                                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDireccionCB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(lblTelefonoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblNombreCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCodigoCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDireccionID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombreID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTlefonoID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblIngresarDatosCB)))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         panelIngresarDatosBiblioLayout.setVerticalGroup(
             panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addComponent(lblIngresarDatosCB)
+                .addGap(28, 28, 28)
                 .addGroup(panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoCB)
                     .addComponent(txtCodigoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -288,13 +304,13 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                     .addComponent(txtTlefonoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnCrearBiblioteca)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         panelEditarDatosBiblio.addTab("Crear", panelIngresarDatosBiblio);
 
         panelEditarBiblio.setBackground(new java.awt.Color(91, 86, 86));
-        panelEditarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelEditarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblCodigoEDB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblCodigoEDB.setForeground(new java.awt.Color(255, 255, 255));
@@ -343,12 +359,20 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
+        lblEditarDatosEB.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        lblEditarDatosEB.setForeground(new java.awt.Color(255, 255, 255));
+        lblEditarDatosEB.setText("Editar Datos");
+
         javax.swing.GroupLayout panelEditarBiblioLayout = new javax.swing.GroupLayout(panelEditarBiblio);
         panelEditarBiblio.setLayout(panelEditarBiblioLayout);
         panelEditarBiblioLayout.setHorizontalGroup(
             panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEditarBiblioLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblEditarDatosEB)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarBiblioLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelEditarBiblioLayout.createSequentialGroup()
                         .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -368,12 +392,14 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                         .addComponent(btnCancelarEDB, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addComponent(btnBuscarEDB)
-                .addGap(32, 32, 32))
+                .addGap(25, 25, 25))
         );
         panelEditarBiblioLayout.setVerticalGroup(
             panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEditarBiblioLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarBiblioLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblEditarDatosEB)
+                .addGap(18, 18, 18)
                 .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoEDB)
                     .addComponent(txtCodigoED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,13 +420,13 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                 .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarEDB)
                     .addComponent(btnActualizarEDB))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         panelEditarDatosBiblio.addTab("Editar", panelEditarBiblio);
 
         panelBuscarBiblio.setBackground(new java.awt.Color(91, 86, 86));
-        panelBuscarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelBuscarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblCodigoBB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblCodigoBB.setForeground(new java.awt.Color(255, 255, 255));
@@ -414,62 +440,6 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
-        panelDatosBiblioBB.setBackground(new java.awt.Color(204, 204, 204));
-        panelDatosBiblioBB.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        lblNombreBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNombreBB.setText("Nombre:");
-
-        lblDireccionBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblDireccionBB.setText("Dirección:");
-
-        lblTelefonoBB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTelefonoBB.setText("Telefono:");
-
-        txtNombreBB.setEditable(false);
-        txtNombreBB.setEnabled(false);
-
-        txtDireccionBB.setEditable(false);
-        txtDireccionBB.setEnabled(false);
-
-        txtTelefonoBB.setEditable(false);
-        txtTelefonoBB.setEnabled(false);
-
-        javax.swing.GroupLayout panelDatosBiblioBBLayout = new javax.swing.GroupLayout(panelDatosBiblioBB);
-        panelDatosBiblioBB.setLayout(panelDatosBiblioBBLayout);
-        panelDatosBiblioBBLayout.setHorizontalGroup(
-            panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosBiblioBBLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreBB)
-                    .addComponent(lblDireccionBB)
-                    .addComponent(lblTelefonoBB))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDireccionBB, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .addComponent(txtNombreBB)
-                    .addComponent(txtTelefonoBB))
-                .addContainerGap())
-        );
-        panelDatosBiblioBBLayout.setVerticalGroup(
-            panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosBiblioBBLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombreBB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccionBB)
-                    .addComponent(txtDireccionBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosBiblioBBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefonoBB)
-                    .addComponent(txtTelefonoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
         btnLimpiarBB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnLimpiarBB.setText("Limpiar Búsqueda");
         btnLimpiarBB.addActionListener(new java.awt.event.ActionListener() {
@@ -478,46 +448,97 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
+        lblBuscarBiliotecaBB.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        lblBuscarBiliotecaBB.setForeground(new java.awt.Color(255, 255, 255));
+        lblBuscarBiliotecaBB.setText("Buscar Biblioteca");
+
+        lblNombreBB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblNombreBB.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreBB.setText("Nombre:");
+
+        lblDireccionBB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblDireccionBB.setForeground(new java.awt.Color(255, 255, 255));
+        lblDireccionBB.setText("Dirección:");
+
+        lblTelefonoBB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTelefonoBB.setForeground(new java.awt.Color(255, 255, 255));
+        lblTelefonoBB.setText("Telefono:");
+
+        txtTelefonoBB.setEditable(false);
+        txtTelefonoBB.setEnabled(false);
+
+        txtDireccionBB.setEditable(false);
+        txtDireccionBB.setEnabled(false);
+
+        txtNombreBB.setEditable(false);
+        txtNombreBB.setEnabled(false);
+
         javax.swing.GroupLayout panelBuscarBiblioLayout = new javax.swing.GroupLayout(panelBuscarBiblio);
         panelBuscarBiblio.setLayout(panelBuscarBiblioLayout);
         panelBuscarBiblioLayout.setHorizontalGroup(
             panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
                 .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
-                        .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelDatosBiblioBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(btnLimpiarBB))
                             .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                                 .addComponent(lblCodigoBB)
                                 .addGap(29, 29, 29)
-                                .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
-                        .addComponent(btnBuscarBB))
+                                .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addComponent(btnBuscarBB))))
                     .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(btnLimpiarBB)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
+                        .addComponent(lblBuscarBiliotecaBB)))
+                .addGap(67, 67, 67))
+            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreBB)
+                    .addComponent(lblDireccionBB)
+                    .addComponent(lblTelefonoBB))
+                .addGap(18, 18, 18)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtDireccionBB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(txtNombreBB, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTelefonoBB))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBuscarBiblioLayout.setVerticalGroup(
             panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscarBiblioLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lblBuscarBiliotecaBB)
+                .addGap(18, 18, 18)
                 .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoBB)
                     .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarBB))
                 .addGap(18, 18, 18)
-                .addComponent(panelDatosBiblioBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombreBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombreBB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccionBB)
+                    .addComponent(txtDireccionBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBuscarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefonoBB)
+                    .addComponent(txtTelefonoBB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
                 .addComponent(btnLimpiarBB)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         panelEditarDatosBiblio.addTab("Buscar", panelBuscarBiblio);
 
         panelEliminarBiblio.setBackground(new java.awt.Color(91, 86, 86));
-        panelEliminarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelEliminarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblCodigoEB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblCodigoEB.setForeground(new java.awt.Color(255, 255, 255));
@@ -530,64 +551,6 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                 btnBuscarEBActionPerformed(evt);
             }
         });
-
-        panelDatosBiblioEB.setBackground(new java.awt.Color(204, 204, 204));
-        panelDatosBiblioEB.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        lblNombreEB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNombreEB.setText("Nombre:");
-
-        lblDireccionEB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblDireccionEB.setText("Dirección:");
-
-        lblTelefonoEB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTelefonoEB.setText("Telefono:");
-
-        txtNombreEB.setEnabled(false);
-
-        txtDireccionEB.setEnabled(false);
-
-        txtTelefonoEB.setEnabled(false);
-
-        javax.swing.GroupLayout panelDatosBiblioEBLayout = new javax.swing.GroupLayout(panelDatosBiblioEB);
-        panelDatosBiblioEB.setLayout(panelDatosBiblioEBLayout);
-        panelDatosBiblioEBLayout.setHorizontalGroup(
-            panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosBiblioEBLayout.createSequentialGroup()
-                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosBiblioEBLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(lblNombreEB)
-                        .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosBiblioEBLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTelefonoEB)
-                            .addComponent(lblDireccionEB))
-                        .addGap(18, 18, 18)))
-                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDireccionEB, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .addComponent(txtNombreEB)
-                    .addComponent(txtTelefonoEB))
-                .addGap(22, 22, 22))
-        );
-        panelDatosBiblioEBLayout.setVerticalGroup(
-            panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosBiblioEBLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombreEB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDireccionEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDireccionEB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosBiblioEBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefonoEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTelefonoEB))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         btnEliminarEB.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnEliminarEB.setText("Eliminar");
@@ -605,47 +568,103 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             }
         });
 
+        lblEliminarBibliotecaEB.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        lblEliminarBibliotecaEB.setForeground(new java.awt.Color(255, 255, 255));
+        lblEliminarBibliotecaEB.setText("Buscar Biblioteca");
+
+        lblNombreEB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblNombreEB.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreEB.setText("Nombre:");
+
+        lblDireccionEB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblDireccionEB.setForeground(new java.awt.Color(255, 255, 255));
+        lblDireccionEB.setText("Dirección:");
+
+        lblTelefonoEB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTelefonoEB.setForeground(new java.awt.Color(255, 255, 255));
+        lblTelefonoEB.setText("Telefono:");
+
+        txtTelefonoEB.setEnabled(false);
+
+        txtDireccionEB.setEnabled(false);
+
+        txtNombreEB.setEnabled(false);
+
         javax.swing.GroupLayout panelEliminarBiblioLayout = new javax.swing.GroupLayout(panelEliminarBiblio);
         panelEliminarBiblio.setLayout(panelEliminarBiblioLayout);
         panelEliminarBiblioLayout.setHorizontalGroup(
             panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblEliminarBibliotecaEB)
+                .addContainerGap(358, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(lblCodigoEB)
                         .addGap(29, 29, 29)
                         .addComponent(txtCodigoEB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnBuscarEB))
-                    .addComponent(panelDatosBiblioEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
-                        .addComponent(btnEliminarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancelarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56))
+                        .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
+                                .addComponent(btnEliminarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCancelarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                                        .addComponent(lblNombreEB)
+                                        .addGap(24, 24, 24))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
+                                        .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblTelefonoEB)
+                                            .addComponent(lblDireccionEB))
+                                        .addGap(18, 18, 18)))
+                                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtDireccionEB, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombreEB, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefonoEB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(47, 47, 47))
         );
         panelEliminarBiblioLayout.setVerticalGroup(
             panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblEliminarBibliotecaEB)
+                .addGap(18, 18, 18)
                 .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoEB)
                     .addComponent(txtCodigoEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarEB))
-                .addGap(18, 18, 18)
-                .addComponent(panelDatosBiblioEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombreEB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDireccionEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDireccionEB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelefonoEB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelefonoEB))
+                .addGap(51, 51, 51)
                 .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarEB)
                     .addComponent(btnEliminarEB))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         panelEditarDatosBiblio.addTab("Eliminar", panelEliminarBiblio);
 
         panelListaBiblio.setBackground(new java.awt.Color(91, 86, 86));
-        panelListaBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelListaBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblBibliotecas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tblBibliotecas.setModel(new javax.swing.table.DefaultTableModel(
@@ -653,7 +672,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Dirección", "Telefono"
+                "Código", "Nombre", "Dirección", "Telefono"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -666,21 +685,32 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblBibliotecas);
 
+        lblListarBibliotecaLB.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        lblListarBibliotecaLB.setForeground(new java.awt.Color(255, 255, 255));
+        lblListarBibliotecaLB.setText("Listar");
+
         javax.swing.GroupLayout panelListaBiblioLayout = new javax.swing.GroupLayout(panelListaBiblio);
         panelListaBiblio.setLayout(panelListaBiblioLayout);
         panelListaBiblioLayout.setHorizontalGroup(
             panelListaBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListaBiblioLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(panelListaBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelListaBiblioLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelListaBiblioLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblListarBibliotecaLB)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         panelListaBiblioLayout.setVerticalGroup(
             panelListaBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelListaBiblioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListaBiblioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(lblListarBibliotecaLB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
         );
 
         panelEditarDatosBiblio.addTab("Listar", panelListaBiblio);
@@ -869,6 +899,54 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         txtTelefonoED.setEditable(false);
     }
     
+    
+    public void cambiarIdioma(Locale locale){
+        DefaultTableModel tabla = (DefaultTableModel) tblBibliotecas.getModel();
+        
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblAdmBiblio.setText(mensajes.getString("lblAdmBiblio"));
+        lblIngresoAdmin.setText(mensajes.getString("lblIngresoAdmin"));
+        lblUsuarioI.setText(mensajes.getString("lblUsuarioI"));
+        lblContrasenaI.setText(mensajes.getString("lblContrasenaI"));
+        btnAcceder.setText(mensajes.getString("btnAcceder"));
+        panelEditarDatosBiblio.setTitleAt(0, mensajes.getString("inicio"));
+        panelEditarDatosBiblio.setTitleAt(1, mensajes.getString("crear"));
+        panelEditarDatosBiblio.setTitleAt(2, mensajes.getString("editar"));
+        panelEditarDatosBiblio.setTitleAt(3, mensajes.getString("buscar"));
+        panelEditarDatosBiblio.setTitleAt(4, mensajes.getString("eliminar"));
+        panelEditarDatosBiblio.setTitleAt(5, mensajes.getString("listar"));
+        lblIngresarDatosCB.setText(mensajes.getString("lblIngresarDatosCB"));
+        lblCodigoCB.setText(mensajes.getString("codigo"));
+        lblNombreCB.setText(mensajes.getString("nombre"));
+        lblDireccionCB.setText(mensajes.getString("direccion"));
+        lblTelefonoCB.setText(mensajes.getString("telefono"));
+        btnCrearBiblioteca.setText(mensajes.getString("crear"));
+        lblEditarDatosEB.setText(mensajes.getString("lblEditarDatosEB"));
+        lblCodigoEDB.setText(mensajes.getString("codigo"));
+        lblNombreEDB.setText(mensajes.getString("nombre"));
+        lblDireccionEDB.setText(mensajes.getString("direccion"));
+        lblTelefonoEDB.setText(mensajes.getString("telefono"));
+        btnBuscarEDB.setText(mensajes.getString("buscar"));
+        btnActualizarEDB.setText(mensajes.getString("actualizar"));
+        btnCancelarEDB.setText(mensajes.getString("cancelar"));
+        lblBuscarBiliotecaBB.setText(mensajes.getString("lblBuscarBiliotecaBB"));
+        lblCodigoBB.setText(mensajes.getString("codigo"));
+        lblNombreBB.setText(mensajes.getString("nombre"));
+        lblDireccionBB.setText(mensajes.getString("direccion"));
+        lblTelefonoBB.setText(mensajes.getString("telefono"));
+        btnBuscarBB.setText(mensajes.getString("buscar"));
+        btnLimpiarBB.setText(mensajes.getString("limpiarBusqueda"));
+        lblEliminarBibliotecaEB.setText(mensajes.getString("lblEliminarBiblioteca"));
+        lblCodigoEB.setText(mensajes.getString("codigo"));
+        lblNombreEB.setText(mensajes.getString("nombre"));
+        lblDireccionEB.setText(mensajes.getString("direccion"));
+        lblTelefonoEB.setText(mensajes.getString("telefono"));
+        btnBuscarEB.setText(mensajes.getString("buscar"));
+        btnEliminarEB.setText(mensajes.getString("eliminar"));
+        btnCancelarEB.setText(mensajes.getString("cancelar"));
+        lblListarBibliotecaLB.setText(mensajes.getString("listar"));
+        tabla.setColumnIdentifiers(new String[]{mensajes.getString("codigo"), mensajes.getString("nombre"), mensajes.getString("direccion"), mensajes.getString("telefono")});
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceder;
     private javax.swing.JButton btnActualizarEDB;
@@ -883,6 +961,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAdmBiblio;
+    private javax.swing.JLabel lblBuscarBiliotecaBB;
     private javax.swing.JLabel lblCodigoBB;
     private javax.swing.JLabel lblCodigoCB;
     private javax.swing.JLabel lblCodigoEB;
@@ -892,7 +971,11 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblDireccionCB;
     private javax.swing.JLabel lblDireccionEB;
     private javax.swing.JLabel lblDireccionEDB;
+    private javax.swing.JLabel lblEditarDatosEB;
+    private javax.swing.JLabel lblEliminarBibliotecaEB;
+    private javax.swing.JLabel lblIngresarDatosCB;
     private javax.swing.JLabel lblIngresoAdmin;
+    private javax.swing.JLabel lblListarBibliotecaLB;
     private javax.swing.JLabel lblNombreBB;
     private javax.swing.JLabel lblNombreCB;
     private javax.swing.JLabel lblNombreEB;
@@ -903,8 +986,6 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTelefonoEDB;
     private javax.swing.JLabel lblUsuarioI;
     private javax.swing.JPanel panelBuscarBiblio;
-    private javax.swing.JPanel panelDatosBiblioBB;
-    private javax.swing.JPanel panelDatosBiblioEB;
     private javax.swing.JPanel panelEditarBiblio;
     private javax.swing.JTabbedPane panelEditarDatosBiblio;
     private javax.swing.JPanel panelEliminarBiblio;

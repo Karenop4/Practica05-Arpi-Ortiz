@@ -34,16 +34,6 @@ public class LibroDAO implements LibroIDAO{
         }
         return null;
     }
-    
-    @Override
-    public Libro read(String titulo, String autor){
-        for (Libro libro:listaLibros){
-            if(libro.getTitulo().equals(titulo) && libro.getAutor().equals(autor)){
-                return libro;
-            }
-        }
-        return null;
-    }
 
     @Override
     public void update(String titulo, Libro libro) {
@@ -70,15 +60,5 @@ public class LibroDAO implements LibroIDAO{
     @Override
     public List<Libro> list() {
         return listaLibros;
-    }
-
-    @Override
-    public Libro readAutor(String autor) {
-        for (Libro libro:listaLibros){
-            if(libro.getAutor().equals(autor)){
-                return libro;
-            }
-        }
-        return null;    
     }
 }

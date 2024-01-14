@@ -30,45 +30,48 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
 
         jProgressBar1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblAnho = new javax.swing.JLabel();
+        lblEliminarLibro = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        lblDisponibilidad = new javax.swing.JLabel();
+        lblAutor = new javax.swing.JLabel();
         txt_tit_lib = new javax.swing.JTextField();
         txt_anio_lib = new javax.swing.JTextField();
         txt_aut_lib = new javax.swing.JTextField();
-        btn_act_lib = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         chb_disp_lib = new javax.swing.JCheckBox();
-        btn_crear_us1 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         txt_aut_lib1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        btn_act_lib1 = new javax.swing.JButton();
+        lblGenero = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Eliminar Libro");
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Año:");
+        lblAnho.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblAnho.setForeground(new java.awt.Color(255, 255, 255));
+        lblAnho.setText("Año:");
 
-        jLabel2.setFont(new java.awt.Font("Righteous", 0, 25)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("ELIMINAR LIBRO");
+        lblEliminarLibro.setFont(new java.awt.Font("Righteous", 0, 25)); // NOI18N
+        lblEliminarLibro.setForeground(new java.awt.Color(255, 0, 0));
+        lblEliminarLibro.setText("ELIMINAR LIBRO");
 
-        jLabel3.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Título:");
+        lblTitulo.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Título:");
 
-        jLabel4.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Disponibilidad:");
+        lblDisponibilidad.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblDisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblDisponibilidad.setText("Disponibilidad:");
 
-        jLabel5.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Autor:");
+        lblAutor.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblAutor.setForeground(new java.awt.Color(255, 255, 255));
+        lblAutor.setText("Autor:");
 
         txt_anio_lib.setEditable(false);
         txt_anio_lib.setBackground(new java.awt.Color(114, 114, 114));
@@ -76,42 +79,42 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
         txt_aut_lib.setEditable(false);
         txt_aut_lib.setBackground(new java.awt.Color(114, 114, 114));
 
-        btn_act_lib.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btn_act_lib.setForeground(new java.awt.Color(255, 0, 0));
-        btn_act_lib.setText("Cancelar");
-        btn_act_lib.setActionCommand("Eliminar Libro");
-        btn_act_lib.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 0, 0));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setActionCommand("Eliminar Libro");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_act_libActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
         chb_disp_lib.setSelected(true);
         chb_disp_lib.setEnabled(false);
 
-        btn_crear_us1.setBackground(new java.awt.Color(217, 217, 217));
-        btn_crear_us1.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btn_crear_us1.setText("Buscar");
-        btn_crear_us1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setBackground(new java.awt.Color(217, 217, 217));
+        btnBuscar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_crear_us1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
         txt_aut_lib1.setEditable(false);
         txt_aut_lib1.setBackground(new java.awt.Color(114, 114, 114));
 
-        jLabel6.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Género:");
+        lblGenero.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(255, 255, 255));
+        lblGenero.setText("Género:");
 
-        btn_act_lib1.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
-        btn_act_lib1.setForeground(new java.awt.Color(255, 0, 0));
-        btn_act_lib1.setText("Eliminar");
-        btn_act_lib1.setActionCommand("Eliminar Libro");
-        btn_act_lib1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 0, 0));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setActionCommand("Eliminar Libro");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_act_lib1ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -123,19 +126,19 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(btn_act_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addComponent(btn_act_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3))
+                                    .addComponent(lblDisponibilidad)
+                                    .addComponent(lblGenero)
+                                    .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAnho)
+                                    .addComponent(lblTitulo))
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,30 +148,30 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(53, 53, 53)
-                                        .addComponent(btn_crear_us1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblEliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel2)
+                .addComponent(lblEliminarLibro)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(btn_crear_us1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTitulo)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(lblAnho)
                     .addComponent(txt_anio_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
+                        .addComponent(lblAutor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6))
+                        .addComponent(lblGenero))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,12 +180,12 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
                         .addGap(0, 4, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
+                    .addComponent(lblDisponibilidad)
                     .addComponent(chb_disp_lib))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_act_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_act_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -200,32 +203,32 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_act_libActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_act_libActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_act_libActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btn_crear_us1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_us1ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_crear_us1ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btn_act_lib1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_act_lib1ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_act_lib1ActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_act_lib;
-    private javax.swing.JButton btn_act_lib1;
-    private javax.swing.JButton btn_crear_us1;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JCheckBox chb_disp_lib;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel lblAnho;
+    private javax.swing.JLabel lblAutor;
+    private javax.swing.JLabel lblDisponibilidad;
+    private javax.swing.JLabel lblEliminarLibro;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txt_anio_lib;
     private javax.swing.JTextField txt_aut_lib;
     private javax.swing.JTextField txt_aut_lib1;

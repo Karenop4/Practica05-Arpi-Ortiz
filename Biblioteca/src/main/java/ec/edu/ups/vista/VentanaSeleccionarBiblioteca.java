@@ -6,9 +6,14 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.LibroControlador;
+import ec.edu.ups.est.vista.libro.*;
+import ec.edu.ups.est.vista.usuario.*;
+import ec.edu.ups.est.vista.prestamo.*;
 import ec.edu.ups.interfaces.BibliotecaListener;
 import ec.edu.ups.modelo.Biblioteca;
-import javax.swing.JOptionPane;
+import ec.edu.ups.vista.libro.VentanaListarLibros;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -16,7 +21,23 @@ import javax.swing.JOptionPane;
  */
 public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame implements BibliotecaListener{
     private VentanaBuscarBiblioteca ventanaBuscarBiblioteca;
+    
+    private VentanaActualizarLibro ventanaActualizarLibro;
+    private VentanaBuscarLibro ventanaBuscarLIbro;
+    private VentanaCrearLibro ventanaCrearLibro;
+    private VentanaEliminarLibro ventanaEliminarLibro;
+    private VentanaListarLibros ventanaListarLibros;
+    
+    private VentanaDevolverLibro ventanaDevolverLibro;
+    private VentanaSolicitarLibro ventanaSolicitarLibro;
+    
+    private VentanaActualizarUsuario ventanaActualizarUsuario;
+    private VentanaBuscarUsuario ventanaBuscarUsuario;
+    private VentanaCrearUsuario ventanaCrearUsurio;
+    private VentanaEliminarUsuario ventanaEliminarUsuario;
+    
     private int codigo;
+    
     private BibliotecaControlador bibliotecaControlador;
     private LibroControlador libroControlador;
     /**
@@ -44,20 +65,20 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         txtNombreBiblio = new javax.swing.JTextField();
         btnSeleccionarBiblioteca = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        librosMenu = new javax.swing.JMenu();
         crearLibroMenuItem = new javax.swing.JMenuItem();
-        actualizarLibroMenuItem = new javax.swing.JMenuItem();
+        editarLibroMenuItem = new javax.swing.JMenuItem();
         buscarLibroMenuItem = new javax.swing.JMenuItem();
         eliminarLibroMenuItem = new javax.swing.JMenuItem();
         listarLibroMenuItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        usuariosMenu = new javax.swing.JMenu();
+        crearUsuarioMenuItem = new javax.swing.JMenuItem();
+        editarUsuarioMenuItem = new javax.swing.JMenuItem();
+        buscarUsuarioMenuItem = new javax.swing.JMenuItem();
+        eliminarUsuarioMenuItem = new javax.swing.JMenuItem();
+        prestamoMenu = new javax.swing.JMenu();
+        solicitarPrestamoMenuItem = new javax.swing.JMenuItem();
+        devolverPrestamoMenuItem = new javax.swing.JMenuItem();
 
         setClosable(true);
         setIconifiable(true);
@@ -104,50 +125,105 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
         jMenuBar1.setFont(new java.awt.Font("Century", 1, 16)); // NOI18N
 
-        jMenu1.setText("Libros");
+        librosMenu.setText("Libros");
 
         crearLibroMenuItem.setText("Crear");
-        jMenu1.add(crearLibroMenuItem);
+        crearLibroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearLibroMenuItemActionPerformed(evt);
+            }
+        });
+        librosMenu.add(crearLibroMenuItem);
 
-        actualizarLibroMenuItem.setText("Actualizar");
-        jMenu1.add(actualizarLibroMenuItem);
+        editarLibroMenuItem.setText("Editar");
+        editarLibroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarLibroMenuItemActionPerformed(evt);
+            }
+        });
+        librosMenu.add(editarLibroMenuItem);
 
         buscarLibroMenuItem.setText("Buscar");
-        jMenu1.add(buscarLibroMenuItem);
+        buscarLibroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarLibroMenuItemActionPerformed(evt);
+            }
+        });
+        librosMenu.add(buscarLibroMenuItem);
 
         eliminarLibroMenuItem.setText("Eliminar");
-        jMenu1.add(eliminarLibroMenuItem);
+        eliminarLibroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarLibroMenuItemActionPerformed(evt);
+            }
+        });
+        librosMenu.add(eliminarLibroMenuItem);
 
         listarLibroMenuItem.setText("Listar");
-        jMenu1.add(listarLibroMenuItem);
+        listarLibroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarLibroMenuItemActionPerformed(evt);
+            }
+        });
+        librosMenu.add(listarLibroMenuItem);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(librosMenu);
 
-        jMenu2.setText("Usuarios");
+        usuariosMenu.setText("Usuarios");
 
-        jMenuItem6.setText("jMenuItem6");
-        jMenu2.add(jMenuItem6);
+        crearUsuarioMenuItem.setText("Crear");
+        crearUsuarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearUsuarioMenuItemActionPerformed(evt);
+            }
+        });
+        usuariosMenu.add(crearUsuarioMenuItem);
 
-        jMenuItem7.setText("jMenuItem7");
-        jMenu2.add(jMenuItem7);
+        editarUsuarioMenuItem.setText("Editar");
+        editarUsuarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarUsuarioMenuItemActionPerformed(evt);
+            }
+        });
+        usuariosMenu.add(editarUsuarioMenuItem);
 
-        jMenuItem8.setText("jMenuItem8");
-        jMenu2.add(jMenuItem8);
+        buscarUsuarioMenuItem.setText("Buscar");
+        buscarUsuarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarUsuarioMenuItemActionPerformed(evt);
+            }
+        });
+        usuariosMenu.add(buscarUsuarioMenuItem);
 
-        jMenuItem9.setText("jMenuItem9");
-        jMenu2.add(jMenuItem9);
+        eliminarUsuarioMenuItem.setText("Eliminar");
+        eliminarUsuarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarUsuarioMenuItemActionPerformed(evt);
+            }
+        });
+        usuariosMenu.add(eliminarUsuarioMenuItem);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(usuariosMenu);
 
-        jMenu3.setText("Préstamo");
+        prestamoMenu.setText("Préstamo");
 
-        jMenuItem10.setText("Solicitar Libro");
-        jMenu3.add(jMenuItem10);
+        solicitarPrestamoMenuItem.setText("Solicitar Libro");
+        solicitarPrestamoMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solicitarPrestamoMenuItemActionPerformed(evt);
+            }
+        });
+        prestamoMenu.add(solicitarPrestamoMenuItem);
 
-        jMenuItem11.setText("Devolver Libro");
-        jMenu3.add(jMenuItem11);
+        devolverPrestamoMenuItem.setText("Devolver Libro");
+        devolverPrestamoMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolverPrestamoMenuItemActionPerformed(evt);
+            }
+        });
+        prestamoMenu.add(devolverPrestamoMenuItem);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(prestamoMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -203,28 +279,160 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         }     
     }//GEN-LAST:event_btnSeleccionarBibliotecaActionPerformed
 
+    private void crearUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioMenuItemActionPerformed
+        if(ventanaCrearUsurio==null)
+            ventanaCrearUsurio = new VentanaCrearUsuario();
+        if(!ventanaCrearUsurio.isVisible()){
+            
+            ventanaCrearUsurio.setVisible(true);
+            jDesktopPane1.add(ventanaCrearUsurio);
+        }
+    }//GEN-LAST:event_crearUsuarioMenuItemActionPerformed
 
+    private void crearLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearLibroMenuItemActionPerformed
+        if(ventanaCrearLibro==null)
+            ventanaCrearLibro = new VentanaCrearLibro();
+        if(!ventanaCrearLibro.isVisible()){
+            
+            ventanaCrearLibro.setVisible(true);
+            jDesktopPane1.add(ventanaCrearLibro);
+        }
+    }//GEN-LAST:event_crearLibroMenuItemActionPerformed
+
+    private void editarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarLibroMenuItemActionPerformed
+        if(ventanaActualizarLibro==null)
+            ventanaActualizarLibro = new VentanaActualizarLibro();
+        if(!ventanaActualizarLibro.isVisible()){
+            
+            ventanaActualizarLibro.setVisible(true);
+            jDesktopPane1.add(ventanaActualizarLibro);
+        }
+    }//GEN-LAST:event_editarLibroMenuItemActionPerformed
+
+    private void buscarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarLibroMenuItemActionPerformed
+        if(ventanaBuscarLIbro==null)
+            ventanaBuscarLIbro = new VentanaBuscarLibro();
+        if(!ventanaBuscarLIbro.isVisible()){
+            
+            ventanaBuscarLIbro.setVisible(true);
+            jDesktopPane1.add(ventanaBuscarLIbro);
+        }
+    }//GEN-LAST:event_buscarLibroMenuItemActionPerformed
+
+    private void eliminarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarLibroMenuItemActionPerformed
+        if(ventanaEliminarLibro==null)
+            ventanaEliminarLibro = new VentanaEliminarLibro();
+        if(!ventanaEliminarLibro.isVisible()){
+            
+            ventanaEliminarLibro.setVisible(true);
+            jDesktopPane1.add(ventanaEliminarLibro);
+        }
+    }//GEN-LAST:event_eliminarLibroMenuItemActionPerformed
+
+    private void listarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarLibroMenuItemActionPerformed
+        if(ventanaListarLibros==null)
+            ventanaListarLibros = new VentanaListarLibros();
+        if(!ventanaListarLibros.isVisible()){
+            
+            ventanaListarLibros.setVisible(true);
+            jDesktopPane1.add(ventanaListarLibros);
+        }
+    }//GEN-LAST:event_listarLibroMenuItemActionPerformed
+
+    private void editarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioMenuItemActionPerformed
+        if(ventanaActualizarUsuario==null)
+            ventanaActualizarUsuario = new VentanaActualizarUsuario();
+        if(!ventanaActualizarUsuario.isVisible()){
+            
+            ventanaActualizarUsuario.setVisible(true);
+            jDesktopPane1.add(ventanaActualizarUsuario);
+        }
+    }//GEN-LAST:event_editarUsuarioMenuItemActionPerformed
+
+    private void buscarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioMenuItemActionPerformed
+        if(ventanaBuscarUsuario==null)
+            ventanaBuscarUsuario = new VentanaBuscarUsuario();
+        if(!ventanaBuscarUsuario.isVisible()){
+            
+            ventanaBuscarUsuario.setVisible(true);
+            jDesktopPane1.add(ventanaBuscarUsuario);
+        }
+    }//GEN-LAST:event_buscarUsuarioMenuItemActionPerformed
+
+    private void eliminarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarUsuarioMenuItemActionPerformed
+        if(ventanaEliminarUsuario==null)
+            ventanaEliminarUsuario = new VentanaEliminarUsuario();
+        if(!ventanaEliminarUsuario.isVisible()){
+            
+            ventanaEliminarUsuario.setVisible(true);
+            jDesktopPane1.add(ventanaEliminarUsuario);
+        }
+    }//GEN-LAST:event_eliminarUsuarioMenuItemActionPerformed
+
+    private void solicitarPrestamoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitarPrestamoMenuItemActionPerformed
+        if(ventanaSolicitarLibro==null)
+            ventanaSolicitarLibro = new VentanaSolicitarLibro();
+        if(!ventanaSolicitarLibro.isVisible()){
+            
+            ventanaSolicitarLibro.setVisible(true);
+            jDesktopPane1.add(ventanaSolicitarLibro);
+        }
+    }//GEN-LAST:event_solicitarPrestamoMenuItemActionPerformed
+
+    private void devolverPrestamoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverPrestamoMenuItemActionPerformed
+        if(ventanaDevolverLibro==null)
+            ventanaDevolverLibro = new VentanaDevolverLibro();
+        if(!ventanaDevolverLibro.isVisible()){
+            
+            ventanaDevolverLibro.setVisible(true);
+            jDesktopPane1.add(ventanaDevolverLibro);
+        }
+    }//GEN-LAST:event_devolverPrestamoMenuItemActionPerformed
+
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        crearLibroMenuItem.setText(mensajes.getString("crear"));
+        editarLibroMenuItem.setText(mensajes.getString("editar"));
+        buscarLibroMenuItem.setText(mensajes.getString("buscar"));
+        eliminarLibroMenuItem.setText(mensajes.getString("eliminar"));
+        listarLibroMenuItem.setText(mensajes.getString("listar"));
+        crearUsuarioMenuItem.setText(mensajes.getString("crear"));
+        editarUsuarioMenuItem.setText(mensajes.getString("editar"));
+        buscarUsuarioMenuItem.setText(mensajes.getString("buscar"));
+        eliminarUsuarioMenuItem.setText(mensajes.getString("eliminar"));
+        librosMenu.setText(mensajes.getString("libros"));
+        usuariosMenu.setText(mensajes.getString("usuarios"));
+        prestamoMenu.setText(mensajes.getString("prestamo"));
+        solicitarPrestamoMenuItem.setText(mensajes.getString("solicitarLibro"));
+        devolverPrestamoMenuItem.setText(mensajes.getString("devolverLibro"));
+        lblSeleccionarBiblio.setText(mensajes.getString("seleccionarBiblioteca"));
+        btnSeleccionarBiblioteca.setText(mensajes.getString("seleccionar"));
+        
+        if(ventanaBuscarBiblioteca != null){
+            ventanaBuscarBiblioteca.cambiarIdioma(locale);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem actualizarLibroMenuItem;
     private javax.swing.JButton btnSeleccionarBiblioteca;
     private javax.swing.JMenuItem buscarLibroMenuItem;
+    private javax.swing.JMenuItem buscarUsuarioMenuItem;
     private javax.swing.JMenuItem crearLibroMenuItem;
+    private javax.swing.JMenuItem crearUsuarioMenuItem;
+    private javax.swing.JMenuItem devolverPrestamoMenuItem;
+    private javax.swing.JMenuItem editarLibroMenuItem;
+    private javax.swing.JMenuItem editarUsuarioMenuItem;
     private javax.swing.JMenuItem eliminarLibroMenuItem;
+    private javax.swing.JMenuItem eliminarUsuarioMenuItem;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblSeleccionarBiblio;
+    private javax.swing.JMenu librosMenu;
     private javax.swing.JMenuItem listarLibroMenuItem;
+    private javax.swing.JMenu prestamoMenu;
+    private javax.swing.JMenuItem solicitarPrestamoMenuItem;
     private javax.swing.JTextField txtNombreBiblio;
+    private javax.swing.JMenu usuariosMenu;
     // End of variables declaration//GEN-END:variables
 
     @Override

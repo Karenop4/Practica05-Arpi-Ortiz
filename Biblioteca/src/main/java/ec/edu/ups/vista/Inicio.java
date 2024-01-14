@@ -53,7 +53,7 @@ public class Inicio extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         inglesRadioButton = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        espanolRadioButton = new javax.swing.JRadioButton();
         lblIdioma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,7 +96,7 @@ public class Inicio extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 742, Short.MAX_VALUE)
+            .addGap(0, 745, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,13 +115,13 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup2.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI Variable", 3, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("ESPAÑOL");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(espanolRadioButton);
+        espanolRadioButton.setFont(new java.awt.Font("Segoe UI Variable", 3, 18)); // NOI18N
+        espanolRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        espanolRadioButton.setText("ESPAÑOL");
+        espanolRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                espanolRadioButtonActionPerformed(evt);
             }
         });
 
@@ -143,38 +143,42 @@ public class Inicio extends javax.swing.JFrame {
                             .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblIdioma))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblIdioma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
+                            .addComponent(espanolRadioButton)
                             .addComponent(inglesRadioButton))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(lblGestionBiblio)
-                .addGap(18, 18, 18)
-                .addComponent(btnCrudBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(lblIdioma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inglesRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jDesktopPane1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(268, 268, 268)
+                                .addComponent(inglesRadioButton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(lblGestionBiblio)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCrudBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSeleccionarBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(lblIdioma)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(espanolRadioButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -217,24 +221,37 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void inglesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesRadioButtonActionPerformed
-        locale = new Locale("en", "US");
-        cambiarIdioma(); 
+        if(inglesRadioButton.isSelected()){
+            locale = new Locale("en", "US");
+            cambiarIdioma(); 
+        }
+        
     }//GEN-LAST:event_inglesRadioButtonActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        locale = new Locale("es", "EC");
-        cambiarIdioma();  
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    private void espanolRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espanolRadioButtonActionPerformed
+        if(espanolRadioButton.isSelected()){
+            locale = new Locale("es", "EC");
+            cambiarIdioma(); 
+        }
+         
+    }//GEN-LAST:event_espanolRadioButtonActionPerformed
     
     
     public void cambiarIdioma(){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
         lblGestionBiblio.setText(mensajes.getString("lblGestionBiblio"));
         btnCrudBiblioteca.setText(mensajes.getString("btnCrudBiblioteca"));
-        btnSeleccionarBiblioteca.setText(mensajes.getString("btnSeleccionarBiblioteca"));
+        btnSeleccionarBiblioteca.setText(mensajes.getString("seleccionarBiblioteca"));
         btnSalir.setText(mensajes.getString("btnSalir"));
         lblIdioma.setText(mensajes.getString("lblIdioma"));
-    
+        
+        if(ventanaCrudBiblioteca != null){
+            ventanaCrudBiblioteca.cambiarIdioma(locale);
+        }
+        
+        if(ventanaSeleccionarBiblioteca != null){
+            ventanaSeleccionarBiblioteca.cambiarIdioma(locale);
+        }
     }
     
     /**
@@ -277,10 +294,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionarBiblioteca;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JRadioButton espanolRadioButton;
     private javax.swing.JRadioButton inglesRadioButton;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lblGestionBiblio;
     private javax.swing.JLabel lblIdioma;
     // End of variables declaration//GEN-END:variables
