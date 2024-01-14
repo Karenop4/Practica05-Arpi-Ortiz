@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.est.vista.usuario;
+package ec.edu.ups.vista.usuario;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -187,7 +190,10 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar1ActionPerformed
-
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarUsuario;

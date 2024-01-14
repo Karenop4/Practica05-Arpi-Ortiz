@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.est.vista.prestamo;
+package ec.edu.ups.vista.prestamo;
 
-import ec.edu.ups.est.vista.libro.*;
-import ec.edu.ups.est.vista.usuario.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -122,10 +124,10 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
                         .addComponent(btnDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -186,7 +188,17 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListarPrestamosActionPerformed
 
-
+    public void cambiarIdioma(Locale locale){
+        DefaultTableModel tabla = (DefaultTableModel) tablaLibros.getModel();
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblDevolverLibro.setText(mensajes.getString("lblDevolverLibro"));
+        lblIdUsuario.setText(mensajes.getString("lblIdUsuario"));
+        btnListarPrestamos.setText(mensajes.getString("btnListarPrestamos"));
+        lblTitulo.setText(mensajes.getString("titulo"));
+        btnDevolverLibro.setText(mensajes.getString("devolverLibro"));
+        tabla.setColumnIdentifiers(new String[]{mensajes.getString("titulo")});
+        
+   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDevolverLibro;
     private javax.swing.JButton btnListarPrestamos;

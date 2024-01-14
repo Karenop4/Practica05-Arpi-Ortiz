@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="iconifiable" type="boolean" value="true"/>
@@ -103,8 +103,8 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="4">
                     <Column editable="false" title="T&#xed;tulo" type="java.lang.Object"/>
-                    <Column editable="false" title="Nombre" type="java.lang.Object"/>
                     <Column editable="false" title="Autor" type="java.lang.Object"/>
+                    <Column editable="false" title="A&#xf1;o" type="java.lang.Object"/>
                     <Column editable="true" title="G&#xe9;nero" type="java.lang.Object"/>
                     <Column editable="false" title="Disponible" type="java.lang.Object"/>
                   </Table>

@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.est.vista.libro;
+package ec.edu.ups.vista.libro;
 
-import ec.edu.ups.est.vista.usuario.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -135,10 +136,11 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblDisponibilidad)
-                                    .addComponent(lblGenero)
-                                    .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblAnho)
-                                    .addComponent(lblTitulo))
+                                    .addComponent(lblTitulo)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblAutor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblGenero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +217,20 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblEliminarLibro.setText(mensajes.getString("lblEliminarLibro"));
+        lblTitulo.setText(mensajes.getString("titulo"));
+        lblAnho.setText(mensajes.getString("anho"));
+        lblAutor.setText(mensajes.getString("autor"));
+        lblGenero.setText(mensajes.getString("genero"));
+        lblDisponibilidad.setText(mensajes.getString("disponibilidad"));
+        btnCancelar.setText(mensajes.getString("cancelar"));
+        btnEliminar.setText(mensajes.getString("eliminar"));
+        btnBuscar.setText(mensajes.getString("buscar"));
+  }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;

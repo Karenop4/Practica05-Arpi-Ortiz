@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.vista.libro;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author karen
@@ -50,7 +54,7 @@ public class VentanaListarLibros extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Título", "Nombre", "Autor", "Género", "Disponible"
+                "Título", "Autor", "Año", "Género", "Disponible"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -106,7 +110,15 @@ public class VentanaListarLibros extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+    
+    public void cambiarIdioma(Locale locale){
+        DefaultTableModel tabla = (DefaultTableModel) tablaLibros.getModel(); 
+        
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblListarLibros.setText(mensajes.getString("lblListarLibros"));
+        tabla.setColumnIdentifiers(new String[]{mensajes.getString("titulo"), mensajes.getString("autor"), mensajes.getString("anho"), mensajes.getString("genero"), mensajes.getString("disponibilidad")});
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

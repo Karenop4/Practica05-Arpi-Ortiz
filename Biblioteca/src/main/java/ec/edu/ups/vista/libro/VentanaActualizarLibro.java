@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.est.vista.libro;
+package ec.edu.ups.vista.libro;
 
-import ec.edu.ups.est.vista.usuario.*;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -204,7 +206,20 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
-
+    
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblActualizarDatos.setText(mensajes.getString("lblActualizarDatos"));
+        lblTitulo.setText(mensajes.getString("titulo"));
+        lblAnho.setText(mensajes.getString("anho"));
+        lblAutor.setText(mensajes.getString("autor"));
+        lblGenero.setText(mensajes.getString("genero"));
+        lblDisponibilidad.setText(mensajes.getString("disponibilidad"));
+        btnActualizarLibro.setText(mensajes.getString("btnActualizarLibro"));
+        btnCancelar.setText(mensajes.getString("cancelar"));
+        btnBuscar.setText(mensajes.getString("buscar"));
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarLibro;

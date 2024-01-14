@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.est.vista.libro;
+package ec.edu.ups.vista.libro;
 
-import ec.edu.ups.est.vista.usuario.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -125,13 +126,13 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
                         .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(lblAnho)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAutor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblGenero)))
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addComponent(btnCrearLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
@@ -154,7 +155,18 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCrearLibroActionPerformed
 
-
+    
+    public void cambiarIdioma(Locale locale){
+        ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
+        lblIngresoDatos.setText(mensajes.getString("lblIngresoDatos"));
+        lblTitulo.setText(mensajes.getString("titulo"));
+        lblAnho.setText(mensajes.getString("anho"));
+        lblAutor.setText(mensajes.getString("autor"));
+        lblGenero.setText(mensajes.getString("genero"));
+        btnCrearLibro.setText(mensajes.getString("btnCrearLibro"));
+       
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearLibro;
     private javax.swing.JPanel jPanel1;

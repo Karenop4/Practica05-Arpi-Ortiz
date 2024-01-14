@@ -6,12 +6,12 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.LibroControlador;
-import ec.edu.ups.est.vista.libro.*;
-import ec.edu.ups.est.vista.usuario.*;
-import ec.edu.ups.est.vista.prestamo.*;
 import ec.edu.ups.interfaces.BibliotecaListener;
 import ec.edu.ups.modelo.Biblioteca;
+import ec.edu.ups.vista.libro.*;
 import ec.edu.ups.vista.libro.VentanaListarLibros;
+import ec.edu.ups.vista.prestamo.*;
+import ec.edu.ups.vista.usuario.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -60,10 +60,11 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        lblSeleccionarBiblio = new javax.swing.JLabel();
-        txtNombreBiblio = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
         btnSeleccionarBiblioteca = new javax.swing.JButton();
+        txtNombreBiblio = new javax.swing.JTextField();
+        lblSeleccionarBiblio = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         librosMenu = new javax.swing.JMenu();
         crearLibroMenuItem = new javax.swing.JMenuItem();
@@ -85,15 +86,42 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         setMaximizable(true);
         setResizable(true);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        btnSeleccionarBiblioteca.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSeleccionarBiblioteca.setText("Seleccionar");
+        btnSeleccionarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarBibliotecaActionPerformed(evt);
+            }
+        });
+
+        txtNombreBiblio.setEditable(false);
+        txtNombreBiblio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lblSeleccionarBiblio.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        lblSeleccionarBiblio.setText("Seleccionar Biblioteca");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSeleccionarBiblio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNombreBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSeleccionarBiblioteca)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSeleccionarBiblioteca)
+                    .addComponent(lblSeleccionarBiblio))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jDesktopPane1.setBackground(new java.awt.Color(204, 204, 255));
@@ -102,26 +130,29 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 728, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 551, Short.MAX_VALUE)
+            .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        lblSeleccionarBiblio.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
-        lblSeleccionarBiblio.setText("Seleccionar Biblioteca");
-
-        txtNombreBiblio.setEditable(false);
-        txtNombreBiblio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        btnSeleccionarBiblioteca.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSeleccionarBiblioteca.setText("Seleccionar");
-        btnSeleccionarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarBibliotecaActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jDesktopPane1)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPane1))
+        );
 
         jMenuBar1.setFont(new java.awt.Font("Century", 1, 16)); // NOI18N
 
@@ -232,36 +263,12 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblSeleccionarBiblio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreBiblio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSeleccionarBiblioteca)
-                        .addGap(141, 141, 141)))
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblSeleccionarBiblio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombreBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSeleccionarBiblioteca))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)))
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -411,6 +418,50 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         if(ventanaBuscarBiblioteca != null){
             ventanaBuscarBiblioteca.cambiarIdioma(locale);
         }
+        
+        if(ventanaActualizarLibro != null){
+            ventanaActualizarLibro.cambiarIdioma(locale);
+        }
+        
+        if(ventanaActualizarUsuario != null){
+            ventanaActualizarUsuario.cambiarIdioma(locale);
+        }
+        
+        if(ventanaBuscarLIbro != null){
+            ventanaBuscarLIbro.cambiarIdioma(locale);
+        }
+        
+        if(ventanaBuscarUsuario != null){
+            ventanaBuscarUsuario.cambiarIdioma(locale);
+        }
+        
+        if(ventanaCrearLibro != null){
+            ventanaCrearLibro.cambiarIdioma(locale);
+        }
+        
+        if(ventanaCrearUsurio != null){
+            ventanaCrearUsurio.cambiarIdioma(locale);
+        }
+        
+        if(ventanaDevolverLibro != null){
+            ventanaDevolverLibro.cambiarIdioma(locale);
+        }
+        
+        if(ventanaEliminarLibro != null){
+            ventanaEliminarLibro.cambiarIdioma(locale);
+        }
+        
+        if(ventanaEliminarUsuario != null){
+            ventanaEliminarUsuario.cambiarIdioma(locale);
+        }
+        
+        if(ventanaListarLibros != null){
+            ventanaListarLibros.cambiarIdioma(locale);
+        }
+        
+        if(ventanaSolicitarLibro != null){
+            ventanaSolicitarLibro.cambiarIdioma(locale);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSeleccionarBiblioteca;
@@ -426,6 +477,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblSeleccionarBiblio;
     private javax.swing.JMenu librosMenu;
     private javax.swing.JMenuItem listarLibroMenuItem;
