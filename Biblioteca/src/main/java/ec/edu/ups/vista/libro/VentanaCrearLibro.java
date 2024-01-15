@@ -4,20 +4,23 @@
  */
 package ec.edu.ups.vista.libro;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arpi
  */
 public class VentanaCrearLibro extends javax.swing.JInternalFrame {
-
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaCrearLibro() {
+    public VentanaCrearLibro(BibliotecaControlador bibliotecaControlador) {
         initComponents();
+        this.bibliotecaControlador = bibliotecaControlador;
     }
 
     /**
@@ -39,7 +42,7 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
         txt_aut_lib = new javax.swing.JTextField();
         btnCrearLibro = new javax.swing.JButton();
         lblGenero = new javax.swing.JLabel();
-        txt_aut_lib1 = new javax.swing.JTextField();
+        txt_gen_lib = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -100,7 +103,7 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
                                 .addComponent(lblGenero)))
                         .addGap(83, 83, 83)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_gen_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_anio_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -123,7 +126,7 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_gen_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblTitulo)
                         .addGap(12, 12, 12)
@@ -152,7 +155,18 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearLibroActionPerformed
-        // TODO add your handling code here:
+        String titulo = txt_tit_lib.getText();
+        String autor = txt_aut_lib.getText();
+        int anho = Integer.parseInt(txt_anio_lib.getText());
+        String genero = txt_gen_lib.getText();
+        
+        bibliotecaControlador.createLIbro(titulo, autor, genero, anho);
+        
+        JOptionPane.showMessageDialog(this, "Libro creado exitosamente" );
+        txt_anio_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_gen_lib.setText("");
+        txt_tit_lib.setText("");
     }//GEN-LAST:event_btnCrearLibroActionPerformed
 
     
@@ -177,7 +191,7 @@ public class VentanaCrearLibro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txt_anio_lib;
     private javax.swing.JTextField txt_aut_lib;
-    private javax.swing.JTextField txt_aut_lib1;
+    private javax.swing.JTextField txt_gen_lib;
     private javax.swing.JTextField txt_tit_lib;
     // End of variables declaration//GEN-END:variables
 }

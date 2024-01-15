@@ -65,6 +65,32 @@ public class Biblioteca {
         listaLibros.add(libro);
     }
     
+    public void actualizarLibro(Libro libro){
+        int cont =0;
+        for(Libro libro2:listaLibros){
+            if(libro2.getTitulo().equals(libro.getTitulo())){
+                listaLibros.set(cont, libro2);
+            }
+        }
+    }
+    
+    public void eliminarLibro(Libro libro){
+        listaLibros.remove(libro);
+    }
+    
+    public ArrayList<Libro> devolverLibros(){
+        return listaLibros;
+    }
+    
+    public Libro buscarLibro(String titulo) {
+        for (Libro libro : listaLibros) {
+            if (libro.getTitulo().equals(titulo)) {
+                return libro;
+            }
+        }
+        return null; // Retornar null si no se encuentra el libro con el título dado
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

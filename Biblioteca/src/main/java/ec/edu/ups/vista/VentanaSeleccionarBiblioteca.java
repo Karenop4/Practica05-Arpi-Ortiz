@@ -281,6 +281,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         }
             
         if(!ventanaBuscarBiblioteca.isVisible()){
+            jDesktopPane1.remove(ventanaBuscarBiblioteca);
             ventanaBuscarBiblioteca.setVisible(true);
             jDesktopPane1.add(ventanaBuscarBiblioteca);
         }     
@@ -298,7 +299,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void crearLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearLibroMenuItemActionPerformed
         if(ventanaCrearLibro==null)
-            ventanaCrearLibro = new VentanaCrearLibro();
+            ventanaCrearLibro = new VentanaCrearLibro(bibliotecaControlador);
         if(!ventanaCrearLibro.isVisible()){
             
             ventanaCrearLibro.setVisible(true);
@@ -308,7 +309,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void editarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarLibroMenuItemActionPerformed
         if(ventanaActualizarLibro==null)
-            ventanaActualizarLibro = new VentanaActualizarLibro();
+            ventanaActualizarLibro = new VentanaActualizarLibro(bibliotecaControlador);
         if(!ventanaActualizarLibro.isVisible()){
             
             ventanaActualizarLibro.setVisible(true);
@@ -318,7 +319,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void buscarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarLibroMenuItemActionPerformed
         if(ventanaBuscarLIbro==null)
-            ventanaBuscarLIbro = new VentanaBuscarLibro();
+            ventanaBuscarLIbro = new VentanaBuscarLibro(bibliotecaControlador);
         if(!ventanaBuscarLIbro.isVisible()){
             
             ventanaBuscarLIbro.setVisible(true);
@@ -328,7 +329,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void eliminarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarLibroMenuItemActionPerformed
         if(ventanaEliminarLibro==null)
-            ventanaEliminarLibro = new VentanaEliminarLibro();
+            ventanaEliminarLibro = new VentanaEliminarLibro(bibliotecaControlador);
         if(!ventanaEliminarLibro.isVisible()){
             
             ventanaEliminarLibro.setVisible(true);
@@ -338,9 +339,9 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void listarLibroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarLibroMenuItemActionPerformed
         if(ventanaListarLibros==null)
-            ventanaListarLibros = new VentanaListarLibros();
+            ventanaListarLibros = new VentanaListarLibros(bibliotecaControlador);
         if(!ventanaListarLibros.isVisible()){
-            
+            ventanaListarLibros.listarLibros();
             ventanaListarLibros.setVisible(true);
             jDesktopPane1.add(ventanaListarLibros);
         }

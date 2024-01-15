@@ -4,20 +4,24 @@
  */
 package ec.edu.ups.vista.libro;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
+import ec.edu.ups.modelo.Libro;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arpi
  */
 public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
-
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaEliminarLibro() {
+    public VentanaEliminarLibro(BibliotecaControlador bibliotecaControlador) {
         initComponents();
+        this.bibliotecaControlador=bibliotecaControlador;
     }
 
     /**
@@ -42,7 +46,7 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         chb_disp_lib = new javax.swing.JCheckBox();
         btnBuscar = new javax.swing.JButton();
-        txt_aut_lib1 = new javax.swing.JTextField();
+        txt_gen_lib = new javax.swing.JTextField();
         lblGenero = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
 
@@ -102,8 +106,8 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
             }
         });
 
-        txt_aut_lib1.setEditable(false);
-        txt_aut_lib1.setBackground(new java.awt.Color(114, 114, 114));
+        txt_gen_lib.setEditable(false);
+        txt_gen_lib.setBackground(new java.awt.Color(114, 114, 114));
 
         lblGenero.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
         lblGenero.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,7 +147,7 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
                                         .addComponent(lblGenero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_gen_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_anio_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(chb_disp_lib)
@@ -178,7 +182,7 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14)
                         .addComponent(txt_aut_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_gen_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 4, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -206,15 +210,45 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        txt_tit_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_anio_lib.setText("");
+        txt_gen_lib.setText("");
+        chb_disp_lib.setSelected(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        Libro libro = new Libro();
+        libro = bibliotecaControlador.readLibro(txt_tit_lib.getText());
+        
+        
+        if(libro == null){
+            JOptionPane.showMessageDialog(this, "No existe biblioteca");
+        }else{
+            txt_aut_lib.setText(libro.getAutor());
+            txt_anio_lib.setText(String.valueOf(libro.getAnho()));
+            txt_gen_lib.setText(libro.getGenero());
+            chb_disp_lib.setSelected(libro.isDisponoible());
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        
+        Libro libro = new Libro();
+        libro = bibliotecaControlador.readLibro(txt_tit_lib.getText().trim());
+        if(libro != null){
+            int respuesta = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar?");
+            if(respuesta == JOptionPane.YES_OPTION){
+                bibliotecaControlador.deleteLibro(txt_tit_lib.getText());
+                JOptionPane.showMessageDialog(this, "Libro eliminada");
+            }
+
+        }
+        txt_tit_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_anio_lib.setText("");
+        txt_gen_lib.setText("");
+        chb_disp_lib.setSelected(false);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     
@@ -246,7 +280,7 @@ public class VentanaEliminarLibro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txt_anio_lib;
     private javax.swing.JTextField txt_aut_lib;
-    private javax.swing.JTextField txt_aut_lib1;
+    private javax.swing.JTextField txt_gen_lib;
     private javax.swing.JTextField txt_tit_lib;
     // End of variables declaration//GEN-END:variables
 }

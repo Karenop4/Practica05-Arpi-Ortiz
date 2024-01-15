@@ -73,7 +73,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="chb_disp_lib" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_aut_lib1" min="-2" pref="242" max="-2" attributes="0"/>
+                              <Component id="txt_gen_lib" min="-2" pref="242" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                       </Group>
@@ -120,7 +120,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblGenero" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_aut_lib1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_gen_lib" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -196,8 +196,14 @@
         <Component class="javax.swing.JTextField" name="txt_tit_lib">
         </Component>
         <Component class="javax.swing.JTextField" name="txt_anio_lib">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_aut_lib">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnBuscar">
           <Properties>
@@ -215,7 +221,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="chb_disp_lib">
           <Properties>
-            <Property name="selected" type="boolean" value="true"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnActualizarLibro">
@@ -257,7 +263,10 @@
             <Property name="text" type="java.lang.String" value="G&#xe9;nero:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_aut_lib1">
+        <Component class="javax.swing.JTextField" name="txt_gen_lib">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

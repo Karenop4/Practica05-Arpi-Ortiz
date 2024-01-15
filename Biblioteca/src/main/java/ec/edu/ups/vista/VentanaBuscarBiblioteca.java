@@ -240,6 +240,9 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
         btnLimpiarBB.setText(mensajes.getString("limpiarBusqueda"));
         btnAceptar.setText(mensajes.getString("aceptar"));
     }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscarBB;

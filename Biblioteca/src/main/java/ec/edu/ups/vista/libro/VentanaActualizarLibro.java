@@ -5,20 +5,25 @@
 package ec.edu.ups.vista.libro;
 
 
+import ec.edu.ups.controlador.BibliotecaControlador;
+import ec.edu.ups.modelo.Biblioteca;
+import ec.edu.ups.modelo.Libro;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arpi
  */
 public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
-
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaActualizarLibro() {
+    public VentanaActualizarLibro(BibliotecaControlador bibliotecaControlador) {
         initComponents();
+        this.bibliotecaControlador=bibliotecaControlador;
     }
 
     /**
@@ -44,7 +49,7 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
         btnActualizarLibro = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         lblGenero = new javax.swing.JLabel();
-        txt_aut_lib1 = new javax.swing.JTextField();
+        txt_gen_lib = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,6 +79,10 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
         lblAutor.setForeground(new java.awt.Color(255, 255, 255));
         lblAutor.setText("Autor:");
 
+        txt_anio_lib.setEditable(false);
+
+        txt_aut_lib.setEditable(false);
+
         btnBuscar.setBackground(new java.awt.Color(217, 217, 217));
         btnBuscar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
         btnBuscar.setText("Buscar");
@@ -83,7 +92,7 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
             }
         });
 
-        chb_disp_lib.setSelected(true);
+        chb_disp_lib.setEnabled(false);
 
         btnActualizarLibro.setBackground(new java.awt.Color(217, 217, 217));
         btnActualizarLibro.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
@@ -106,6 +115,8 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
         lblGenero.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
         lblGenero.setForeground(new java.awt.Color(255, 255, 255));
         lblGenero.setText("Género:");
+
+        txt_gen_lib.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,7 +145,7 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chb_disp_lib)
-                            .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_gen_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(213, 213, 213))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +180,7 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGenero)
-                    .addComponent(txt_aut_lib1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_gen_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblDisponibilidad)
@@ -196,15 +207,61 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        Libro libro = new Libro();
+        libro = bibliotecaControlador.readLibro(txt_tit_lib.getText());
+        
+        
+        if(libro == null){
+            JOptionPane.showMessageDialog(this, "No existe biblioteca");
+        }else{
+            txt_aut_lib.setText(libro.getAutor());
+            txt_anio_lib.setText(String.valueOf(libro.getAnho()));
+            txt_gen_lib.setText(libro.getGenero());
+            chb_disp_lib.setSelected(libro.isDisponoible());
+        }
+        
+        txt_tit_lib.setEditable(false);
+        txt_anio_lib.setEditable(true);
+        txt_gen_lib.setEditable(true);
+        txt_aut_lib.setEditable(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarLibroActionPerformed
-        // TODO add your handling code here:
+        String titulo = txt_tit_lib.getText();
+        Libro libro = new Libro();
+        libro = bibliotecaControlador.readLibro(txt_tit_lib.getText().trim());
+        if(libro != null){
+            String autor = txt_aut_lib.getText();
+            int anho = Integer.parseInt(txt_anio_lib.getText());
+            String genero = txt_gen_lib.getText();
+            boolean disponible = chb_disp_lib.isSelected();
+
+            bibliotecaControlador.updateLibro(titulo, autor, genero, anho, disponible);
+            JOptionPane.showMessageDialog(this, "Libro editado correctamente");
+
+        }else{
+            JOptionPane.showMessageDialog(this, "Libro no encontrado");
+        }
+        
+        
+        txt_tit_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_anio_lib.setText("");
+        txt_gen_lib.setText("");
+        chb_disp_lib.setSelected(false);
     }//GEN-LAST:event_btnActualizarLibroActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        txt_tit_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_anio_lib.setText("");
+        txt_gen_lib.setText("");
+        chb_disp_lib.setSelected(false);
+        
+        txt_tit_lib.setEditable(true);
+        txt_anio_lib.setEditable(false);
+        txt_gen_lib.setEditable(false);
+        txt_aut_lib.setEditable(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
     
     
@@ -235,7 +292,7 @@ public class VentanaActualizarLibro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txt_anio_lib;
     private javax.swing.JTextField txt_aut_lib;
-    private javax.swing.JTextField txt_aut_lib1;
+    private javax.swing.JTextField txt_gen_lib;
     private javax.swing.JTextField txt_tit_lib;
     // End of variables declaration//GEN-END:variables
 }

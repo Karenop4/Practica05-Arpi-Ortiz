@@ -4,20 +4,24 @@
  */
 package ec.edu.ups.vista.libro;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
+import ec.edu.ups.modelo.Libro;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arpi
  */
 public class VentanaBuscarLibro extends javax.swing.JInternalFrame {
-
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaBuscarLibro() {
+    public VentanaBuscarLibro(BibliotecaControlador bibliotecaControlador) {
         initComponents();
+        this.bibliotecaControlador=bibliotecaControlador;
     }
 
     /**
@@ -87,7 +91,6 @@ public class VentanaBuscarLibro extends javax.swing.JInternalFrame {
             }
         });
 
-        chb_disp_lib.setSelected(true);
         chb_disp_lib.setEnabled(false);
 
         lblGenero.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
@@ -192,11 +195,26 @@ public class VentanaBuscarLibro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
+        txt_anio_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_aut_lib1.setText("");
+        txt_tit_lib.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        Libro libro = new Libro();
+        String titulo = txt_tit_lib.getText();
+        libro = bibliotecaControlador.readLibro(titulo);
+        
+        if(libro!=null){
+            txt_anio_lib.setText(String.valueOf(libro.getAnho()));
+            txt_aut_lib.setText(libro.getAutor());
+            txt_aut_lib1.setText(libro.getGenero());
+            chb_disp_lib.setSelected(libro.isDisponoible());
+        }else{
+            JOptionPane.showMessageDialog(this, "Libro no encontrado");
+        }
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     

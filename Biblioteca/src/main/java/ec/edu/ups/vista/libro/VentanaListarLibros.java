@@ -4,6 +4,8 @@
  */
 package ec.edu.ups.vista.libro;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
+import ec.edu.ups.modelo.Libro;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
@@ -13,12 +15,13 @@ import javax.swing.table.DefaultTableModel;
  * @author karen
  */
 public class VentanaListarLibros extends javax.swing.JInternalFrame {
-
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaListarLibros
      */
-    public VentanaListarLibros() {
+    public VentanaListarLibros(BibliotecaControlador bibliotecaControlador) {
         initComponents();
+        this.bibliotecaControlador=bibliotecaControlador;
     }
 
     /**
@@ -109,7 +112,15 @@ public class VentanaListarLibros extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void listarLibros(){
+        DefaultTableModel tabla = (DefaultTableModel) tablaLibros.getModel();
+        tabla.setRowCount(0);
+        
+        for (Libro libro : bibliotecaControlador.listLibro()) {
+            Object[] fila = {libro.getTitulo(),libro.getAutor(),libro.getAnho(),libro.getGenero(),libro.isDisponoible()};
+            tabla.addRow(fila);
+        }
+    }
     
     public void cambiarIdioma(Locale locale){
         DefaultTableModel tabla = (DefaultTableModel) tablaLibros.getModel(); 
