@@ -33,7 +33,7 @@ public class Inicio extends javax.swing.JFrame {
         libroDAO = new LibroDAO();
         libroControlador = new LibroControlador(libroDAO);
         bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO);
-        locale = new Locale("es", "EC");
+        
     }
 
     /**
@@ -118,6 +118,7 @@ public class Inicio extends javax.swing.JFrame {
         buttonGroup2.add(espanolRadioButton);
         espanolRadioButton.setFont(new java.awt.Font("Segoe UI Variable", 3, 18)); // NOI18N
         espanolRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        espanolRadioButton.setSelected(true);
         espanolRadioButton.setText("ESPAÑOL");
         espanolRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +201,7 @@ public class Inicio extends javax.swing.JFrame {
         if(ventanaCrudBiblioteca==null)
             ventanaCrudBiblioteca = new VentanaCrudBiblioteca(bibliotecaControlador);
         if(!ventanaCrudBiblioteca.isVisible()){
-            
+            ventanaCrudBiblioteca.abrir();
             ventanaCrudBiblioteca.setVisible(true);
             jDesktopPane1.add(ventanaCrudBiblioteca);
         }
@@ -221,18 +222,22 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void inglesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesRadioButtonActionPerformed
+        locale = new Locale("en", "US");
+        
         if(inglesRadioButton.isSelected()){
-            locale = new Locale("en", "US");
-            cambiarIdioma(); 
+            cambiarIdioma();
         }
+        
         
     }//GEN-LAST:event_inglesRadioButtonActionPerformed
 
     private void espanolRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espanolRadioButtonActionPerformed
+        locale = new Locale("es", "EC");
+        
         if(espanolRadioButton.isSelected()){
-            locale = new Locale("es", "EC");
             cambiarIdioma(); 
         }
+        
          
     }//GEN-LAST:event_espanolRadioButtonActionPerformed
     
@@ -245,13 +250,14 @@ public class Inicio extends javax.swing.JFrame {
         btnSalir.setText(mensajes.getString("btnSalir"));
         lblIdioma.setText(mensajes.getString("lblIdioma"));
         
-        if(ventanaCrudBiblioteca != null){
+        if(ventanaCrudBiblioteca == null || ventanaCrudBiblioteca != null){
             ventanaCrudBiblioteca.cambiarIdioma(locale);
         }
         
         if(ventanaSeleccionarBiblioteca != null){
             ventanaSeleccionarBiblioteca.cambiarIdioma(locale);
         }
+        
     }
     
     /**

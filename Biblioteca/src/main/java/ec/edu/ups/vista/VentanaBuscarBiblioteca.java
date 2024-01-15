@@ -51,6 +51,11 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
         txtNombreBB = new javax.swing.JTextField();
         lblBuscarBiliotecaBB = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         panelBuscarBiblio.setBackground(new java.awt.Color(51, 51, 51));
         panelBuscarBiblio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 

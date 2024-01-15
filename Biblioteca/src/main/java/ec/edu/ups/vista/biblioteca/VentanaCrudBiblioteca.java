@@ -26,8 +26,10 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
     public VentanaCrudBiblioteca(BibliotecaControlador bibliotecaControlador) {
         initComponents();
         this.bibliotecaControlador = bibliotecaControlador;
+        
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,7 +189,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                         .addComponent(lblAdmBiblio)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInicioLayout.createSequentialGroup()
-                .addGap(0, 90, Short.MAX_VALUE)
+                .addGap(0, 100, Short.MAX_VALUE)
                 .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUsuarioI, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblContrasenaI, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -279,7 +281,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                     .addGroup(panelIngresarDatosBiblioLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(lblIngresarDatosCB)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         panelIngresarDatosBiblioLayout.setVerticalGroup(
             panelIngresarDatosBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,7 +374,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                 .addComponent(lblEditarDatosEB)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarBiblioLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelEditarBiblioLayout.createSequentialGroup()
                         .addGroup(panelEditarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -489,7 +491,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                                 .addComponent(lblCodigoBB)
                                 .addGap(29, 29, 29)
                                 .addComponent(txtCodigoBB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                                 .addComponent(btnBuscarBB))))
                     .addGroup(panelBuscarBiblioLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -597,7 +599,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(lblEliminarBibliotecaEB)
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addContainerGap(368, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,28 +610,26 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                         .addComponent(txtCodigoEB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnBuscarEB))
-                    .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
-                        .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
-                                .addComponent(btnEliminarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
-                                        .addComponent(lblNombreEB)
-                                        .addGap(24, 24, 24))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
-                                        .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblTelefonoEB)
-                                            .addComponent(lblDireccionEB))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtDireccionEB, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreEB, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefonoEB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
+                            .addComponent(btnEliminarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnCancelarEB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelEliminarBiblioLayout.createSequentialGroup()
+                                    .addComponent(lblNombreEB)
+                                    .addGap(24, 24, 24))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarBiblioLayout.createSequentialGroup()
+                                    .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblTelefonoEB)
+                                        .addComponent(lblDireccionEB))
+                                    .addGap(18, 18, 18)))
+                            .addGroup(panelEliminarBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtDireccionEB, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNombreEB, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTelefonoEB, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(47, 47, 47))
         );
         panelEliminarBiblioLayout.setVerticalGroup(
@@ -701,7 +701,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
                     .addGroup(panelListaBiblioLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lblListarBibliotecaLB)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         panelListaBiblioLayout.setVerticalGroup(
             panelListaBiblioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,7 +721,7 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelEditarDatosBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelEditarDatosBiblio, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -899,6 +899,9 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
         txtTelefonoED.setEditable(false);
     }
     
+    public void abrir(){
+        panelEditarDatosBiblio.setSelectedIndex(0);
+    }
     
     public void cambiarIdioma(Locale locale){
         DefaultTableModel tabla = (DefaultTableModel) tblBibliotecas.getModel();
