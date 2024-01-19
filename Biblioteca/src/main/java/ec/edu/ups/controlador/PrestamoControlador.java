@@ -38,6 +38,17 @@ public class PrestamoControlador {
     public List<Prestamo> list(Usuario usuario){
         return usuario.getListaPrestamos();
     }
-  
+    
+    public Prestamo devolverPrestamo(Usuario usuario, String titulo){
+        List<Prestamo> prestamos = usuario.getListaPrestamos();
+        
+        for(Prestamo prestamo : prestamos){
+            if(prestamo.getLibro().getTitulo().equals(titulo)){
+                return prestamo;
+            }
+        }
+        
+        return null;
+    }
     
 }

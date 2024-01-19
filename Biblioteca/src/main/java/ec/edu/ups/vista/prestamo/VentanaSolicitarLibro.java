@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.vista.prestamo;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.LibroControlador;
 import ec.edu.ups.controlador.PrestamoControlador;
 import ec.edu.ups.controlador.UsuarioControlador;
@@ -30,14 +31,17 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
     private UsuarioControlador usuarioControlador;
     private LibroControlador libroControlador;   
     private Biblioteca biblioteca;
+    private BibliotecaControlador bibliotecaControlador;
+    private Libro libro;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaSolicitarLibro(PrestamoControlador prestamoControlador, UsuarioControlador usuarioControlador, LibroControlador libroControlador) {
+    public VentanaSolicitarLibro(PrestamoControlador prestamoControlador, UsuarioControlador usuarioControlador, LibroControlador libroControlador, BibliotecaControlador bibliotecaControlador) {
         initComponents();
         this.prestamoControlador = prestamoControlador;
         this.usuarioControlador = usuarioControlador;
-        this.libroControlador = libroControlador;        
+        this.libroControlador = libroControlador; 
+        this.bibliotecaControlador = bibliotecaControlador;
     }
 
     /**
@@ -267,13 +271,7 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
         }
         else
         {
-            Libro libro = new Libro();
-            libro = libroControlador.read(titulo);
-            do {
-                for (Libro libro1 : biblioteca.devolverLibros()) {
-                    
-                    if (libro1.equals(libro)) {
-                        if (!libro1.isDisponoible()){
+                        if (libro.isDisponoible()){
                             Date fechaDevolucion = null;
                             LocalDate fechaActual = LocalDate.now();
                             Date fechaDate = java.sql.Date.valueOf(fechaActual);                        
@@ -283,24 +281,22 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
                                 fechaDevolucion = formatoFecha.parse(fechaIngresada);
                             } catch (ParseException e) {
                                 JOptionPane.showMessageDialog(this, "Ingrese una fecha válida");
-                                return;
+                                
                             }                        
                             prestamoControlador.create(libro, usuario, fechaDate, fechaDevolucion);
-                            return;
+                            JOptionPane.showMessageDialog(this, "Libro prestado");
+                            System.out.println(prestamoControlador.list(usuario));
                         }else{
-                        JOptionPane.showMessageDialog(this, "Libro no Disponible");
+                            JOptionPane.showMessageDialog(this, "Libro no Disponible");
                         }
-                    }
-                }
-                JOptionPane.showMessageDialog(this, "Libro no prestado!");
-            } while (true);
+                    
         }
     }//GEN-LAST:event_btnSolicitarLibroActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        Libro libro = new Libro();
+        libro = new Libro();
         String titulo = txt_tit_lib.getText();
-        libro = libroControlador.read(titulo);
+        libro = bibliotecaControlador.readLibro(titulo);
         
         if(libro!=null){
             txt_anio_lib.setText(String.valueOf(libro.getAnho()));

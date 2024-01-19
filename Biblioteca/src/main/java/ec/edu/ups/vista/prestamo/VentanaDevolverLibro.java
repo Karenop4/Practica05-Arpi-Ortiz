@@ -206,17 +206,14 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         Usuario usuario = new Usuario();
         usuario = usuarioControlador.read(identificacion.trim());
         String titulo = txt_tit_lib.getText();
-        Libro libro = new Libro();
-        libro = libroControlador.read(titulo);
-        do {
-            for (Prestamo prestamo : prestamoControlador.list(usuario)) {
-                if (prestamo.getLibro().equals(libro)) {
-                    prestamoControlador.delete(usuario, libro);
-                    return;
-                }
-            }
-            JOptionPane.showMessageDialog(this, "Libro no prestado!");
-        } while (true);
+        Prestamo prestamo = new Prestamo();
+        prestamo = prestamoControlador.devolverPrestamo(usuario, titulo);
+        
+                    prestamoControlador.delete(prestamo.getUsuario(), prestamo.getLibro());
+                    JOptionPane.showMessageDialog(this, "Libro devuelto");
+                  
+            
+        //} while (true);
     }//GEN-LAST:event_btnDevolverLibroActionPerformed
 
     private void btnListarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPrestamosActionPerformed

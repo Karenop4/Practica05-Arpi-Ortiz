@@ -395,7 +395,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void solicitarPrestamoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitarPrestamoMenuItemActionPerformed
         if(ventanaSolicitarLibro==null)
-            ventanaSolicitarLibro = new VentanaSolicitarLibro(prestamoControlador,usuarioControlador,libroControlador);
+            ventanaSolicitarLibro = new VentanaSolicitarLibro(prestamoControlador,usuarioControlador,libroControlador,bibliotecaControlador);
         if(!ventanaSolicitarLibro.isVisible()){
             
             ventanaSolicitarLibro.setVisible(true);

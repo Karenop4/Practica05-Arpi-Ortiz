@@ -15,7 +15,6 @@ import java.util.List;
 public class UsuarioControlador {
 	private UsuarioIDAO usuarioDao;
 	private Usuario usuario;
-	
 	//Constructor
 
     public UsuarioControlador(UsuarioIDAO usuarioDao) {
