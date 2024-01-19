@@ -4,8 +4,15 @@
  */
 package ec.edu.ups.vista.prestamo;
 
+import ec.edu.ups.controlador.LibroControlador;
+import ec.edu.ups.controlador.PrestamoControlador;
+import ec.edu.ups.controlador.UsuarioControlador;
+import ec.edu.ups.modelo.Libro;
+import ec.edu.ups.modelo.Prestamo;
+import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -14,12 +21,17 @@ import javax.swing.table.DefaultTableModel;
  * @author arpi
  */
 public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
-
+    private PrestamoControlador prestamoControlador;
+    private UsuarioControlador usuarioControlador;
+    private LibroControlador libroControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaDevolverLibro() {
+    public VentanaDevolverLibro(PrestamoControlador prestamoControlador, UsuarioControlador usuarioControlador, LibroControlador libroControlador) {
         initComponents();
+        this.prestamoControlador = prestamoControlador;
+        this.usuarioControlador = usuarioControlador;
+        this.libroControlador = libroControlador;
     }
 
     /**
@@ -41,12 +53,13 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         btnListarPrestamos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaLibros = new javax.swing.JTable();
+        btnCancel = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Solicitar Libro");
+        setTitle("Devolver Libro");
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -58,8 +71,11 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("Título:");
 
+        txt_tit_lib.setEditable(false);
+
         btnDevolverLibro.setBackground(new java.awt.Color(217, 217, 217));
         btnDevolverLibro.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnDevolverLibro.setForeground(new java.awt.Color(0, 0, 0));
         btnDevolverLibro.setText("Devolver Libro");
         btnDevolverLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,14 +87,9 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         lblIdUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblIdUsuario.setText("ID Usuario");
 
-        txt_tit_lib1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_tit_lib1ActionPerformed(evt);
-            }
-        });
-
         btnListarPrestamos.setBackground(new java.awt.Color(217, 217, 217));
         btnListarPrestamos.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnListarPrestamos.setForeground(new java.awt.Color(0, 0, 0));
         btnListarPrestamos.setText("Listar Prestamos Pendientes");
         btnListarPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,17 +99,17 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
 
         tablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Título"
+                "Título", "Fecha Prestamo", "Fecha Devolucion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -107,27 +118,20 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tablaLibros);
 
+        btnCancel.setBackground(new java.awt.Color(217, 217, 217));
+        btnCancel.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 0, 0));
+        btnCancel.setText("Cancelar");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(lblDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(btnListarPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(btnDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(215, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -139,6 +143,25 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
                         .addGap(183, 183, 183)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 137, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(lblDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(btnListarPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(btnDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +181,9 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
                     .addComponent(lblTitulo)
                     .addComponent(txt_tit_lib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDevolverLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
@@ -177,16 +202,49 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverLibroActionPerformed
-        // TODO add your handling code here:
+        String identificacion = txt_tit_lib1.getText();
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(identificacion.trim());
+        String titulo = txt_tit_lib.getText();
+        Libro libro = new Libro();
+        libro = libroControlador.read(titulo);
+        do {
+            for (Prestamo prestamo : prestamoControlador.list(usuario)) {
+                if (prestamo.getLibro().equals(libro)) {
+                    prestamoControlador.delete(usuario, libro);
+                    return;
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Libro no prestado!");
+        } while (true);
     }//GEN-LAST:event_btnDevolverLibroActionPerformed
 
-    private void txt_tit_lib1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tit_lib1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_tit_lib1ActionPerformed
-
     private void btnListarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPrestamosActionPerformed
-        // TODO add your handling code here:
+        String identificacion = txt_tit_lib1.getText();
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(identificacion.trim());
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado");
+        }
+        else
+        {
+            DefaultTableModel tabla = (DefaultTableModel) tablaLibros.getModel();
+            tabla.setRowCount(0);
+            for (Prestamo prestamo : prestamoControlador.list(usuario)) {
+                Object[] fila = {prestamo.getLibro().getTitulo(),prestamo.getFechaPrestamo(),prestamo.getFechaDevolucion()};
+                tabla.addRow(fila);
+            }            
+            txt_tit_lib1.setEditable(false);
+            txt_tit_lib.setEditable(true);
+        }
     }//GEN-LAST:event_btnListarPrestamosActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        txt_tit_lib1.setEditable(true);
+        txt_tit_lib1.setText("");
+        txt_tit_lib.setEditable(false);
+        txt_tit_lib1.setText("");
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     public void cambiarIdioma(Locale locale){
         DefaultTableModel tabla = (DefaultTableModel) tablaLibros.getModel();
@@ -200,6 +258,7 @@ public class VentanaDevolverLibro extends javax.swing.JInternalFrame {
         
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDevolverLibro;
     private javax.swing.JButton btnListarPrestamos;
     private javax.swing.JPanel jPanel1;

@@ -16,7 +16,6 @@ import java.util.List;
  * @author arpi
  */
 public class PrestamoDAO implements PrestamoIDAO{
-    private Usuario usuario;
     private ArrayList<Prestamo> listaPrestamos;
 
     public PrestamoDAO() {
@@ -25,19 +24,21 @@ public class PrestamoDAO implements PrestamoIDAO{
     
 
     @Override
-    public void create(Prestamo prestamo) {
+    public void create(Usuario usuario, Prestamo prestamo) {
         listaPrestamos.add(prestamo);
+        usuario.setListaPrestamos(listaPrestamos);
     }
 
     @Override
-    public void delete(Libro libro) {
+    public void delete(Usuario usuario, Libro libro) {
         for (int i=0; i<listaPrestamos.size();i++){
             Prestamo prestamoBuscado = listaPrestamos.get(i);
             if (prestamoBuscado.getLibro().equals(libro)){
                 listaPrestamos.remove(i);
                 break;
             }
-        }       
+        }
+        usuario.setListaPrestamos(listaPrestamos);
     }
 
     @Override

@@ -6,6 +6,7 @@ package ec.edu.ups.idao;
 
 import ec.edu.ups.modelo.Libro;
 import ec.edu.ups.modelo.Prestamo;
+import ec.edu.ups.modelo.Usuario;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  * @author karen
  */
 public interface PrestamoIDAO {
-    public void create(Prestamo prestamo);
-    public void delete(Libro libro);
+    public void create(Usuario usuario, Prestamo prestamo);
+    public void delete(Usuario usuario, Libro libro);
     public List<Prestamo> list();
 }

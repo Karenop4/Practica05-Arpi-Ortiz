@@ -6,6 +6,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.LibroControlador;
+import ec.edu.ups.controlador.PrestamoControlador;
 import ec.edu.ups.controlador.UsuarioControlador;
 import ec.edu.ups.interfaces.BibliotecaListener;
 import ec.edu.ups.modelo.Biblioteca;
@@ -43,14 +44,16 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
     private BibliotecaControlador bibliotecaControlador;
     private LibroControlador libroControlador;
     private UsuarioControlador usuarioControlador;
+    private PrestamoControlador prestamoControlador;
     /**
      * Creates new form VentanaSeleccionarBiblioteca
      */
-    public VentanaSeleccionarBiblioteca(BibliotecaControlador bibliotecaControlador, LibroControlador libroControlador, UsuarioControlador usuarioControlador) {
+    public VentanaSeleccionarBiblioteca(BibliotecaControlador bibliotecaControlador, LibroControlador libroControlador, UsuarioControlador usuarioControlador, PrestamoControlador prestamoControlador) {
         initComponents();
         this.bibliotecaControlador = bibliotecaControlador;
         this.libroControlador = libroControlador;
         this.usuarioControlador = usuarioControlador;
+        this.prestamoControlador = prestamoControlador;
         codigo=0;
     }
 
@@ -392,7 +395,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void solicitarPrestamoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitarPrestamoMenuItemActionPerformed
         if(ventanaSolicitarLibro==null)
-            ventanaSolicitarLibro = new VentanaSolicitarLibro();
+            ventanaSolicitarLibro = new VentanaSolicitarLibro(prestamoControlador,usuarioControlador,libroControlador);
         if(!ventanaSolicitarLibro.isVisible()){
             
             ventanaSolicitarLibro.setVisible(true);
@@ -402,7 +405,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void devolverPrestamoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverPrestamoMenuItemActionPerformed
         if(ventanaDevolverLibro==null)
-            ventanaDevolverLibro = new VentanaDevolverLibro();
+            ventanaDevolverLibro = new VentanaDevolverLibro(prestamoControlador,usuarioControlador,libroControlador);
         if(!ventanaDevolverLibro.isVisible()){
             
             ventanaDevolverLibro.setVisible(true);

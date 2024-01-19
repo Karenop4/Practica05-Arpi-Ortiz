@@ -4,8 +4,20 @@
  */
 package ec.edu.ups.vista.prestamo;
 
+import ec.edu.ups.controlador.LibroControlador;
+import ec.edu.ups.controlador.PrestamoControlador;
+import ec.edu.ups.controlador.UsuarioControlador;
+import ec.edu.ups.modelo.Biblioteca;
+import ec.edu.ups.modelo.Libro;
+import ec.edu.ups.modelo.Prestamo;
+import ec.edu.ups.modelo.Usuario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -14,11 +26,18 @@ import java.util.ResourceBundle;
  */
 public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
 
+    private PrestamoControlador prestamoControlador;
+    private UsuarioControlador usuarioControlador;
+    private LibroControlador libroControlador;   
+    private Biblioteca biblioteca;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaSolicitarLibro() {
+    public VentanaSolicitarLibro(PrestamoControlador prestamoControlador, UsuarioControlador usuarioControlador, LibroControlador libroControlador) {
         initComponents();
+        this.prestamoControlador = prestamoControlador;
+        this.usuarioControlador = usuarioControlador;
+        this.libroControlador = libroControlador;        
     }
 
     /**
@@ -48,6 +67,7 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
         txt_tit_lib2 = new javax.swing.JTextField();
         lblGenero = new javax.swing.JLabel();
         txt_aut_lib1 = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -85,7 +105,9 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
 
         btnSolicitarLibro.setBackground(new java.awt.Color(217, 217, 217));
         btnSolicitarLibro.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnSolicitarLibro.setForeground(new java.awt.Color(0, 0, 0));
         btnSolicitarLibro.setText("Solicitar Libro");
+        btnSolicitarLibro.setEnabled(false);
         btnSolicitarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSolicitarLibroActionPerformed(evt);
@@ -98,12 +120,6 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
         lblIdUsuario.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
         lblIdUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblIdUsuario.setText("ID Usuario");
-
-        txt_tit_lib1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_tit_lib1ActionPerformed(evt);
-            }
-        });
 
         btnBuscar.setBackground(new java.awt.Color(217, 217, 217));
         btnBuscar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
@@ -118,18 +134,22 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
         lblFechaDevolucion.setForeground(new java.awt.Color(255, 255, 255));
         lblFechaDevolucion.setText("Fecha Devolución: (dd/mm/aaaa)");
 
-        txt_tit_lib2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_tit_lib2ActionPerformed(evt);
-            }
-        });
-
         lblGenero.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
         lblGenero.setForeground(new java.awt.Color(255, 255, 255));
         lblGenero.setText("Género:");
 
         txt_aut_lib1.setEditable(false);
         txt_aut_lib1.setBackground(new java.awt.Color(114, 114, 114));
+
+        btnCancelar.setBackground(new java.awt.Color(217, 217, 217));
+        btnCancelar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(0, 0, 0));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -175,8 +195,10 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
                         .addGap(6, 6, 6)
                         .addComponent(txt_tit_lib2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(btnSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(78, 78, 78)
+                        .addComponent(btnSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,7 +237,9 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
                     .addComponent(lblFechaDevolucion)
                     .addComponent(txt_tit_lib2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
         );
 
@@ -234,20 +258,72 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSolicitarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarLibroActionPerformed
-        // TODO add your handling code here:
+        String identificacion = txt_tit_lib1.getText();
+        String titulo = txt_tit_lib.getText();
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(identificacion.trim());
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado");
+        }
+        else
+        {
+            Libro libro = new Libro();
+            libro = libroControlador.read(titulo);
+            do {
+                for (Libro libro1 : biblioteca.devolverLibros()) {
+                    
+                    if (libro1.equals(libro)) {
+                        if (!libro1.isDisponoible()){
+                            Date fechaDevolucion = null;
+                            LocalDate fechaActual = LocalDate.now();
+                            Date fechaDate = java.sql.Date.valueOf(fechaActual);                        
+                            String fechaIngresada = txt_tit_lib2.getText();
+                            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                            try {
+                                fechaDevolucion = formatoFecha.parse(fechaIngresada);
+                            } catch (ParseException e) {
+                                JOptionPane.showMessageDialog(this, "Ingrese una fecha válida");
+                                return;
+                            }                        
+                            prestamoControlador.create(libro, usuario, fechaDate, fechaDevolucion);
+                            return;
+                        }else{
+                        JOptionPane.showMessageDialog(this, "Libro no Disponible");
+                        }
+                    }
+                }
+                JOptionPane.showMessageDialog(this, "Libro no prestado!");
+            } while (true);
+        }
     }//GEN-LAST:event_btnSolicitarLibroActionPerformed
 
-    private void txt_tit_lib1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tit_lib1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_tit_lib1ActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        Libro libro = new Libro();
+        String titulo = txt_tit_lib.getText();
+        libro = libroControlador.read(titulo);
+        
+        if(libro!=null){
+            txt_anio_lib.setText(String.valueOf(libro.getAnho()));
+            txt_aut_lib.setText(libro.getAutor());
+            txt_aut_lib1.setText(libro.getGenero());
+            chb_disp_lib.setSelected(libro.isDisponoible());
+            if (libro.isDisponoible()) {
+                btnSolicitarLibro.setEnabled(true);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Libro no encontrado");
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void txt_tit_lib2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tit_lib2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_tit_lib2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        txt_anio_lib.setText("");
+        txt_aut_lib.setText("");
+        txt_aut_lib1.setText("");
+        chb_disp_lib.setSelected(false);
+        txt_tit_lib.setText("");
+        txt_tit_lib1.setText("");
+        txt_tit_lib2.setText("");
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     public void cambiarIdioma(Locale locale){
@@ -266,6 +342,7 @@ public class VentanaSolicitarLibro extends javax.swing.JInternalFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSolicitarLibro;
     private javax.swing.JCheckBox chb_disp_lib;
     private javax.swing.JPanel jPanel1;
