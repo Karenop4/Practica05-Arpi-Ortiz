@@ -4,8 +4,10 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.UsuarioControlador;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +15,10 @@ import java.util.ResourceBundle;
  */
 public class VentanaCrearUsuario extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form VentanaCrearUsuario
-     */
-    public VentanaCrearUsuario() {
+    private UsuarioControlador usuarioControlador;
+    public VentanaCrearUsuario(UsuarioControlador usuarioControlador) {
         initComponents();
+        this.usuarioControlador = usuarioControlador;
     }
 
     /**
@@ -152,7 +153,17 @@ public class VentanaCrearUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarUsuarioActionPerformed
-        // TODO add your handling code here:
+        String cedula = txt_cod_us.getText();
+        String nombre = txt_nom_us.getText();
+        String direccion = txt_dir_us.getText();
+        String telefono = txt_num_us.getText();
+        
+        usuarioControlador.create(cedula, nombre, direccion, telefono);
+        JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente" );
+        txt_cod_us.setText("");
+        txt_nom_us.setText("");
+        txt_dir_us.setText("");
+        txt_num_us.setText("");        
     }//GEN-LAST:event_btnGuardarUsuarioActionPerformed
 
     

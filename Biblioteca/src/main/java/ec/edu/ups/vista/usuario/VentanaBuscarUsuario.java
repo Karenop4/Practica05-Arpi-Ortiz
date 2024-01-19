@@ -4,20 +4,24 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.UsuarioControlador;
+import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arpi
  */
 public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
-
+    private UsuarioControlador usuarioControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaBuscarUsuario() {
+    public VentanaBuscarUsuario(UsuarioControlador usuarioControlador) {
         initComponents();
+        this.usuarioControlador = usuarioControlador;
     }
 
     /**
@@ -170,11 +174,25 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar2ActionPerformed
-        // TODO add your handling code here:
+        txt_cod_us.setText("");
+        txt_nom_us.setText("");
+        txt_dir_us.setText("");
+        txt_num_us.setText("");
     }//GEN-LAST:event_btnLimpiar2ActionPerformed
 
     private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
-        // TODO add your handling code here:
+        String identificacion = txt_cod_us.getText();
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(identificacion.trim());
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado");
+        }
+        else
+        {
+            txt_nom_us.setText(usuario.getNombre());
+            txt_dir_us.setText(usuario.getDireccion());
+            txt_num_us.setText(usuario.getTelefono());
+        }
     }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
 
     

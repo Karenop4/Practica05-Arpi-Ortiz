@@ -27,6 +27,7 @@
 /home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/vista/libro/VentanaBuscarLibro.java
 /home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/modelo/Usuario.java
 /home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/vista/usuario/VentanaCrearUsuario.java
+/home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/vista/usuario/VentanaListarUsuario.java
 /home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/controlador/LibroControlador.java
 /home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/vista/libro/VentanaListarLibros.java
 /home/arpi/Documentos/GitHub/Practica05-Arpi-Ortiz/Biblioteca/src/main/java/ec/edu/ups/dao/BibliotecaDAO.java

@@ -23,6 +23,8 @@ public class Inicio extends javax.swing.JFrame {
     private BibliotecaControlador bibliotecaControlador;
     private LibroIDAO libroDAO;
     private LibroControlador libroControlador;
+    private UsuarioControlador usuarioControlador;
+    private UsuarioIDAO usuarioDAO;
     private Locale locale;
     /**
      * Creates new form Inicio
@@ -31,9 +33,10 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         bibliotecaDAO = new BibliotecaDAO();
         libroDAO = new LibroDAO();
+        usuarioDAO = new UsuarioDAO();
         libroControlador = new LibroControlador(libroDAO);
         bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO);
-        
+        usuarioControlador = new UsuarioControlador(usuarioDAO);
     }
 
     /**
@@ -209,7 +212,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnSeleccionarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarBibliotecaActionPerformed
         if(ventanaSeleccionarBiblioteca==null)
-            ventanaSeleccionarBiblioteca = new VentanaSeleccionarBiblioteca(bibliotecaControlador, libroControlador);
+            ventanaSeleccionarBiblioteca = new VentanaSeleccionarBiblioteca(bibliotecaControlador, libroControlador, usuarioControlador);
         if(!ventanaSeleccionarBiblioteca.isVisible()){
             
             ventanaSeleccionarBiblioteca.setVisible(true);

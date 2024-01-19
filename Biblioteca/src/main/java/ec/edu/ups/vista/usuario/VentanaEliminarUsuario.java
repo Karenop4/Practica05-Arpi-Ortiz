@@ -4,20 +4,24 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.UsuarioControlador;
+import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arpi
  */
 public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
-
+    private UsuarioControlador usuarioControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaEliminarUsuario() {
+    public VentanaEliminarUsuario(UsuarioControlador usuarioControlador) {
         initComponents();
+        this.usuarioControlador = usuarioControlador;
     }
 
     /**
@@ -80,7 +84,7 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
         txt_num_us.setEditable(false);
         txt_num_us.setBackground(new java.awt.Color(114, 114, 114));
 
-        btnEliminar.setBackground(new java.awt.Color(217, 217, 217));
+        btnEliminar.setBackground(new java.awt.Color(70, 80, 82));
         btnEliminar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 0, 0));
         btnEliminar.setText("Eliminar");
@@ -99,7 +103,7 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(217, 217, 217));
+        btnCancelar.setBackground(new java.awt.Color(70, 80, 82));
         btnCancelar.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 0, 0));
         btnCancelar.setText("Cancelar");
@@ -191,15 +195,42 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(txt_cod_us.getText().trim());
+        if(usuario != null){
+            int respuesta = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar?");
+            if(respuesta == JOptionPane.YES_OPTION){
+                usuarioControlador.delete(txt_cod_us.getText().trim());
+                JOptionPane.showMessageDialog(this, "Usuario eliminado");
+            }
+
+        }
+        txt_cod_us.setText("");
+        txt_nom_us.setText("");
+        txt_dir_us.setText("");
+        txt_num_us.setText("");
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        String id = txt_cod_us.getText();
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(id.trim());
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado");
+        }
+        else
+        {
+            txt_nom_us.setText(usuario.getNombre());
+            txt_dir_us.setText(usuario.getDireccion());
+            txt_num_us.setText(usuario.getTelefono());
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        txt_cod_us.setText("");
+        txt_nom_us.setText("");
+        txt_dir_us.setText("");
+        txt_num_us.setText("");
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     

@@ -4,8 +4,11 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.UsuarioControlador;
+import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +16,10 @@ import java.util.ResourceBundle;
  */
 public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form VentanaCrearUsuario
-     */
-    public VentanaActualizarUsuario() {
+    private UsuarioControlador usuarioControlador;
+    public VentanaActualizarUsuario(UsuarioControlador usuarioControlador) {
         initComponents();
+        this.usuarioControlador = usuarioControlador;
     }
 
     /**
@@ -180,15 +182,60 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioActionPerformed
-        // TODO add your handling code here:
+        String id = txt_cod_us.getText();
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(id.trim());
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado");
+        }
+        else
+        {
+            String nombre = txt_nom_us.getText();
+            String direccion = txt_dir_us.getText();
+            String telefono = txt_num_us.getText();
+            
+            usuarioControlador.update(id, nombre, direccion, telefono);
+            JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente!");
+        }
+        
+        txt_cod_us.setText("");
+        txt_nom_us.setText("");
+        txt_dir_us.setText("");
+        txt_num_us.setText("");
     }//GEN-LAST:event_btnActualizarUsuarioActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        Usuario usuario = new Usuario();
+        usuario = usuarioControlador.read(txt_nom_us.getText());
+        
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "No existe el Usuario");
+        }
+        else
+        {
+            txt_cod_us.setText(usuario.getIdentificacion());
+            txt_nom_us.setText(usuario.getNombre());
+            txt_dir_us.setText(usuario.getDireccion());
+            txt_num_us.setText(usuario.getTelefono());
+        }
+        
+        txt_cod_us.setEditable(false);
+        txt_nom_us.setEditable(false);
+        txt_dir_us.setEditable(false);
+        txt_num_us.setEditable(false);
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        txt_cod_us.setText("");
+        txt_nom_us.setText("");
+        txt_dir_us.setText("");
+        txt_num_us.setText("");
+        
+        txt_cod_us.setEditable(true);
+        txt_nom_us.setEditable(false);
+        txt_dir_us.setEditable(false);
+        txt_num_us.setEditable(false);        
     }//GEN-LAST:event_btnCancelarActionPerformed
     
     public void cambiarIdioma(Locale locale){

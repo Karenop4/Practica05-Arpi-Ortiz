@@ -44,7 +44,7 @@ public class UsuarioControlador {
         usuarioDao.update(identificacion, usuario);
     }
     
-    public List<Usuario> read(){
+    public List<Usuario> list(){
         return usuarioDao.list();
     }
 }

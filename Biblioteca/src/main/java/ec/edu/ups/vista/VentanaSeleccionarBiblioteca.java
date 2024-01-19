@@ -6,6 +6,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.LibroControlador;
+import ec.edu.ups.controlador.UsuarioControlador;
 import ec.edu.ups.interfaces.BibliotecaListener;
 import ec.edu.ups.modelo.Biblioteca;
 import ec.edu.ups.vista.libro.*;
@@ -35,18 +36,21 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
     private VentanaBuscarUsuario ventanaBuscarUsuario;
     private VentanaCrearUsuario ventanaCrearUsurio;
     private VentanaEliminarUsuario ventanaEliminarUsuario;
+    private VentanaListarUsuario ventanaListarUsuario;
     
     private int codigo;
     
     private BibliotecaControlador bibliotecaControlador;
     private LibroControlador libroControlador;
+    private UsuarioControlador usuarioControlador;
     /**
      * Creates new form VentanaSeleccionarBiblioteca
      */
-    public VentanaSeleccionarBiblioteca(BibliotecaControlador bibliotecaControlador, LibroControlador libroControlador) {
+    public VentanaSeleccionarBiblioteca(BibliotecaControlador bibliotecaControlador, LibroControlador libroControlador, UsuarioControlador usuarioControlador) {
         initComponents();
         this.bibliotecaControlador = bibliotecaControlador;
         this.libroControlador = libroControlador;
+        this.usuarioControlador = usuarioControlador;
         codigo=0;
     }
 
@@ -77,6 +81,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         editarUsuarioMenuItem = new javax.swing.JMenuItem();
         buscarUsuarioMenuItem = new javax.swing.JMenuItem();
         eliminarUsuarioMenuItem = new javax.swing.JMenuItem();
+        usuarioMenu = new javax.swing.JMenuItem();
         prestamoMenu = new javax.swing.JMenu();
         solicitarPrestamoMenuItem = new javax.swing.JMenuItem();
         devolverPrestamoMenuItem = new javax.swing.JMenuItem();
@@ -234,6 +239,14 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         });
         usuariosMenu.add(eliminarUsuarioMenuItem);
 
+        usuarioMenu.setText("Listar");
+        usuarioMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioMenuActionPerformed(evt);
+            }
+        });
+        usuariosMenu.add(usuarioMenu);
+
         jMenuBar1.add(usuariosMenu);
 
         prestamoMenu.setText("Préstamo");
@@ -289,7 +302,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void crearUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioMenuItemActionPerformed
         if(ventanaCrearUsurio==null)
-            ventanaCrearUsurio = new VentanaCrearUsuario();
+            ventanaCrearUsurio = new VentanaCrearUsuario(usuarioControlador);
         if(!ventanaCrearUsurio.isVisible()){
             
             ventanaCrearUsurio.setVisible(true);
@@ -349,7 +362,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void editarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioMenuItemActionPerformed
         if(ventanaActualizarUsuario==null)
-            ventanaActualizarUsuario = new VentanaActualizarUsuario();
+            ventanaActualizarUsuario = new VentanaActualizarUsuario(usuarioControlador);
         if(!ventanaActualizarUsuario.isVisible()){
             
             ventanaActualizarUsuario.setVisible(true);
@@ -359,7 +372,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void buscarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioMenuItemActionPerformed
         if(ventanaBuscarUsuario==null)
-            ventanaBuscarUsuario = new VentanaBuscarUsuario();
+            ventanaBuscarUsuario = new VentanaBuscarUsuario(usuarioControlador);
         if(!ventanaBuscarUsuario.isVisible()){
             
             ventanaBuscarUsuario.setVisible(true);
@@ -369,7 +382,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void eliminarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarUsuarioMenuItemActionPerformed
         if(ventanaEliminarUsuario==null)
-            ventanaEliminarUsuario = new VentanaEliminarUsuario();
+            ventanaEliminarUsuario = new VentanaEliminarUsuario(usuarioControlador);
         if(!ventanaEliminarUsuario.isVisible()){
             
             ventanaEliminarUsuario.setVisible(true);
@@ -396,6 +409,16 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
             jDesktopPane1.add(ventanaDevolverLibro);
         }
     }//GEN-LAST:event_devolverPrestamoMenuItemActionPerformed
+
+    private void usuarioMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioMenuActionPerformed
+        if(ventanaListarUsuario==null)
+            ventanaListarUsuario = new VentanaListarUsuario(usuarioControlador);
+        if(!ventanaListarUsuario.isVisible()){
+            ventanaListarUsuario.listarUsuarios();
+            ventanaListarUsuario.setVisible(true);
+            jDesktopPane1.add(ventanaListarUsuario);
+        }
+    }//GEN-LAST:event_usuarioMenuActionPerformed
 
     public void cambiarIdioma(Locale locale){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
@@ -485,6 +508,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
     private javax.swing.JMenu prestamoMenu;
     private javax.swing.JMenuItem solicitarPrestamoMenuItem;
     private javax.swing.JTextField txtNombreBiblio;
+    private javax.swing.JMenuItem usuarioMenu;
     private javax.swing.JMenu usuariosMenu;
     // End of variables declaration//GEN-END:variables
 
