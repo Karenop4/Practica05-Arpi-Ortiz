@@ -29,9 +29,14 @@ public class BibliotecaControlador {
     }
     
     //////////////////////BIBLIOTECA/////////////////////
+    public void leerArchivo(){
+        bibliotecaDAO.leerArchivo();
+    }
+    
     public void create(int codigo, String nombre, String direccion, String telefono){
         biblioteca = new Biblioteca(codigo, nombre, direccion, telefono);
         bibliotecaDAO.create(biblioteca);
+        bibliotecaDAO.actualizarArchivo();
     }
     
     public Biblioteca read (int codigo){
@@ -41,6 +46,7 @@ public class BibliotecaControlador {
     
     public void delete(int codigo){
         bibliotecaDAO.delete(codigo);
+        bibliotecaDAO.actualizarArchivo();
     }
     
     public void update (int codigo, String nombre, String direccion, String telefono){
@@ -49,6 +55,7 @@ public class BibliotecaControlador {
         biblioteca.setNombre(nombre);
         biblioteca.setTelefono(telefono);
         bibliotecaDAO.update(codigo, biblioteca);
+        bibliotecaDAO.actualizarArchivo();
     }
     
     public List <Biblioteca> list (){

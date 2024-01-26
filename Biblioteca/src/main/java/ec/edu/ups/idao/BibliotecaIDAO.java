@@ -17,4 +17,6 @@ public interface BibliotecaIDAO {
     void update(int codigo, Biblioteca biblioteca);
     void delete(int codigo);
     List<Biblioteca> list();
+    void leerArchivo();
+    void actualizarArchivo();
 }

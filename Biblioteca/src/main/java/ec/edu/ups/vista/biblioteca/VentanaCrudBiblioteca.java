@@ -873,6 +873,8 @@ public class VentanaCrudBiblioteca extends javax.swing.JInternalFrame {
             txtUsuarioAdm.setText(" ");
             txtContrasenaAdm.setText(" ");
         }
+        
+        bibliotecaControlador.leerArchivo();
     }//GEN-LAST:event_btnAccederActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing

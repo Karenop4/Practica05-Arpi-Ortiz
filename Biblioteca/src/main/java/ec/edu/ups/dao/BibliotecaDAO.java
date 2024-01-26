@@ -6,6 +6,11 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.BibliotecaIDAO;
 import ec.edu.ups.modelo.Biblioteca;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +20,11 @@ import java.util.List;
  */
 public class BibliotecaDAO implements BibliotecaIDAO{
     private List <Biblioteca> bibliotecas;
+    private String rutaBiblioteca;
     
-    public BibliotecaDAO(){
+    public BibliotecaDAO(String rutaBiblioteca){
         bibliotecas = new ArrayList();
+        this.rutaBiblioteca = rutaBiblioteca;
     }
     
     @Override
@@ -61,6 +68,38 @@ public class BibliotecaDAO implements BibliotecaIDAO{
     @Override
     public List<Biblioteca> list() {
         return bibliotecas;
+    }
+
+    @Override
+    public void leerArchivo() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(rutaBiblioteca))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] partes = linea.split(";");
+                if (partes.length == 4) {
+                    int codigo = Integer.parseInt(partes[0]);
+                    String nombre = partes[1];
+                    String direccion = partes[2];
+                    String telefono = partes[3];
+                    bibliotecas.add(new Biblioteca(codigo, nombre, direccion, telefono));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de la excepción
+        }
+    }
+
+    @Override
+    public void actualizarArchivo() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaBiblioteca))) {
+            for (Biblioteca biblioteca : bibliotecas) {
+                String linea = String.format("%d;%s;%s;%s", biblioteca.getCodigo(), biblioteca.getNombre(), biblioteca.getDireccion(), biblioteca.getTelefono());
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de la excepción, puedes ajustar según tus necesidades.
+        }
     }
     
 }

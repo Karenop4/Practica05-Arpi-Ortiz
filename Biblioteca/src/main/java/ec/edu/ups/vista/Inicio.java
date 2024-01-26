@@ -33,7 +33,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        bibliotecaDAO = new BibliotecaDAO();
+        bibliotecaDAO = new BibliotecaDAO("src\\main\\resources\\archivos\\Bibliotecas.txt");
         libroDAO = new LibroDAO();
         usuarioDAO = new UsuarioDAO();
         prestamoDAO = new PrestamoDAO();
