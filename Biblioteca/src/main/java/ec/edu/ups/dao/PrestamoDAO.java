@@ -29,12 +29,10 @@ import javax.swing.JOptionPane;
 public class PrestamoDAO implements PrestamoIDAO{
     private ArrayList<Prestamo> listaPrestamos;
     private String rutaPrestamo;
-    private BibliotecaControlador bc;
 
-    public PrestamoDAO(String rutaPrestamo, BibliotecaControlador bc) {
+    public PrestamoDAO(String rutaPrestamo) {
         listaPrestamos = new ArrayList();
         this.rutaPrestamo = rutaPrestamo;
-        this.bc = bc;
     }
     
 
@@ -68,26 +66,23 @@ public class PrestamoDAO implements PrestamoIDAO{
             String linea;
             while ((linea = reader.readLine()) != null) {
                 String[] partes = linea.split(";");
-                if (partes.length == 4) {
+                if (partes.length == 13) {
                     //Libro
-                    Libro libro = new Libro();
-                    String titulo = partes[0];
-                    libro = bc.readLibro(titulo);  
+                    Libro libro = new Libro(Integer.parseInt(partes[0]), partes[1], partes[2], partes[3], Integer.parseInt(partes[4]), Boolean.parseBoolean(partes[5])); 
                     //Usuario
-                    Usuario usuario = new Usuario();
-                    usuario = bc.readUsuario(partes[1]);
+                    Usuario usuario = new Usuario(Integer.parseInt(partes[6]), partes[7], partes[8], partes[9], partes[10]);
                     //Fechas
                     Date fechaPrestamo = null;                  
                     Date fechaDevolucion = null;
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
                         try {
-                            fechaPrestamo = formatoFecha.parse(partes[2]);
+                            fechaPrestamo = formatoFecha.parse(partes[11]);
                         } catch (ParseException e) {
                             System.out.println("Ocurrio un error!");
 
                         }                 
                         try {
-                            fechaDevolucion = formatoFecha.parse(partes[3]);
+                            fechaDevolucion = formatoFecha.parse(partes[12]);
                         } catch (ParseException e) {
                             System.out.println("Ocurrio un error!");
 
@@ -104,7 +99,8 @@ public class PrestamoDAO implements PrestamoIDAO{
     public void actualizarArchivo() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaPrestamo))) {
             for (Prestamo prestamo : listaPrestamos) {
-                String linea = String.format("%s;%s;%s;%s", prestamo.getLibro().getTitulo(),prestamo.getUsuario().getIdentificacion(), prestamo.getFechaPrestamo(), prestamo.getFechaDevolucion());
+                SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+                String linea = String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s", String.valueOf(prestamo.getLibro().getCodigoBiblio()),prestamo.getLibro().getTitulo(), prestamo.getLibro().getAutor(), prestamo.getLibro().getGenero(), String.valueOf(prestamo.getLibro().getAnho()), String.valueOf(prestamo.getLibro().isDisponoible()),String.valueOf(prestamo.getUsuario().getCodigoBiblio()), prestamo.getUsuario().getIdentificacion(), prestamo.getUsuario().getNombre(), prestamo.getUsuario().getDireccion(), prestamo.getUsuario().getTelefono(), formato.format(prestamo.getFechaPrestamo()), formato.format(prestamo.getFechaDevolucion()));
                 writer.write(linea);
                 writer.newLine();
             }

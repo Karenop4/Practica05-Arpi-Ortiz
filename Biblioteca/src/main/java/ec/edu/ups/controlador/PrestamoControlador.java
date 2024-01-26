@@ -27,11 +27,13 @@ public class PrestamoControlador {
     public void create(Libro libro, Usuario usuario, Date fechaPrestamo, Date fechaDevolucion){
         Prestamo prestamo = new Prestamo(libro, usuario, fechaPrestamo, fechaDevolucion);
         prestamoDao.create(usuario, prestamo);
+        prestamoDao.actualizarArchivo();
         libro.prestar(libro);
     }
     
     public void delete(Usuario usuario, Libro libro){
         prestamoDao.delete(usuario, libro);
+        prestamoDao.actualizarArchivo();
         libro.devolver(libro);
     }
        
@@ -44,6 +46,7 @@ public class PrestamoControlador {
         
         for(Prestamo prestamo : prestamos){
             if(prestamo.getLibro().getTitulo().equals(titulo)){
+                prestamoDao.actualizarArchivo();
                 return prestamo;
             }
         }

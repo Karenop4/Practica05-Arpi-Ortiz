@@ -36,7 +36,7 @@ public class Inicio extends javax.swing.JFrame {
         bibliotecaDAO = new BibliotecaDAO("src\\main\\resources\\archivos\\Bibliotecas.txt");
         libroDAO = new LibroDAO("src\\main\\resources\\archivos\\Libros.txt");
         usuarioDAO = new UsuarioDAO("src\\main\\resources\\archivos\\Usuarios.txt");
-        prestamoDAO = new PrestamoDAO("src\\main\\resources\\archivos\\Prestamos.txt", bibliotecaControlador);
+        prestamoDAO = new PrestamoDAO("src\\main\\resources\\archivos\\Prestamos.txt");
         libroControlador = new LibroControlador(libroDAO);
         bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO, usuarioDAO);
         usuarioControlador = new UsuarioControlador(usuarioDAO);
