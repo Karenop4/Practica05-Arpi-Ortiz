@@ -84,7 +84,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         editarUsuarioMenuItem = new javax.swing.JMenuItem();
         buscarUsuarioMenuItem = new javax.swing.JMenuItem();
         eliminarUsuarioMenuItem = new javax.swing.JMenuItem();
-        usuarioMenu = new javax.swing.JMenuItem();
+        listarUsuarioMenuItem = new javax.swing.JMenuItem();
         prestamoMenu = new javax.swing.JMenu();
         solicitarPrestamoMenuItem = new javax.swing.JMenuItem();
         devolverPrestamoMenuItem = new javax.swing.JMenuItem();
@@ -242,13 +242,13 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         });
         usuariosMenu.add(eliminarUsuarioMenuItem);
 
-        usuarioMenu.setText("Listar");
-        usuarioMenu.addActionListener(new java.awt.event.ActionListener() {
+        listarUsuarioMenuItem.setText("Listar");
+        listarUsuarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioMenuActionPerformed(evt);
+                listarUsuarioMenuItemActionPerformed(evt);
             }
         });
-        usuariosMenu.add(usuarioMenu);
+        usuariosMenu.add(listarUsuarioMenuItem);
 
         jMenuBar1.add(usuariosMenu);
 
@@ -414,7 +414,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         }
     }//GEN-LAST:event_devolverPrestamoMenuItemActionPerformed
 
-    private void usuarioMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioMenuActionPerformed
+    private void listarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuarioMenuItemActionPerformed
         if(ventanaListarUsuario==null)
             ventanaListarUsuario = new VentanaListarUsuario(bibliotecaControlador);
         if(!ventanaListarUsuario.isVisible()){
@@ -422,7 +422,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
             ventanaListarUsuario.setVisible(true);
             jDesktopPane1.add(ventanaListarUsuario);
         }
-    }//GEN-LAST:event_usuarioMenuActionPerformed
+    }//GEN-LAST:event_listarUsuarioMenuItemActionPerformed
 
     public void cambiarIdioma(Locale locale){
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
@@ -442,6 +442,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         devolverPrestamoMenuItem.setText(mensajes.getString("devolverLibro"));
         lblSeleccionarBiblio.setText(mensajes.getString("seleccionarBiblioteca"));
         btnSeleccionarBiblioteca.setText(mensajes.getString("seleccionar"));
+        listarUsuarioMenuItem.setText(mensajes.getString("listar"));
         
         if(ventanaBuscarBiblioteca != null){
             ventanaBuscarBiblioteca.cambiarIdioma(locale);
@@ -509,10 +510,10 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
     private javax.swing.JLabel lblSeleccionarBiblio;
     private javax.swing.JMenu librosMenu;
     private javax.swing.JMenuItem listarLibroMenuItem;
+    private javax.swing.JMenuItem listarUsuarioMenuItem;
     private javax.swing.JMenu prestamoMenu;
     private javax.swing.JMenuItem solicitarPrestamoMenuItem;
     private javax.swing.JTextField txtNombreBiblio;
-    private javax.swing.JMenuItem usuarioMenu;
     private javax.swing.JMenu usuariosMenu;
     // End of variables declaration//GEN-END:variables
 

@@ -17,4 +17,6 @@ public interface PrestamoIDAO {
     public void create(Usuario usuario, Prestamo prestamo);
     public void delete(Usuario usuario, Libro libro);
     public List<Prestamo> list();
+    public void leerArchivo();
+    public void actualizarArchivo();
 }

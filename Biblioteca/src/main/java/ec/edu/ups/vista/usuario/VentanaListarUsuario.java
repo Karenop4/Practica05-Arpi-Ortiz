@@ -4,10 +4,7 @@
  */
 package ec.edu.ups.vista.usuario;
 
-import ec.edu.ups.vista.libro.*;
 import ec.edu.ups.controlador.BibliotecaControlador;
-import ec.edu.ups.controlador.UsuarioControlador;
-import ec.edu.ups.modelo.Libro;
 import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -129,8 +126,8 @@ public class VentanaListarUsuario extends javax.swing.JInternalFrame {
         DefaultTableModel tabla = (DefaultTableModel) tablaUsuarios.getModel(); 
         
         ResourceBundle mensajes = ResourceBundle.getBundle("mensajes.mensajes", locale);
-        lblListarLibros.setText(mensajes.getString("lblListarLibros"));
-        tabla.setColumnIdentifiers(new String[]{mensajes.getString("titulo"), mensajes.getString("autor"), mensajes.getString("anho"), mensajes.getString("genero"), mensajes.getString("disponibilidad")});
+        lblListarLibros.setText(mensajes.getString("lblListarUsuario"));
+        tabla.setColumnIdentifiers(new String[]{mensajes.getString("lblIdUsuario"), mensajes.getString("nombre"), mensajes.getString("direccion"), mensajes.getString("telefono")});
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
