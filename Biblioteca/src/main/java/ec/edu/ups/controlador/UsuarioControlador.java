@@ -21,9 +21,10 @@ public class UsuarioControlador {
         this.usuarioDao = usuarioDao;
     }
     
-    public void create(String identificacion, String nombre, String direccion, String telefono){
-        Usuario usuario = new Usuario(identificacion, nombre, direccion, telefono);
+    public void create(int codigoBiblio, String identificacion, String nombre, String direccion, String telefono){
+        usuario = new Usuario(codigoBiblio,identificacion, nombre, direccion, telefono);
         usuarioDao.create(usuario);
+        usuarioDao.actualizarArchivo();
     }
     
     public Usuario read(String id){
@@ -33,14 +34,18 @@ public class UsuarioControlador {
     
     public void delete(String id){
         usuarioDao.delete(id);
+        usuarioDao.actualizarArchivo();
     }
     
-    public void update(String identificacion, String nombre, String direccion, String telefono){
+    public void update(int codigoBiblio, String identificacion, String nombre, String direccion, String telefono){
+        usuario = new Usuario();
+        usuario.setCodigoBiblio(codigoBiblio);
         usuario.setIdentificacion(identificacion);
         usuario.setNombre(nombre);
         usuario.setDireccion(direccion);
         usuario.setTelefono(telefono);
         usuarioDao.update(identificacion, usuario);
+        usuarioDao.actualizarArchivo();
     }
     
     public List<Usuario> list(){

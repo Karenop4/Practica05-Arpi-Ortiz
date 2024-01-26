@@ -35,10 +35,10 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         bibliotecaDAO = new BibliotecaDAO("src\\main\\resources\\archivos\\Bibliotecas.txt");
         libroDAO = new LibroDAO("src\\main\\resources\\archivos\\Libros.txt");
-        usuarioDAO = new UsuarioDAO();
+        usuarioDAO = new UsuarioDAO("src\\main\\resources\\archivos\\Usuarios.txt");
         prestamoDAO = new PrestamoDAO();
         libroControlador = new LibroControlador(libroDAO);
-        bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO);
+        bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO, usuarioDAO);
         usuarioControlador = new UsuarioControlador(usuarioDAO);
         prestamoControlador = new PrestamoControlador(prestamoDAO);
         bibliotecaDAO.leerArchivo();

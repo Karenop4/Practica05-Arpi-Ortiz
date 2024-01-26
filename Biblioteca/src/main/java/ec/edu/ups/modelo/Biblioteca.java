@@ -16,9 +16,11 @@ public class Biblioteca {
     private String direccion;
     private String telefono;
     private ArrayList <Libro> listaLibros;
-
+    private ArrayList <Usuario> listaUsuarios;
+    
     public Biblioteca() {
         listaLibros = new ArrayList();
+        listaUsuarios = new ArrayList();
     }
 
     public Biblioteca(int codigo, String nombre, String direccion, String telefono) {
@@ -27,6 +29,7 @@ public class Biblioteca {
         this.direccion = direccion;
         this.telefono = telefono;
         listaLibros = new ArrayList();
+        listaUsuarios = new ArrayList();
     }
 
     public int getCodigo() {
@@ -60,7 +63,7 @@ public class Biblioteca {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
+    ///////////////////////Lista libros///////////////////////////
     public void anadirLibro(Libro libro){
         listaLibros.add(libro);
     }
@@ -71,6 +74,7 @@ public class Biblioteca {
             if(libro2.getTitulo().equals(libro.getTitulo())){
                 listaLibros.set(cont, libro2);
             }
+            cont++;
         }
     }
     
@@ -93,6 +97,42 @@ public class Biblioteca {
     
     public void eliminarListaLibros(){
         listaLibros.clear();
+    }
+    
+    ///////////////////////////////lista usuarios/////////////////////////////////
+    public void anadirUsuario(Usuario usuario){
+        listaUsuarios.add(usuario);
+    }
+    
+    public void actualizarUsuario(Usuario usuario){
+        int cont =0;
+        for(Usuario usuario2:listaUsuarios){
+            if(usuario2.getIdentificacion().equals(usuario.getIdentificacion())){
+                listaUsuarios.set(cont, usuario);
+            }
+            cont++;
+        }
+    }
+    
+    public void eliminarUsuario(Usuario usuario){
+        listaUsuarios.remove(usuario);
+    }
+    
+    public Usuario buscarUsuario(String id) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getIdentificacion().equals(id)) {
+                return usuario;
+            }
+        }
+        return null; // Retornar null si no se encuentra el libro con el título dado
+    }
+    
+    public void eliminarListaUsuarios(){
+        listaUsuarios.clear();
+    }
+    
+    public ArrayList<Usuario> devolverUsuarios(){
+        return listaUsuarios;
     }
     
     @Override

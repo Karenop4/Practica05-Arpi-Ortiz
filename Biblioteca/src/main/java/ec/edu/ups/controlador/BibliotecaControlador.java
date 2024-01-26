@@ -6,8 +6,10 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.idao.BibliotecaIDAO;
 import ec.edu.ups.idao.LibroIDAO;
+import ec.edu.ups.idao.UsuarioIDAO;
 import ec.edu.ups.modelo.Biblioteca;
 import ec.edu.ups.modelo.Libro;
+import ec.edu.ups.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +23,16 @@ public class BibliotecaControlador {
     
     private LibroIDAO libroDAO;
     private LibroControlador libroControlador;
+    
+    private UsuarioIDAO usuarioDAO;
+    private UsuarioControlador usuarioControlador;
 
-    public BibliotecaControlador(BibliotecaIDAO bibliotecaDAO, LibroIDAO libroDAO) {
+    public BibliotecaControlador(BibliotecaIDAO bibliotecaDAO, LibroIDAO libroDAO, UsuarioIDAO usuarioDAO) {
         this.bibliotecaDAO = bibliotecaDAO;
         this.libroDAO = libroDAO;
+        this.usuarioDAO = usuarioDAO;
         this.libroControlador = new LibroControlador(libroDAO);
+        this.usuarioControlador = new UsuarioControlador(usuarioDAO);
     }
     
     public void leerArchivo(){
@@ -108,5 +115,41 @@ public class BibliotecaControlador {
     
     public ArrayList <Libro> listLibro (){
         return biblioteca.devolverLibros();
+    }
+    
+    ///////////////////////////////////USUARIO/////////////////////////////////////////
+    public void leerArchivoUsuario(){
+        usuarioDAO.leerArchivo();
+        biblioteca.eliminarListaUsuarios();
+        for(Usuario usuario : usuarioDAO.list()){
+            if(usuario.getCodigoBiblio()==biblioteca.getCodigo()){
+                biblioteca.anadirUsuario(usuario);
+            }
+        }
+    }
+    
+    public void createUsuario(String identificacion, String nombre, String direccion, String telefono){
+        usuarioControlador.create(biblioteca.getCodigo(),identificacion, nombre, direccion, telefono);
+        Usuario usuario = new Usuario(biblioteca.getCodigo(),identificacion, nombre, direccion, telefono);
+        biblioteca.anadirUsuario(usuario);
+    }
+    
+    public Usuario readUsuario (String id){
+        return biblioteca.buscarUsuario(id);
+    }
+    
+    public void deleteUsuario(String id){
+        usuarioControlador.delete(id);
+    }
+    
+    public void updateUsuario (String identificacion, String nombre, String direccion, String telefono){
+        System.out.println(identificacion);
+        usuarioControlador.update(biblioteca.getCodigo(),identificacion, nombre, direccion, telefono);
+        Usuario usuario = new Usuario(biblioteca.getCodigo(),identificacion, nombre, direccion, telefono);
+        biblioteca.actualizarUsuario(usuario);
+    }
+    
+    public ArrayList <Usuario> listUsuario (){
+        return biblioteca.devolverUsuarios();
     }
 }

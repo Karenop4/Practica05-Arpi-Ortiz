@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.UsuarioControlador;
 import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
@@ -15,13 +16,13 @@ import javax.swing.JOptionPane;
  * @author arpi
  */
 public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
-    private UsuarioControlador usuarioControlador;
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaBuscarUsuario(UsuarioControlador usuarioControlador) {
+    public VentanaBuscarUsuario(BibliotecaControlador bibliotecaControlador) {
         initComponents();
-        this.usuarioControlador = usuarioControlador;
+        this.bibliotecaControlador = bibliotecaControlador;
     }
 
     /**
@@ -121,7 +122,7 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(55, 55, 55)
@@ -183,7 +184,7 @@ public class VentanaBuscarUsuario extends javax.swing.JInternalFrame {
     private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
         String identificacion = txt_cod_us.getText();
         Usuario usuario = new Usuario();
-        usuario = usuarioControlador.read(identificacion.trim());
+        usuario = bibliotecaControlador.readUsuario(identificacion.trim());
         if (usuario == null) {
             JOptionPane.showMessageDialog(this, "Usuario no encontrado");
         }

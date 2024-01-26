@@ -9,6 +9,7 @@ package ec.edu.ups.modelo;
  * @author arpi
  */
 public abstract class Persona {
+    
     private String nombre;
     private String identificacion;
 

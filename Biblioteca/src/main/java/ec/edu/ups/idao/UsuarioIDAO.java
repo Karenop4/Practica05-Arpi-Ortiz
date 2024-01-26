@@ -17,4 +17,6 @@ public interface UsuarioIDAO {
     public void delete(String identificacion);
     public Usuario read(String identificacion);
     public ArrayList <Usuario> list();    
+    void leerArchivo();
+    void actualizarArchivo();
 }

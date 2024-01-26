@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.UsuarioControlador;
 import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
@@ -16,10 +17,11 @@ import javax.swing.JOptionPane;
  */
 public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
 
-    private UsuarioControlador usuarioControlador;
-    public VentanaActualizarUsuario(UsuarioControlador usuarioControlador) {
+    private BibliotecaControlador bibliotecaControlador;
+    
+    public VentanaActualizarUsuario(BibliotecaControlador bibliotecaControlador) {
         initComponents();
-        this.usuarioControlador = usuarioControlador;
+        this.bibliotecaControlador = bibliotecaControlador;
     }
 
     /**
@@ -72,6 +74,12 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
         lblDireccion.setFont(new java.awt.Font("Righteous", 0, 20)); // NOI18N
         lblDireccion.setForeground(new java.awt.Color(255, 255, 255));
         lblDireccion.setText("Dirección:");
+
+        txt_nom_us.setEditable(false);
+
+        txt_dir_us.setEditable(false);
+
+        txt_num_us.setEditable(false);
 
         btnActualizarUsuario.setBackground(new java.awt.Color(217, 217, 217));
         btnActualizarUsuario.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
@@ -184,17 +192,17 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
     private void btnActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioActionPerformed
         String id = txt_cod_us.getText();
         Usuario usuario = new Usuario();
-        usuario = usuarioControlador.read(id.trim());
+        usuario = bibliotecaControlador.readUsuario(id.trim());
         if (usuario == null) {
             JOptionPane.showMessageDialog(this, "Usuario no encontrado");
         }
         else
         {
-            String nombre = txt_nom_us.getText();
-            String direccion = txt_dir_us.getText();
-            String telefono = txt_num_us.getText();
+            String nombre = txt_nom_us.getText().trim();
+            String direccion = txt_dir_us.getText().trim();
+            String telefono = txt_num_us.getText().trim();
             
-            usuarioControlador.update(id, nombre, direccion, telefono);
+            bibliotecaControlador.updateUsuario(id, nombre, direccion, telefono);
             JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente!");
         }
         
@@ -202,11 +210,15 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
         txt_nom_us.setText("");
         txt_dir_us.setText("");
         txt_num_us.setText("");
+        txt_cod_us.setEditable(true);
+        txt_nom_us.setEditable(false);
+        txt_dir_us.setEditable(false);
+        txt_num_us.setEditable(false);
     }//GEN-LAST:event_btnActualizarUsuarioActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         Usuario usuario = new Usuario();
-        usuario = usuarioControlador.read(txt_nom_us.getText());
+        usuario = bibliotecaControlador.readUsuario(txt_cod_us.getText().trim());
         
         if (usuario == null) {
             JOptionPane.showMessageDialog(this, "No existe el Usuario");
@@ -220,9 +232,9 @@ public class VentanaActualizarUsuario extends javax.swing.JInternalFrame {
         }
         
         txt_cod_us.setEditable(false);
-        txt_nom_us.setEditable(false);
-        txt_dir_us.setEditable(false);
-        txt_num_us.setEditable(false);
+        txt_nom_us.setEditable(true);
+        txt_dir_us.setEditable(true);
+        txt_num_us.setEditable(true);
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 

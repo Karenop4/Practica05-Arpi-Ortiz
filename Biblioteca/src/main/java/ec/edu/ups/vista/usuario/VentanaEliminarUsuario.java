@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.UsuarioControlador;
 import ec.edu.ups.modelo.Usuario;
 import java.util.Locale;
@@ -15,13 +16,13 @@ import javax.swing.JOptionPane;
  * @author arpi
  */
 public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
-    private UsuarioControlador usuarioControlador;
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaCrearUsuario
      */
-    public VentanaEliminarUsuario(UsuarioControlador usuarioControlador) {
+    public VentanaEliminarUsuario(BibliotecaControlador usuarioControlador) {
         initComponents();
-        this.usuarioControlador = usuarioControlador;
+        this.bibliotecaControlador = usuarioControlador;
     }
 
     /**
@@ -196,11 +197,11 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Usuario usuario = new Usuario();
-        usuario = usuarioControlador.read(txt_cod_us.getText().trim());
+        usuario = bibliotecaControlador.readUsuario(txt_cod_us.getText().trim());
         if(usuario != null){
             int respuesta = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar?");
             if(respuesta == JOptionPane.YES_OPTION){
-                usuarioControlador.delete(txt_cod_us.getText().trim());
+                bibliotecaControlador.deleteUsuario(txt_cod_us.getText().trim());
                 JOptionPane.showMessageDialog(this, "Usuario eliminado");
             }
 
@@ -214,7 +215,7 @@ public class VentanaEliminarUsuario extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String id = txt_cod_us.getText();
         Usuario usuario = new Usuario();
-        usuario = usuarioControlador.read(id.trim());
+        usuario = bibliotecaControlador.readUsuario(id.trim());
         if (usuario == null) {
             JOptionPane.showMessageDialog(this, "Usuario no encontrado");
         }

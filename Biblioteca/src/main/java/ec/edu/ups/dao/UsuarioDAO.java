@@ -7,6 +7,11 @@ package ec.edu.ups.dao;
 import ec.edu.ups.idao.UsuarioIDAO;
 import ec.edu.ups.modelo.Biblioteca;
 import ec.edu.ups.modelo.Usuario;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -17,9 +22,11 @@ public class UsuarioDAO implements UsuarioIDAO{
     
     private Biblioteca biblioteca;
     private  ArrayList <Usuario> listaUsuarios;
+    private String rutaUsuarios;
     
-    public UsuarioDAO() {
+    public UsuarioDAO(String rutaUsuarios) {
     	listaUsuarios = new ArrayList();
+        this.rutaUsuarios = rutaUsuarios;
     }
 
     @Override
@@ -62,6 +69,40 @@ public class UsuarioDAO implements UsuarioIDAO{
     @Override
     public ArrayList<Usuario> list() {
         return listaUsuarios;
+    }
+
+    @Override
+    public void leerArchivo() {
+        listaUsuarios.clear();
+        try (BufferedReader reader = new BufferedReader(new FileReader(rutaUsuarios))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] partes = linea.split(";");
+                if (partes.length == 5) {
+                    int codigoBiblioteca = Integer.parseInt(partes[0]);
+                    String id = partes[1];
+                    String nombre = partes[2];
+                    String direccion = partes[3];
+                    String telefono = partes[4];
+                    listaUsuarios.add(new Usuario(codigoBiblioteca, id, nombre, direccion, telefono));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de la excepción
+        }
+    }
+
+    @Override
+    public void actualizarArchivo() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaUsuarios))) {
+            for (Usuario usuario : listaUsuarios) {
+                String linea = String.format("%d;%s;%s;%s;%s", usuario.getCodigoBiblio(), usuario.getIdentificacion(), usuario.getNombre(), usuario.getDireccion(), usuario.getTelefono());
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de la excepción, puedes ajustar según tus necesidades.
+        }
     }
 
 

@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author arpi
  */
 public class Usuario extends Persona{
+    private int codigoBiblio;
     private String direccion;
     private String telefono;
     private ArrayList<Prestamo> listaPrestamos;
@@ -20,13 +21,24 @@ public class Usuario extends Persona{
         this.listaPrestamos = new ArrayList();
     }
 
-    public Usuario(String identificacion, String nombre, String direccion, String telefono) {
+    public Usuario(int codigoBiblio, String identificacion, String nombre, String direccion, String telefono) {
         super(identificacion, nombre);
+        this.codigoBiblio = codigoBiblio;
         this.direccion = direccion;
         this.telefono = telefono;
         this.listaPrestamos = new ArrayList();
     }
 
+    public int getCodigoBiblio() {
+        return codigoBiblio;
+    }
+
+    public void setCodigoBiblio(int codigoBiblio) {
+        this.codigoBiblio = codigoBiblio;
+    }
+    
+    
+    
     public String getDireccion() {
         return direccion;
     }

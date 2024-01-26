@@ -306,7 +306,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void crearUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioMenuItemActionPerformed
         if(ventanaCrearUsurio==null)
-            ventanaCrearUsurio = new VentanaCrearUsuario(usuarioControlador);
+            ventanaCrearUsurio = new VentanaCrearUsuario(bibliotecaControlador);
         if(!ventanaCrearUsurio.isVisible()){
             
             ventanaCrearUsurio.setVisible(true);
@@ -366,7 +366,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void editarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioMenuItemActionPerformed
         if(ventanaActualizarUsuario==null)
-            ventanaActualizarUsuario = new VentanaActualizarUsuario(usuarioControlador);
+            ventanaActualizarUsuario = new VentanaActualizarUsuario(bibliotecaControlador);
         if(!ventanaActualizarUsuario.isVisible()){
             
             ventanaActualizarUsuario.setVisible(true);
@@ -376,7 +376,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void buscarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioMenuItemActionPerformed
         if(ventanaBuscarUsuario==null)
-            ventanaBuscarUsuario = new VentanaBuscarUsuario(usuarioControlador);
+            ventanaBuscarUsuario = new VentanaBuscarUsuario(bibliotecaControlador);
         if(!ventanaBuscarUsuario.isVisible()){
             
             ventanaBuscarUsuario.setVisible(true);
@@ -386,7 +386,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void eliminarUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarUsuarioMenuItemActionPerformed
         if(ventanaEliminarUsuario==null)
-            ventanaEliminarUsuario = new VentanaEliminarUsuario(usuarioControlador);
+            ventanaEliminarUsuario = new VentanaEliminarUsuario(bibliotecaControlador);
         if(!ventanaEliminarUsuario.isVisible()){
             
             ventanaEliminarUsuario.setVisible(true);
@@ -416,7 +416,7 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
 
     private void usuarioMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioMenuActionPerformed
         if(ventanaListarUsuario==null)
-            ventanaListarUsuario = new VentanaListarUsuario(usuarioControlador);
+            ventanaListarUsuario = new VentanaListarUsuario(bibliotecaControlador);
         if(!ventanaListarUsuario.isVisible()){
             ventanaListarUsuario.listarUsuarios();
             ventanaListarUsuario.setVisible(true);
@@ -523,5 +523,6 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         txtNombreBiblio.setText(biblioteca.getNombre());
         this.bibliotecaControlador=bibliotecaControlador;
         bibliotecaControlador.leerArchivoLibro();
+        bibliotecaControlador.leerArchivoUsuario();
     }
 }

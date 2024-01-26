@@ -18,13 +18,13 @@ import javax.swing.table.DefaultTableModel;
  * @author karen
  */
 public class VentanaListarUsuario extends javax.swing.JInternalFrame {
-    private UsuarioControlador usuarioControlador;
+    private BibliotecaControlador bibliotecaControlador;
     /**
      * Creates new form VentanaListarLibros
      */
-    public VentanaListarUsuario(UsuarioControlador usuarioControlador) {
+    public VentanaListarUsuario(BibliotecaControlador bibliotecaControlador) {
         initComponents();
-        this.usuarioControlador=usuarioControlador;
+        this.bibliotecaControlador=bibliotecaControlador;
     }
 
     /**
@@ -119,7 +119,7 @@ public class VentanaListarUsuario extends javax.swing.JInternalFrame {
         DefaultTableModel tabla = (DefaultTableModel) tablaUsuarios.getModel();
         tabla.setRowCount(0);
         
-        for (Usuario usuario : usuarioControlador.list()) {
+        for (Usuario usuario : bibliotecaControlador.listUsuario()) {
             Object[] fila = {usuario.getIdentificacion(),usuario.getNombre(),usuario.getDireccion(),usuario.getTelefono()};
             tabla.addRow(fila);
         }

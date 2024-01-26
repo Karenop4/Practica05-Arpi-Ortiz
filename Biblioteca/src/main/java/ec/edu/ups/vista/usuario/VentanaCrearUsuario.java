@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controlador.BibliotecaControlador;
 import ec.edu.ups.controlador.UsuarioControlador;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -15,10 +16,10 @@ import javax.swing.JOptionPane;
  */
 public class VentanaCrearUsuario extends javax.swing.JInternalFrame {
 
-    private UsuarioControlador usuarioControlador;
-    public VentanaCrearUsuario(UsuarioControlador usuarioControlador) {
+    private BibliotecaControlador bibliotecaControlador;
+    public VentanaCrearUsuario(BibliotecaControlador bibliotecaControlador) {
         initComponents();
-        this.usuarioControlador = usuarioControlador;
+        this.bibliotecaControlador = bibliotecaControlador;
     }
 
     /**
@@ -158,7 +159,7 @@ public class VentanaCrearUsuario extends javax.swing.JInternalFrame {
         String direccion = txt_dir_us.getText();
         String telefono = txt_num_us.getText();
         
-        usuarioControlador.create(cedula, nombre, direccion, telefono);
+        bibliotecaControlador.createUsuario(cedula, nombre, direccion, telefono);
         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente" );
         txt_cod_us.setText("");
         txt_nom_us.setText("");
