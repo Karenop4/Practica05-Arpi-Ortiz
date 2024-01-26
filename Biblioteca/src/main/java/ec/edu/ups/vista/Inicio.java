@@ -34,13 +34,14 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         bibliotecaDAO = new BibliotecaDAO("src\\main\\resources\\archivos\\Bibliotecas.txt");
-        libroDAO = new LibroDAO();
+        libroDAO = new LibroDAO("src\\main\\resources\\archivos\\Libros.txt");
         usuarioDAO = new UsuarioDAO();
         prestamoDAO = new PrestamoDAO();
         libroControlador = new LibroControlador(libroDAO);
         bibliotecaControlador = new BibliotecaControlador(bibliotecaDAO,libroDAO);
         usuarioControlador = new UsuarioControlador(usuarioDAO);
         prestamoControlador = new PrestamoControlador(prestamoDAO);
+        bibliotecaDAO.leerArchivo();
     }
 
     /**

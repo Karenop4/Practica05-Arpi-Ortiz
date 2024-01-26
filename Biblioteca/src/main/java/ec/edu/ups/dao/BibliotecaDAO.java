@@ -72,6 +72,7 @@ public class BibliotecaDAO implements BibliotecaIDAO{
 
     @Override
     public void leerArchivo() {
+        System.out.println(rutaBiblioteca);
         try (BufferedReader reader = new BufferedReader(new FileReader(rutaBiblioteca))) {
             String linea;
             while ((linea = reader.readLine()) != null) {

@@ -300,7 +300,8 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
             jDesktopPane1.remove(ventanaBuscarBiblioteca);
             ventanaBuscarBiblioteca.setVisible(true);
             jDesktopPane1.add(ventanaBuscarBiblioteca);
-        }     
+        }  
+        
     }//GEN-LAST:event_btnSeleccionarBibliotecaActionPerformed
 
     private void crearUsuarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioMenuItemActionPerformed
@@ -521,5 +522,6 @@ public class VentanaSeleccionarBiblioteca extends javax.swing.JInternalFrame imp
         biblioteca=bibliotecaControlador.read(codigo);
         txtNombreBiblio.setText(biblioteca.getNombre());
         this.bibliotecaControlador=bibliotecaControlador;
+        bibliotecaControlador.leerArchivoLibro();
     }
 }

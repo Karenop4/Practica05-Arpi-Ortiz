@@ -1,0 +1,2 @@
+2;Libro2;autor2;2000;gen2;false
+1;libro1;autor1;2020;gen1;true

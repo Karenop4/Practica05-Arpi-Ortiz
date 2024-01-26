@@ -28,10 +28,12 @@ public class BibliotecaControlador {
         this.libroControlador = new LibroControlador(libroDAO);
     }
     
-    //////////////////////BIBLIOTECA/////////////////////
     public void leerArchivo(){
         bibliotecaDAO.leerArchivo();
+        
     }
+    
+    //////////////////////BIBLIOTECA/////////////////////
     
     public void create(int codigo, String nombre, String direccion, String telefono){
         biblioteca = new Biblioteca(codigo, nombre, direccion, telefono);
@@ -63,9 +65,20 @@ public class BibliotecaControlador {
     }
     
     /////////////////////LIBRO//////////////////////
+    public void leerArchivoLibro(){
+        libroDAO.leerArchivo();
+        biblioteca.eliminarListaLibros();
+        for(Libro libro : libroDAO.list()){
+            if(libro.getCodigoBiblio()==biblioteca.getCodigo()){
+                biblioteca.anadirLibro(libro);
+            }
+        }
+    }
+    
     public void createLIbro(String titulo, String autor, String genero, int anho){
-        libroControlador.create(titulo, autor, genero, anho);
+        libroControlador.create(biblioteca.getCodigo(),titulo, autor, genero, anho);
         Libro libro = new Libro();
+        libro.setCodigoBiblio(biblioteca.getCodigo());
         libro.setAnho(anho);
         libro.setAutor(autor);
         libro.setDisponoible(true);
@@ -94,7 +107,6 @@ public class BibliotecaControlador {
     }
     
     public ArrayList <Libro> listLibro (){
-        //biblioteca = bibliotecaDAO.read(codigoBiblio);
         return biblioteca.devolverLibros();
     }
 }

@@ -20,9 +20,10 @@ public class LibroControlador {
         this.libroDAO = libroDAO;
     }
     
-    public void create(String titulo, String autor, String genero, int anho){
-        libro = new Libro(titulo, autor, genero, anho, true);
+    public void create(int codigoBiblio, String titulo, String autor, String genero, int anho){
+        libro = new Libro(codigoBiblio,titulo, autor, genero, anho, true);
         libroDAO.create(libro);
+        libroDAO.actualizarArchivo();
     }
     
     public Libro read (String titulo){
@@ -32,6 +33,7 @@ public class LibroControlador {
     
     public void delete(String titulo){
         libroDAO.delete(titulo);
+        libroDAO.actualizarArchivo();
     }
     
     public void update (String titulo, String autor, String genero, int anho, boolean disponible){
@@ -41,6 +43,7 @@ public class LibroControlador {
         libro.setAnho(anho);
         libro.setDisponoible(disponible);
         libroDAO.update(titulo, libro);
+        libroDAO.actualizarArchivo();
     }
     
     public List <Libro> list (){

@@ -91,6 +91,10 @@ public class Biblioteca {
         return null; // Retornar null si no se encuentra el libro con el título dado
     }
     
+    public void eliminarListaLibros(){
+        listaLibros.clear();
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

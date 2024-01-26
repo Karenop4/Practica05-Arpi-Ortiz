@@ -17,4 +17,6 @@ public interface LibroIDAO {
     void update(String titulo, Libro libro);
     void delete(String titulo);
     List<Libro> list();
+    void leerArchivo();
+    void actualizarArchivo();
 }

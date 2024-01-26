@@ -26,6 +26,7 @@ public class VentanaBuscarBiblioteca extends javax.swing.JInternalFrame {
         initComponents();
         this.bibliotecaControlador = bibliotecaControlador;
         this.codigo=codigo;
+        
     }
 
     /**

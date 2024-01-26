@@ -11,6 +11,7 @@ import ec.edu.ups.interfaces.IPrestable;
  * @author karen
  */
 public class Libro implements IPrestable{
+    private int codigoBiblio;
     private String titulo;
     private String autor;
     private String genero;
@@ -23,8 +24,9 @@ public class Libro implements IPrestable{
 		
     }
 
-    public Libro(String titulo, String autor, String genero, int anho, boolean disponoible) {
-	this.titulo = titulo;
+    public Libro(int codigoBiblio, String titulo, String autor, String genero, int anho, boolean disponoible) {
+	this.codigoBiblio = codigoBiblio;
+        this.titulo = titulo;
 	this.autor = autor;
         this.genero = genero;
 	this.anho = anho;
@@ -32,6 +34,16 @@ public class Libro implements IPrestable{
     }
 	
     //Getters y Setters
+
+    public int getCodigoBiblio() {
+        return codigoBiblio;
+    }
+
+    public void setCodigoBiblio(int codigoBiblio) {
+        this.codigoBiblio = codigoBiblio;
+    }
+    
+    
     public String getTitulo() {
 	return titulo;
     }
